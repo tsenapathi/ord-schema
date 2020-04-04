@@ -73,6 +73,11 @@ WSGI_APPLICATION = 'composeexample.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# 'db' only works when run within docker-compose, not from outside it
+# to actually make migrations, must run from within docker-compose,
+# then change 'HOST', and run python manage.py migrate
+# (migrations will hopefully be auto-run in docker-compose.yml)
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
