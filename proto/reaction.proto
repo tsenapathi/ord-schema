@@ -52,10 +52,14 @@ message ReactionIdentifier {
     ATOM_MAPPED_SMILES = 3;
     RINCHI = 4;  // Reaction InChI.
     NAME = 5;  // Named reaction or reaction category.
+    RDKIT_BINARY = 6;  // RDKit binary format (for fast loading).
   }
   IdentifierType type = 1;
   string details = 2;
-  string value = 3;
+  oneof kind {
+    string value = 3;
+    bytes bytes_value = 4;
+  }
 }
 
 message ReactionInput {
@@ -239,12 +243,17 @@ message CompoundIdentifier {
     UNIPROT_ID = 13;
     // Protein data bank ID (for enzymes)
     PDB_ID = 14;
+    // RDKit binary format (for fast loading)
+    RDKIT_BINARY = 15;
   }
   IdentifierType type = 1;
   string details = 2;
   // Value of the compound identifier; certain types (e.g., PUBCHEM_CID) may
   // cast the string as an integer for downstream processing and validation.
-  string value = 3;
+  oneof kind {
+    string value = 3;
+    bytes bytes_value = 4;
+  }
 }
 
 message Vessel {
@@ -294,7 +303,7 @@ message ReactionSetup {
   // Automated platform name, brand, or model number.
   string automation_platform = 3;
   // Raw automation code or synthetic recipe definition.
-  map<string, bytes> automation_code = 4;
+  map<string, BinaryData> automation_code = 4;
 }
 
 message ReactionConditions {
@@ -512,11 +521,8 @@ message ReactionNotes {
 
 message ReactionObservation {
   Time time = 1;
-  oneof kind {
-    string color = 2;
-    bytes image = 3;
-    string comment = 4;
-  }
+  string comment = 2;  // e.g. what color is the reaction?
+  BinaryData image = 3;
 }
 
 message ReactionWorkup {
@@ -684,9 +690,9 @@ message ReactionAnalysis {
   // Any details about analysis (e.g., NMR type, columns, gradients, conditions)
   string details = 2;
   // Data files (processed or annotated).
-  map<string, bytes> data_processed = 3;
+  map<string, BinaryData> processed_data = 3;
   // Data files (raw) obtained directly from the instrument
-  map<string, bytes> data_raw = 4;
+  map<string, BinaryData> raw_data = 4;
   string instrument_manufacturer = 5;
   DateTime instrument_last_calibrated = 6;
 }
@@ -698,12 +704,18 @@ message ReactionProvenance {
   string doi = 4;
   string patent = 5;
   string publication_url = 6;
-  DateTime record_created = 7;
-  DateTime record_modified = 8;
+  // Metadata for the public database.
+  message RecordEvent {
+    DateTime time = 1;
+    Person person = 2;
+    string details = 3;
+  }
+  RecordEvent record_created = 7;
+  repeated RecordEvent record_modified = 8;
   // TODO(ccoley): is it useful to create a unique ID field 
   // that the centralized database can write to? (I know uniqueness is not
   // enforceable)
-  int32 id = 9;
+  string record_id = 9;
 }
 
 message Person {
@@ -879,4 +891,13 @@ message Percentage {
   float value = 1;
   // Precision of the measurement (with the same units as `value`).
   float precision = 2;
+}
+
+// BinaryData is a container for binary (bytes) data.
+message BinaryData {
+  bytes value = 1;
+  string description = 2;
+  // Description of the file format; usually the file extension. For example,
+  // 'png' or 'tiff' for images.
+  string format = 3;
 }

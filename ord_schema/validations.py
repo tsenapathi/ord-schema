@@ -1,19 +1,21 @@
 """Helpers validating specific Message types."""
 
-from ord_schema.proto import ord_schema_pb2 as schema
-
-import re
 import math
+import re
+import warnings
 from dateutil import parser
+
+from ord_schema.proto import reaction_pb2
 
 
 def validate_message(message, recurse=True):
-    """Template function for validating custom messages in the schema.
+    """Template function for validating custom messages in the reaction_pb2.
 
     Messages are not validated to check enum values, since these are enforced
     by the schema. Instead, we only check for validity of items that cannot be
     enforced in the schema (e.g., non-negativity of certain measurements,
-    consistency of cross-referenced keys).
+    consistency of cross-referenced keys). Fatal issues are raised as errors,
+    while non-fatal issues use the built-in warnings module.
 
     Args:
         message: A message to validate.
@@ -28,8 +30,8 @@ def validate_message(message, recurse=True):
     Raises:
         ValueError: If any fields are invalid.
     """
-
     # Recurse through submessages
+    # pylint: disable=too-many-nested-blocks
     if recurse:
         for field, value in message.ListFields():
             if field.type == field.TYPE_MESSAGE:  # need to recurse
@@ -38,7 +40,7 @@ def validate_message(message, recurse=True):
                         # value is message
                         if field.message_type.fields_by_name['value'].type == \
                                 field.TYPE_MESSAGE:
-                            for key, submessage in value.items():
+                            for submessage in value.values():
                                 submessage.CopyFrom(
                                     validate_message(submessage)
                                 )
@@ -54,6 +56,7 @@ def validate_message(message, recurse=True):
                     submessage.CopyFrom(
                         validate_message(submessage)
                     )
+    # pylint: enable=too-many-nested-blocks
 
     # Message-specific validation
     try:
@@ -71,6 +74,7 @@ class ValidationWarning(Warning):
     pass
 
 
+# pylint: disable=missing-function-docstring
 def ensure_float_nonnegative(message, field):
     if getattr(message, field) < 0:
         raise ValueError(f'Field {field} of message '
@@ -78,11 +82,12 @@ def ensure_float_nonnegative(message, field):
                          ' non-negative')
 
 
-def ensure_float_range(message, field, min=-math.inf, max=math.inf):
-    if getattr(message, field) < min or getattr(message, field) > max:
+def ensure_float_range(message, field, min_value=-math.inf, max_value=math.inf):
+    if (getattr(message, field) < min_value or
+            getattr(message, field) > max_value):
         raise ValueError(f'Field {field} of message '
                          f'{type(message).DESCRIPTOR.name} must be between'
-                         f' {min} and {max}')
+                         f' {min_value} and {max_value}')
 
 
 def ensure_units_specified_if_value_defined(message):
@@ -107,6 +112,8 @@ def validate_reaction(message):
 
 def validate_reaction_identifier(message):
     ensure_details_specified_if_type_custom(message)
+    if not message.value and not message.bytes_value:
+        raise ValueError('{bytes_}value must be set')
     return message
 
 
@@ -133,6 +140,8 @@ def validate_compound_preparation(message):
 
 def validate_compound_identifier(message):
     ensure_details_specified_if_type_custom(message)
+    if not message.value and not message.bytes_value:
+        raise ValueError('{bytes_}value must be set')
     # TODO(ccoley): Add identifier-specific validation, e.g., by using
     # RDKit to try to parse SMILES, looking up NAMEs using online resolvers
     return message
@@ -263,8 +272,8 @@ def validate_selectivity(message):
     if message.type == message.EE:
         ensure_float_range(message, 'value', 0, 100)
         if 0 < message.value < 1:
-            raise ValidationWarning('EE selectivity values are 0-100, '
-                                    f'not fractions ({message.value} used)')
+            warnings.warn('EE selectivity values are 0-100, not fractions '
+                          f'({message.value} used)', ValidationWarning)
     ensure_details_specified_if_type_custom(message)
     return message
 
@@ -286,25 +295,35 @@ def validate_reaction_analysis(message):
 
 def validate_reaction_provenance(message):
     # Prepare datetimes
+    # TODO(kearnes): Require these to be set?
+    experiment_start = None
+    record_created = None
+    record_modified = None
     if message.experiment_start.value:
-        experiment_start = parser.parse(
-            message.experiment_start.value)
-    if message.record_created.value:
-        record_created = parser.parse(message.record_created.value)
-    if message.record_modified.value:
-        record_modified = parser.parse(message.record_created.value)
+        experiment_start = parser.parse(message.experiment_start.value)
+    if message.record_created.time.value:
+        record_created = parser.parse(message.record_created.time.value)
+    for record in message.record_modified:
+        # Use the last record as the most recent modification time.
+        record_modified = parser.parse(record.time.value)
     # Check if record_created undefined
-    if message.record_modified.value and not message.record_created.value:
-        raise ValidationWarning('record_created not defined, but '
-                                'record_modified is')
+    if record_modified and not record_created:
+        warnings.warn('record_created not defined but record_modified is',
+                      ValidationWarning)
     # Check signs of time differences
-    if message.experiment_start.value and message.record_created.value:
+    if experiment_start and record_created:
         if (record_created - experiment_start).total_seconds() < 0:
             raise ValueError('Record creation time should be after experiment')
-    if message.record_modified.value and message.record_created.value:
+    if record_modified and record_created:
         if (record_modified - record_created).total_seconds() < 0:
             raise ValueError('Record modified time should be after creation')
     # TODO(ccoley) could check if publication_url is valid, etc.
+    return message
+
+
+def validate_record_event(message):
+    if not message.time.value:
+        raise ValueError('RecordEvent must have `time` specified')
     return message
 
 
@@ -361,11 +380,11 @@ def validate_pressure(message):
 
 def validate_temperature(message):
     if message.units == message.CELSIUS:
-        ensure_float_range(message, 'value', min=-273.15)
+        ensure_float_range(message, 'value', min_value=-273.15)
     elif message.units == message.FAHRENHEIT:
-        ensure_float_range(message, 'value', min=-459)
+        ensure_float_range(message, 'value', min_value=-459)
     elif message.units == message.KELVIN:
-        ensure_float_range(message, 'value', min=0)
+        ensure_float_range(message, 'value', min_value=0)
     ensure_float_nonnegative(message, 'precision')
     ensure_units_specified_if_value_defined(message)
     return message
@@ -408,64 +427,79 @@ def validate_flow_rate(message):
 
 def validate_percentage(message):
     if 0 < message.value < 1:
-        raise ValidationWarning('Percentage values are 0-100, '
-                                f'not fractions ({message.value} used)')
+        warnings.warn('Percentage values are 0-100, not fractions '
+                      f'({message.value} used)', ValidationWarning)
     ensure_float_nonnegative(message, 'value')
     ensure_float_nonnegative(message, 'precision')
     ensure_float_range(message, 'value', 0, 105)  # generous upper bound
     return message
 
+
+def validate_binary_data(message):
+    if not message.value:
+        raise ValueError('value is required for BinaryData')
+    if not message.format:
+        warnings.warn('No format specified for BinaryData', ValidationWarning)
+    return message
+
+
+# pylint: enable=missing-function-docstring
+
 _VALIDATOR_SWITCH = {
-    schema.Reaction: validate_reaction,
+    reaction_pb2.Reaction: validate_reaction,
     # Basics
-    schema.ReactionIdentifier: validate_reaction_identifier,
-    schema.ReactionInput: validate_reaction_input,
+    reaction_pb2.ReactionIdentifier: validate_reaction_identifier,
+    reaction_pb2.ReactionInput: validate_reaction_input,
     # Compounds
-    schema.Compound: validate_compound,
-    schema.Compound.Feature: validate_compound_feature,
-    schema.CompoundPreparation: validate_compound_preparation,
-    schema.CompoundIdentifier: validate_compound_identifier,
+    reaction_pb2.Compound: validate_compound,
+    reaction_pb2.Compound.Feature: validate_compound_feature,
+    reaction_pb2.CompoundPreparation: validate_compound_preparation,
+    reaction_pb2.CompoundIdentifier: validate_compound_identifier,
     # Setup
-    schema.Vessel: validate_vessel,
-    schema.ReactionSetup: validate_reaction_setup,
+    reaction_pb2.Vessel: validate_vessel,
+    reaction_pb2.ReactionSetup: validate_reaction_setup,
     # Conditions
-    schema.ReactionConditions: validate_reaction_conditions,
-    schema.TemperatureConditions: validate_temperature_conditions,
-    schema.TemperatureConditions.Measurement: validate_temperature_measurement,
-    schema.PressureConditions: validate_pressure_conditions,
-    schema.PressureConditions.Measurement: validate_pressure_measurement,
-    schema.StirringConditions: validate_stirring_conditions,
-    schema.IlluminationConditions: validate_illumination_conditions,
-    schema.ElectrochemistryConditions: validate_electrochemistry_conditions,
-    schema.ElectrochemistryConditions.Measurement: 
+    reaction_pb2.ReactionConditions: validate_reaction_conditions,
+    reaction_pb2.TemperatureConditions: validate_temperature_conditions,
+    reaction_pb2.TemperatureConditions.Measurement: (
+        validate_temperature_measurement),
+    reaction_pb2.PressureConditions: validate_pressure_conditions,
+    reaction_pb2.PressureConditions.Measurement: validate_pressure_measurement,
+    reaction_pb2.StirringConditions: validate_stirring_conditions,
+    reaction_pb2.IlluminationConditions: validate_illumination_conditions,
+    reaction_pb2.ElectrochemistryConditions: (
+        validate_electrochemistry_conditions),
+    reaction_pb2.ElectrochemistryConditions.Measurement:
         validate_electrochemistry_measurement,
-    schema.FlowConditions: validate_flow_conditions,
-    schema.FlowConditions.Tubing: validate_tubing,
+    reaction_pb2.FlowConditions: validate_flow_conditions,
+    reaction_pb2.FlowConditions.Tubing: validate_tubing,
     # Annotations
-    schema.ReactionNotes: validate_reaction_notes,
-    schema.ReactionObservation: validate_reaction_observation,
+    reaction_pb2.ReactionNotes: validate_reaction_notes,
+    reaction_pb2.ReactionObservation: validate_reaction_observation,
     # Outcome
-    schema.ReactionWorkup: validate_reaction_workup,
-    schema.ReactionOutcome: validate_reaction_outcome,
-    schema.ReactionProduct: validate_reaction_product,
-    schema.Selectivity: validate_selectivity,
-    schema.DateTime: validate_date_time,
-    schema.ReactionAnalysis: validate_reaction_analysis,
+    reaction_pb2.ReactionWorkup: validate_reaction_workup,
+    reaction_pb2.ReactionOutcome: validate_reaction_outcome,
+    reaction_pb2.ReactionProduct: validate_reaction_product,
+    reaction_pb2.Selectivity: validate_selectivity,
+    reaction_pb2.DateTime: validate_date_time,
+    reaction_pb2.ReactionAnalysis: validate_reaction_analysis,
     # Metadata
-    schema.ReactionProvenance: validate_reaction_provenance,
-    schema.Person: validate_person,
+    reaction_pb2.ReactionProvenance: validate_reaction_provenance,
+    reaction_pb2.ReactionProvenance.RecordEvent: validate_record_event,
+    reaction_pb2.Person: validate_person,
     # Units
-    schema.Time: validate_time,
-    schema.Mass: validate_mass,
-    schema.Moles: validate_moles,
-    schema.Volume: validate_volume,
-    schema.Concentration: validate_concentration,
-    schema.Pressure: validate_pressure,
-    schema.Temperature: validate_temperature,
-    schema.Current: validate_current,
-    schema.Voltage: validate_voltage,
-    schema.Length: validate_length,
-    schema.Wavelength: validate_wavelength,
-    schema.FlowRate: validate_flow_rate,
-    schema.Percentage: validate_percentage,
+    reaction_pb2.Time: validate_time,
+    reaction_pb2.Mass: validate_mass,
+    reaction_pb2.Moles: validate_moles,
+    reaction_pb2.Volume: validate_volume,
+    reaction_pb2.Concentration: validate_concentration,
+    reaction_pb2.Pressure: validate_pressure,
+    reaction_pb2.Temperature: validate_temperature,
+    reaction_pb2.Current: validate_current,
+    reaction_pb2.Voltage: validate_voltage,
+    reaction_pb2.Length: validate_length,
+    reaction_pb2.Wavelength: validate_wavelength,
+    reaction_pb2.FlowRate: validate_flow_rate,
+    reaction_pb2.Percentage: validate_percentage,
+    reaction_pb2.BinaryData: validate_binary_data,
 }

@@ -14,7 +14,7 @@ from absl import logging
 
 from google.protobuf import json_format
 from google.protobuf.pyext import _message
-from ord_schema.proto import ord_schema_pb2
+from ord_schema.proto import reaction_pb2
 
 FLAGS = flags.FLAGS
 flags.DEFINE_string('input', None, 'Input pattern (glob).')
@@ -37,13 +37,12 @@ def get_processed_value(field, value):
     """
     if field.type == field.TYPE_MESSAGE:
         return get_database_json(value)
-    elif field.type == field.TYPE_ENUM:
+    if field.type == field.TYPE_ENUM:
         return field.enum_type.values_by_number[value].name
-    elif field.type == field.TYPE_BYTES:
+    if field.type == field.TYPE_BYTES:
         # JSON does not support bytes.
         return base64.b64encode(value).decode('utf-8')
-    else:
-        return value
+    return value
 
 
 def get_database_json(message):
@@ -62,7 +61,7 @@ def get_database_json(message):
     record = {}
     for field, value in message.ListFields():
         if isinstance(value, (
-               _message.ScalarMapContainer, _message.MessageMapContainer)):
+                _message.ScalarMapContainer, _message.MessageMapContainer)):
             # Convert proto maps to lists of (key, value) pairs.
             field_key = field.message_type.fields_by_name['key']
             field_value = field.message_type.fields_by_name['value']
@@ -81,8 +80,8 @@ def get_database_json(message):
             record[field.name] = entries
         elif field.label == field.LABEL_REPEATED:
             entries = []
-            for v in value:
-                entries.append(get_processed_value(field, v))
+            for entry in value:
+                entries.append(get_processed_value(field, entry))
             record[field.name] = entries
         else:
             record[field.name] = get_processed_value(field, value)
@@ -96,7 +95,7 @@ def main(argv):
     records = []
     for filename in filenames:
         with open(filename, 'rb') as f:
-            reaction = ord_schema_pb2.Reaction.FromString(f.read())
+            reaction = reaction_pb2.Reaction.FromString(f.read())
         if FLAGS.database:
             record_dict = get_database_json(reaction)
             record = json.dumps(record_dict)
