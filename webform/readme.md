@@ -1,7 +1,13 @@
 # Webform
 
-This directory is for work on the webform.
+This directory is for a webform, which allows users to enter reactions according to the schema.
 
-The webform is planned (for now) to be a Django webiste, running through a Docker instance.
+Code is largely derived from <https://github.com/json-editor/json-editor>.
 
-This directory currently contains a simple Django web app example running through Docker. To run it, use `sudo docker-compose up` from within the `docker` folder.
+## Usage
+
+To run the form, install Docker. Then, run `sudo docker-compose up` from within the `docker` folder, and navigate to <localhost:8000/editor/clone>.
+
+## Goals
+
+A markup of the form, and validation features to be implemented, can be found [here](https://docs.google.com/document/d/1kinvTzbyCM3YVUqZoSbhFKePGoYNPElhrGs7PILDPWo/edit).
