@@ -80,8 +80,8 @@
                                                 <label>identifiers</label>
                                                 <span class="btn-group"></span>
                                             </h4>
-                                            <div class="je-panel">
-                                                <div>
+                                            <div id="identifiers-panel" class="je-panel">
+                                                <div id="identifiers-list">
                                                     <div data-schematype="object" data-schemapath="root.identifiers.0"
                                                         style="position: relative;">
                                                         <h4>
@@ -131,7 +131,6 @@
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <div></div>
                                                 <span class="btn-group" style="display: inline-block;">
                                                     <button type="button" title="Add item"
                                                         class="btn btn-sm btn-primary mr-2 my-1 json-editor-btn-add json-editor-btntype-add">
@@ -152,5 +151,5 @@
         </div>
     </div>
     <script src="{% static 'editor/clone.js' %}"></script>
-
+<!-- <script>$("#identifiers-list").append($('<div>').load("identifier"));</script> -->
 </body>

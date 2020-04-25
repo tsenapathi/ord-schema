@@ -16,3 +16,8 @@ def clone(request):
     template = loader.get_template('editor/clone.html')
     context = {}
     return HttpResponse(template.render(context, request))
+
+def identifier(request):
+    template = loader.get_template('editor/identifier.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
