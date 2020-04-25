@@ -62,110 +62,80 @@
                             </button>
                             <label>Reaction</label>
                             <span class="btn-group" style="margin: 0px 0px 0px 10px;">
-                                <button type="button" title="Edit JSON"
-                                    class="btn btn-sm btn-primary mr-2 my-1 json-editor-btn-edit json-editor-btntype-editjson"
-                                    style="display: none;">
-                                    <i class="icon icon-edit"></i>
-                                    <span>JSON</span>
-                                </button>
-                                <divstyle="background-color: white; border: 1px solid black; box-shadow: black 3px 3px;
-                                    position: absolute; z-index: 10; display: none;">
-                                    <div class="property-selector"
-                                        style="width: 295px; max-height: 160px; padding: 5px 0px 5px 5px; overflow: hidden auto;">
-                                    </div>
-                                    <input type="text" class="form-input" placeholder="Property name..."
-                                        style="width: 220px; margin-bottom: 0px; display: inline-block;">
-                                    <button type="button" title="add"
-                                        class="btn btn-sm btn-primary mr-2 my-1 json-editor-btn-add json-editor-btntype-add">
-                                        <i class="icon icon-plus">
-                                        </i>
-                                        <span>add</span>
-                                    </button>
-                                    <div style="clear: both;"></div>
-                    </div>
-                    </span>
-                    </h4>
-                    <div class="je-panel">
-                        <div class="container je-noindent">
-                            <div>
-                                <div class="columns">
-                                    <div class="column col-12" data-schematype="array"
-                                        data-schemapath="root.identifiers">
-                                        <h4>
-                                            <button type="button" title="Collapse"
-                                                class="btn btn-sm btn-primary mr-2 my-1 json-editor-btn-collapse json-editor-btntype-toggle"
-                                                style="margin: 0px 10px 0px 0px;">
-                                                <i class="icon icon-arrow-down"></i>
-                                                <span></span>
-                                            </button>
-                                            <label>identifiers</label>
-                                            <span class="btn-group"></span>
-                                        </h4>
-                                        <div class="je-panel">
-                                            <div>
-                                                <div data-schematype="object" data-schemapath="root.identifiers.0"
-                                                    style="position: relative;">
-                                                    <h4>
-                                                        <label>item 1</label>
-                                                        <span class="btn-group" style="margin: 0px 0px 0px 10px">
-                                                        </span>
-                                                    </h4>
-                                                    <div class="je-panel">
-                                                        <div class="container je-noindent">
-                                                            <div>
-                                                                <div class="columns">
-                                                                    <div class="column col-12" data-schematype="string"
-                                                                        data-schemapath="root.identifiers.0.type">
-                                                                        <div class="form-group"><label
-                                                                                class="je-label form-label">type</label><select
-                                                                                class="form-select"
-                                                                                name="root[identifiers][0][type]">
-                                                                                <option value="undefined"> </option>
-                                                                                <option value="UNSPECIFIED">
-                                                                                    UNSPECIFIED</option>
-                                                                                <option value="CUSTOM">CUSTOM
-                                                                                </option>
-                                                                                <option value="REACTION_SMILES">
-                                                                                    REACTION_SMILES</option>
-                                                                                <option value="ATOM_MAPPED_SMILES">
-                                                                                    ATOM_MAPPED_SMILES</option>
-                                                                                <option value="RINCHI">RINCHI
-                                                                                </option>
-                                                                                <option value="NAME">NAME</option>
-                                                                            </select></div>
-                                                                        <div></div>
+                            </span>
+                        </h4>
+                        <div class="je-panel">
+                            <div class="container je-noindent">
+                                <div>
+                                    <div class="columns">
+                                        <div class="column col-12" data-schematype="array"
+                                            data-schemapath="root.identifiers">
+                                            <h4>
+                                                <button type="button" title="Collapse"
+                                                    class="btn btn-sm btn-primary mr-2 my-1 json-editor-btn-collapse json-editor-btntype-toggle"
+                                                    style="margin: 0px 10px 0px 0px;">
+                                                    <i class="icon icon-arrow-down"></i>
+                                                    <span></span>
+                                                </button>
+                                                <label>identifiers</label>
+                                                <span class="btn-group"></span>
+                                            </h4>
+                                            <div class="je-panel">
+                                                <div>
+                                                    <div data-schematype="object" data-schemapath="root.identifiers.0"
+                                                        style="position: relative;">
+                                                        <h4>
+                                                            <label>item 1</label>
+                                                            <span class="btn-group" style="margin: 0px 0px 0px 10px">
+                                                            </span>
+                                                        </h4>
+                                                        <div class="je-panel">
+                                                            <div class="container je-noindent">
+                                                                <div>
+                                                                    <div class="columns">
+                                                                        <div class="column col-12"
+                                                                            data-schematype="string"
+                                                                            data-schemapath="root.identifiers.0.type">
+                                                                            <div class="form-group"><label
+                                                                                    class="je-label form-label">type</label><select
+                                                                                    class="form-select"
+                                                                                    name="root[identifiers][0][type]">
+                                                                                    <option value="undefined"> </option>
+                                                                                    <option value="UNSPECIFIED">
+                                                                                        UNSPECIFIED</option>
+                                                                                    <option value="CUSTOM">CUSTOM
+                                                                                    </option>
+                                                                                    <option value="REACTION_SMILES">
+                                                                                        REACTION_SMILES</option>
+                                                                                    <option value="ATOM_MAPPED_SMILES">
+                                                                                        ATOM_MAPPED_SMILES</option>
+                                                                                    <option value="RINCHI">RINCHI
+                                                                                    </option>
+                                                                                    <option value="NAME">NAME</option>
+                                                                                </select></div>
+                                                                            <div></div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div></div><span class="btn-group"><button type="button"
+                                                                title="Delete item"
+                                                                class="btn btn-sm btn-primary mr-2 my-1 json-editor-btn-delete delete json-editor-btntype-delete"
+                                                                data-i="0"><i class="icon icon-delete"></i><span>
+                                                                    item</span></button></span>
                                                     </div>
-                                                    <div></div><span class="btn-group"><button type="button"
-                                                            title="Delete item"
-                                                            class="btn btn-sm btn-primary mr-2 my-1 json-editor-btn-delete delete json-editor-btntype-delete"
-                                                            data-i="0"><i class="icon icon-delete"></i><span>
-                                                                item</span></button></span>
                                                 </div>
+                                                <div></div>
+                                                <span class="btn-group" style="display: inline-block;">
+                                                    <button type="button" title="Add item"
+                                                        class="btn btn-sm btn-primary mr-2 my-1 json-editor-btn-add json-editor-btntype-add">
+                                                        <i class="icon icon-plus"></i>
+                                                        <span>item</span>
+                                                    </button>
+
+                                                </span>
                                             </div>
-                                            <div></div>
-                                            <span class="btn-group" style="display: inline-block;">
-                                                <button type="button" title="Add item"
-                                                    class="btn btn-sm btn-primary mr-2 my-1 json-editor-btn-add json-editor-btntype-add">
-                                                    <i class="icon icon-plus"></i>
-                                                    <span>item</span>
-                                                </button>
-                                                <button type="button" title="Delete Last item"
-                                                    class="btn btn-sm btn-primary mr-2 my-1 json-editor-btn-subtract json-editor-btntype-deletelast"
-                                                    style="display: none;">
-                                                    <i class="icon icon-minus"></i>
-                                                    <span> Last item</span>
-                                                </button>
-                                                <button type="button" title="Delete All"
-                                                    class="btn btn-sm btn-primary mr-2 my-1 json-editor-btn-delete json-editor-btntype-deleteall"
-                                                    style="display: none;">
-                                                    <i class="icon icon-delete"></i>
-                                                    <span>All</span>
-                                                </button>
-                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -175,7 +145,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
     <script src="{% static 'editor/clone.js' %}"></script>
 
