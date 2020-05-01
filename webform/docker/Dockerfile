@@ -11,3 +11,7 @@ RUN apt-get update && apt-get install -y libpq-dev gcc swig libssl-dev dpkg-dev 
 
 RUN pip install -r requirements.txt
 COPY . /code/
+
+# to actually run commands from within container, for deployment
+EXPOSE 8080
+CMD [ "python", "./manage.py", "runserver", "0.0.0.0:8000"]
