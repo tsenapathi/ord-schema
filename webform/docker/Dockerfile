@@ -13,5 +13,5 @@ RUN pip install -r requirements.txt
 COPY . /code/
 
 # to actually run commands from within container, for deployment
-EXPOSE 8080
+EXPOSE 8000
 CMD [ "python", "./manage.py", "runserver", "0.0.0.0:8000"]
