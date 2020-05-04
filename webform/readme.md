@@ -6,7 +6,7 @@ Code is largely derived from <https://github.com/json-editor/json-editor>.
 
 ## Usage
 
-To run the form, navigate to (TODO insert the link). This uses uWSGI and Django for deployment.
+Try it out on <http://34.95.67.173/editor/clone>! This uses uWSGI and Django for deployment.
 
 To run locally, install Docker. Then, run `sudo docker-compose up` from within the `docker` folder, and navigate to <http://localhost:8000/editor/clone>.
 
