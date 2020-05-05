@@ -25,18 +25,22 @@ $('#submit').on('click', function () {
     console.log(identifiers);
     // TODO actually get from elements
 
-    payload = {type: ReactionIdentifierMessage.IdentifierType.CUSTOM}
-    var encode = ReactionIdentifierMessage.encode(payload).finish()
-
     payload = {identifiers: {type: ReactionIdentifierMessage.IdentifierType.RINCHI}}
     var encode = ReactionUnrepeatedMessage.encode(payload).finish()
     console.log(encode)
-    // ^ this worked, and then stopped working? wut
-    // TODO how do nested protobufs work?? Worst case, could send multiple messages (for each protobuf)?
+    // TODO (1) figure out how repeated fields work
 
-    // TODO send to backend
-    $.get(`/editor/send_protobuf`)
-        .done((data, status) => { console.log(data) })
+    // TODO (2) send to backend, and get backend to actually do interesting things
+    // $.post(`/editor/send_protobuf`, {"encode": encode})
+    //     .done((data, status) => { console.log(data) })
+
+    var oReq = new XMLHttpRequest();
+    oReq.open("POST", '/editor/send_protobuf', true);
+
+    // var blob = encode.buffer;
+    var blob = encode;
+
+    oReq.send(blob);
 });
 
 // Hook up the add buttons
