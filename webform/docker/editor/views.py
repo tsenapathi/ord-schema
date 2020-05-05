@@ -21,9 +21,3 @@ def identifier(request):
     template = loader.get_template('editor/identifier.html')
     context = {}
     return HttpResponse(template.render(context, request))
-
-
-def proto(request):
-    template = loader.get_template('editor/small.proto')
-    context = {}
-    return HttpResponse(template.render(context, request))
