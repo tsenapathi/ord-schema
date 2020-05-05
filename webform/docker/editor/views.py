@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 from django.template import loader
 from django.views.decorators.http import require_http_methods
+from editor.small_pb2 import *
 
 def index(request):
     template = loader.get_template('editor/webform.html')
@@ -28,4 +29,5 @@ def send_protobuf(request):
     body = request.body
     int_values = [x for x in body]
     print(int_values)
+    print(ReactionIdentifier)
     return HttpResponse("Here's a response")
