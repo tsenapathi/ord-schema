@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 from django.template import loader
 from django.views.decorators.http import require_http_methods
-from editor.small_pb2 import *
+from editor import small_pb2
 
 def index(request):
     template = loader.get_template('editor/webform.html')
@@ -27,7 +27,19 @@ def identifier(request):
 @require_http_methods(["GET", "POST"])
 def send_protobuf(request):
     body = request.body
+
+    print(body)
+    print(type(body))
     int_values = [x for x in body]
     print(int_values)
-    print(ReactionIdentifier)
-    return HttpResponse("Here's a response")
+    print("decoded:" + body.decode('utf-8'))
+    
+    reaction_unrepeated = small_pb2.ReactionUnrepeated()
+    reaction_unrepeated.ParseFromString(body)
+    print(reaction_unrepeated)
+
+    identifier_type_enum = reaction_unrepeated.identifiers.IdentifierType
+    identifier_type_name = identifier_type_enum.Name(reaction_unrepeated.identifiers.type)
+    print(identifier_type_name)
+
+    return HttpResponse("Got the identifier type of " + identifier_type_name)

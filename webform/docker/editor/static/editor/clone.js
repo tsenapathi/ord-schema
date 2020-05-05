@@ -5,6 +5,7 @@ var identifierCount = 0;
 
 var ReactionMessage;
 var ReactionIdentifierMessage;
+var encodeString;
 // Load the protobuf
 protobuf.load(proto_url).then(function (root) {
     console.log(root);
@@ -34,13 +35,15 @@ $('#submit').on('click', function () {
     // $.post(`/editor/send_protobuf`, {"encode": encode})
     //     .done((data, status) => { console.log(data) })
 
-    var oReq = new XMLHttpRequest();
-    oReq.open("POST", '/editor/send_protobuf', true);
+    // We encode the payload as a string, to use Python's ParseFromString in backend
+    // and to allow sending through Ajax/jQuery
+    var encodeString = String.fromCharCode.apply(null, encode)
+    console.log(encodeString)
+    $.post('/editor/send_protobuf', encodeString, function( data ) {
+        // $( ".result" ).html( data );
+        console.log(data);
+      });
 
-    // var blob = encode.buffer;
-    var blob = encode;
-
-    oReq.send(blob);
 });
 
 // Hook up the add buttons
