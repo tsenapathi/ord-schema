@@ -3,26 +3,32 @@ console.log("loading...")
 var schema = {};
 var identifierCount = 0;
 
-var root_global = 0;
 var ReactionMessage;
+var ReactionIdentifierMessage;
 // Load the protobuf
 protobuf.load(proto_url).then(function (root) {
-    console.log(root)
-    root_global = root
-    ReactionMessage = root.lookupType("ord.Reaction")
-    console.log("protobuf load")
+    console.log(root);
+    ReactionMessage = root.lookupType("ord.Reaction");
+    ReactionIdentifierMessage = root.lookupType("ord.ReactionIdentifier");
+    console.log("protobuf load");
 });
 // TODO how to return a success message? Busy-wait using cookies?
 
 // Hook up the Submit button
 $('#submit').on('click', function () {
+    console.log("submit button clicked");
+
     // get all elements 
     var identifiers = $("#identifiers-list").children('');
-
-    // roll into a protobuf
-
-    console.log("submit button clicked");
     console.log(identifiers);
+    // TODO actually get from elements
+
+    payload = {type: 77}
+    var encode = ReactionIdentifierMessage.encode(payload).finish()
+    console.log(encode)
+    // TODO how do nested protobufs work?? Worst case, could send multiple messages (for each protobuf)?
+
+    // TODO send to backend
 });
 
 // Hook up the add buttons
@@ -42,7 +48,5 @@ $('.json-editor-btn-add').on('click', function () {
     $("#identifiers-list").append(newDiv);
 
 });
-
-// TODO make this all occur _AFTER_ page load
 
 // TODO validator
