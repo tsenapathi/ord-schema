@@ -6,9 +6,11 @@ Code is largely derived from <https://github.com/json-editor/json-editor>.
 
 ## Usage
 
-Try it out on <http://34.95.67.173/editor/clone>! This uses uWSGI and Django for deployment.
+Try it out on <http://34.95.67.173/editor/clone>! This uses uWSGI and Django on Google Compute Engine for deployment.
 
-To run locally, install Docker. Then, run `sudo docker-compose up` from within the `docker` folder, and navigate to <http://localhost:8000/editor/clone>.
+To run locally, install Docker and Docker Compose. Then, run `sudo docker-compose up --build` from within the `docker` folder, and navigate to <http://localhost:80/editor/clone>. (The --build flag can be very important!) Note that this does not use uWSGI.
+
+Or, in lieu of Docker Compose (only Docker), use the first `CMD` line in the Dockerfile (to not use uWSGI), then run `sudo docker build --tag webform .` and `sudo docker run -p 80:80 webform:latest`. Then navigate to <http://localhost:80/editor/clone>.
 
 ## Goals
 
