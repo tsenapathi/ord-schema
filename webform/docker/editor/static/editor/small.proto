@@ -8,6 +8,9 @@ message Reaction {
   repeated ReactionIdentifier identifiers = 1;
 }
 
+message ReactionUnrepeated {
+  ReactionIdentifier identifiers = 1;
+}
 
 message ReactionIdentifier {
   // Possible identifier types are listed in an enum for extensibility

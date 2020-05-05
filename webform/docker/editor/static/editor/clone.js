@@ -9,6 +9,8 @@ var ReactionIdentifierMessage;
 protobuf.load(proto_url).then(function (root) {
     console.log(root);
     ReactionMessage = root.lookupType("ord.Reaction");
+    ReactionUnrepeatedMessage = root.lookupType("ord.ReactionUnrepeated");
+
     ReactionIdentifierMessage = root.lookupType("ord.ReactionIdentifier");
     console.log("protobuf load");
 });
@@ -23,12 +25,18 @@ $('#submit').on('click', function () {
     console.log(identifiers);
     // TODO actually get from elements
 
-    payload = {type: 77}
+    payload = {type: ReactionIdentifierMessage.IdentifierType.CUSTOM}
     var encode = ReactionIdentifierMessage.encode(payload).finish()
+
+    payload = {identifiers: {type: ReactionIdentifierMessage.IdentifierType.RINCHI}}
+    var encode = ReactionUnrepeatedMessage.encode(payload).finish()
     console.log(encode)
+    // ^ this worked, and then stopped working? wut
     // TODO how do nested protobufs work?? Worst case, could send multiple messages (for each protobuf)?
 
     // TODO send to backend
+    // $.get(`/editor/send_protobuf`)
+    //     .done((data, status) => { console.log(data) })
 });
 
 // Hook up the add buttons
