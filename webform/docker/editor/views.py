@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.http import JsonResponse
 from django.template import loader
 
 
@@ -21,3 +22,7 @@ def identifier(request):
     template = loader.get_template('editor/identifier.html')
     context = {}
     return HttpResponse(template.render(context, request))
+
+
+def send_protobuf(request):
+    return JsonResponse({'key': "Here's a response"})

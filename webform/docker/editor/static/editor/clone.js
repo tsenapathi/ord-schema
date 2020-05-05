@@ -35,8 +35,8 @@ $('#submit').on('click', function () {
     // TODO how do nested protobufs work?? Worst case, could send multiple messages (for each protobuf)?
 
     // TODO send to backend
-    // $.get(`/editor/send_protobuf`)
-    //     .done((data, status) => { console.log(data) })
+    $.get(`/editor/send_protobuf`)
+        .done((data, status) => { console.log(data) })
 });
 
 // Hook up the add buttons
