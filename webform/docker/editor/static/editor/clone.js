@@ -4,17 +4,21 @@ var proto_url = "https://raw.githubusercontent.com/Open-Reaction-Database/ord-sc
 // Load the protobuf
 var reaction;
 var schema_parent;
+var schema;
 var ReactionMessage;
 var ReactionUnrepeatedMessage;
 var ReactionIdentifierMessage;
 protobuf.load(proto_url).then(function (root) {
-	schema_parent = root;
+    schema_parent = root;
+    schema = root.nested["ord"] // load schema
 
-    // ReactionMessage = root.lookupType("ord.Reaction");
-    ReactionUnrepeatedMessage = root.lookupType("ord.ReactionUnrepeated");
-    ReactionIdentifierMessage = root.lookupType("ord.ReactionIdentifier");
-    reaction = ReactionUnrepeatedMessage.create(); // create instance of reaction
-    console.log(ReactionUnrepeatedMessage)
+    ReactionMessage = schema.Reaction;
+    ReactionUnrepeatedMessage = schema.ReactionUnrepeated;
+    ReactionIdentifierMessage = schema.ReactionIdentifier;
+
+    message = ReactionMessage; // set here!!
+    reaction = message.create(); // create instance of reaction
+    console.log(schema);
 });
 
 var encodeString;
@@ -38,40 +42,116 @@ $('#submit').on('click', function () {
         console.log(reaction.$type.fields[fieldname])
     }
 
-    payload = {identifiers: {type: ReactionIdentifierMessage.IdentifierType.RINCHI}}
-    var encode = ReactionUnrepeatedMessage.encode(payload).finish()
+    payload = { identifiers: [{ type: ReactionIdentifierMessage.IdentifierType.RINCHI }] }
+    var encode = message.encode(payload).finish()
     console.log(encode)
     // TODO (1) figure out how repeated fields work
 
     // TODO don't forget to verify!!
-    ReactionUnrepeatedMessage.verify(reaction);
+    message.verify(reaction);
 
     // We encode the payload as a string, to use Python's ParseFromString in backend
     // and to allow sending through Ajax/jQuery
     var encodeString = String.fromCharCode.apply(null, encode)
     console.log(encodeString)
-    $.post('/editor/send_protobuf', encodeString, function( data ) {
+    $.post('/editor/send_protobuf', encodeString, function (data) {
         console.log(data);
-      });
+    });
 
 });
 
-// Hook up the add button for Reaction Identifier
+
+function getRandomString() {
+    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+}
+
+
+var p;
+// TODO split the following into two different functions
+
+// Hook up the add button for Reaction Identifier, and
+// Add reaction identifier to the form. Note that we don't need to keep
+// track of where we are in the hierarchy for this input, because we
+// will only have reaction identifiers defined at the highest level.
 $('.json-editor-btn-add').on('click', function () {
     console.log("add button clicked");
 
-    // create the element
-    var newDiv = $('<div>').load("identifier", function () {
-        // Hook the element to actually do things
-        // Needs to be a callback, in order to properly load
-        newDiv.find('.json-editor-btn-delete').on('click', function () {
-            console.log("delete button clicked");
-        });
+    var identifier_type_name = reaction.$type.fields["identifiers"].type;
+    var identifier_type = schema[identifier_type_name];
+    var identifier = identifier_type.create(); // start empty, but could put payload into create()
+    reaction.identifiers.push(identifier);
+
+
+    // Create the HTML div element that will contain the form
+    var p = document.createElement("div");
+    p.class = "ReactionIdentifier";
+    p.id = getRandomString();
+    p.style = "margin-top:40px"; // TODO: replace this with classes and real CSS later
+    p.appendChild(document.createTextNode("Reaction identifier: "));
+    p.appendChild(document.createElement("BR"));
+
+    // Create value text box
+    p.appendChild(document.createTextNode("value "));
+    var input = document.createElement("input");
+    input.setAttribute("type", "text");
+    input.setAttribute("placeholder", "[enter identifier]");
+    input.setAttribute("size", "40");
+    input.setAttribute("maxlength", "1000");
+    input.addEventListener("change", function () {
+        identifier.value = this.value;
+        identifier.removeAttribute("bytes_value"); // value and bytes_value mutually exclusive
     });
+    p.appendChild(input);
+    p.appendChild(document.createElement("BR"));
+
+    // TODO: do we expose bytes_value? Probably not
+
+    // Add the options for a reaction identifier programmatically
+    p.appendChild(document.createTextNode("type "));
+    var selector = document.createElement("select");
+    selector.id = getRandomString(); // might need to use for callbacks later, not sure
+    for (var option_key in identifier_type.IdentifierType) {
+        if (identifier_type.IdentifierType.hasOwnProperty(option_key)) {
+            var option = document.createElement("option");
+            option.value = identifier_type.IdentifierType[option_key];
+            option.appendChild(document.createTextNode(option_key));
+            selector.appendChild(option);
+        }
+    }
+    selector.addEventListener("change", function () {
+        identifier.type = parseInt(this.value);
+    });
+    p.appendChild(selector);
+    p.appendChild(document.createElement("BR"));
+
+    // Create details text box
+    p.appendChild(document.createTextNode("details "));
+    var input = document.createElement("input");
+    input.setAttribute("type", "text");
+    input.setAttribute("placeholder", "[enter details]");
+    input.setAttribute("size", "40");
+    input.setAttribute("maxlength", "1000");
+    input.addEventListener("change", function () {
+        identifier.details = this.value;
+    });
+    p.appendChild(input);
+    p.appendChild(document.createElement("BR"));
+
+    // Add ability to remove this identifier
+    var remove_button = document.createElement("BUTTON");
+    remove_button.innerHTML = "remove";
+    remove_button.addEventListener("click", function () {
+        this.parentNode.parentNode.removeChild(this.parentNode);
+        // TODO: how to remove this from the reaction.identifiers array?
+    });
+    p.appendChild(remove_button);
+
+    // TODO: create an event listener for the whole div so that onchange,
+    // we can serialize "identifier" and send it back to Python for validation.
 
     // add it to the site!
-    $("#identifiers-list").append(newDiv);
+    $("#identifiers-list").append(p);
 
 });
 
-// TODO validator
+// TODO a live validation system, e.g. a rectangle that turns red when 

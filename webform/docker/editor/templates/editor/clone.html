@@ -30,10 +30,6 @@
 
     <!-- Protobuf.js script -->
     <script src="//cdn.rawgit.com/dcodeIO/protobuf.js/6.8.8/dist/protobuf.js"></script>
-    <!-- get the url to the proto file (better in case static dir changes) -->
-    <script>
-        var proto_url = "{% static 'editor/small.proto' %}";
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
@@ -90,54 +86,6 @@
                                             </h4>
                                             <div id="identifiers-panel" class="je-panel">
                                                 <div id="identifiers-list">
-                                                    <div data-schematype="object" data-schemapath="root.identifiers.0"
-                                                        style="position: relative;">
-                                                        <h4>
-                                                            <label>item 1</label>
-                                                            <span class="btn-group" style="margin: 0px 0px 0px 10px">
-                                                            </span>
-                                                        </h4>
-                                                        <div class="je-panel">
-                                                            <div class="container je-noindent">
-                                                                <div>
-                                                                    <div class="columns">
-                                                                        <div class="column col-12"
-                                                                            data-schematype="string"
-                                                                            data-schemapath="root.identifiers.0.type">
-                                                                            <div class="form-group">
-                                                                                <label
-                                                                                    class="je-label form-label">type</label>
-                                                                                <select class="form-select"
-                                                                                    name="root[identifiers][0][type]">
-                                                                                    <option value="undefined"></option>
-                                                                                    <option value="UNSPECIFIED">
-                                                                                        UNSPECIFIED</option>
-                                                                                    <option value="CUSTOM">CUSTOM
-                                                                                    </option>
-                                                                                    <option value="REACTION_SMILES">
-                                                                                        EACTION_SMILES</option>
-                                                                                    <option value="ATOM_MAPPED_SMILES">
-                                                                                        ATOM_MAPPED_SMILES</option>
-                                                                                    <option value="RINCHI">RINCHI
-                                                                                    </option>
-                                                                                    <option value="NAME">NAME</option>
-                                                                                </select>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <span class="btn-group">
-                                                            <button type="button" title="Delete item"
-                                                                class="btn btn-sm btn-primary mr-2 my-1 json-editor-btn-delete delete json-editor-btntype-delete"
-                                                                data-i="0">
-                                                                <i class="icon icon-delete"></i>
-                                                                <span>item</span>
-                                                            </button>
-                                                        </span>
-                                                    </div>
                                                 </div>
                                                 <span class="btn-group" style="display: inline-block;">
                                                     <button type="button" title="Add item"
