@@ -9,7 +9,7 @@ protobuf.load(proto_url).then(function (root) {
     schema_parent = root;
     schema = root.nested["ord"];
 
-    message = schema.Reaction; 
+    message = schema.Reaction;
     reaction = message.create(); // create instance of reaction
     console.log(schema);
 
@@ -120,7 +120,11 @@ function identifier_add_button_function() {
     remove_button.innerHTML = "remove";
     remove_button.addEventListener("click", function () {
         this.parentNode.parentNode.removeChild(this.parentNode);
-        // TODO: how to remove this from the reaction.identifiers array?
+
+        index = reaction.identifiers.indexOf(identifier);
+        if (index > -1) {
+            reaction.identifiers.splice(index, 1);
+        }
     });
     p.appendChild(remove_button);
 
