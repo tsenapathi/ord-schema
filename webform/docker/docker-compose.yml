@@ -9,8 +9,7 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-    # command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:80"
-    command: bash -c "uwsgi --ini uwsgi.ini"
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:80"
     volumes:
       - .:/code
     ports:
