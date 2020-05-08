@@ -27,19 +27,20 @@ def identifier(request):
 @require_http_methods(["GET", "POST"])
 def send_protobuf(request):
     body = request.body
+    # print("bytearray:", [x for x in body])
+    # print("decoded:", body.decode('utf-8'))
+    reaction = small_pb2.Reaction()
+    reaction.ParseFromString(body)
+    print(reaction)
 
-    print(body)
-    print(type(body))
-    int_values = [x for x in body]
-    print(int_values)
-    print("decoded:" + body.decode('utf-8'))
-    
-    reaction_unrepeated = small_pb2.ReactionUnrepeated()
-    reaction_unrepeated.ParseFromString(body)
-    print(reaction_unrepeated)
+    response = "Got the reaction\n"
 
-    identifier_type_enum = reaction_unrepeated.identifiers.IdentifierType
-    identifier_type_name = identifier_type_enum.Name(reaction_unrepeated.identifiers.type)
-    print(identifier_type_name)
+    response += "Identifier types:\n"
+    identifiers = reaction.identifiers
+    identifier_type_enum = small_pb2.ReactionIdentifier.IdentifierType
+    for identifier in identifiers:
+        identifier_type_name = identifier_type_enum.Name(identifier.type)
+        print(identifier_type_name)
+        response += identifier_type_name + "\n"
 
-    return HttpResponse("Got the identifier type of " + identifier_type_name)
+    return HttpResponse(response)
