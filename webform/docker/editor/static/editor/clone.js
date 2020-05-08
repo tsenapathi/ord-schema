@@ -5,28 +5,21 @@ var proto_url = "https://raw.githubusercontent.com/Open-Reaction-Database/ord-sc
 var reaction;
 var schema_parent;
 var schema;
-var ReactionMessage;
-var ReactionUnrepeatedMessage;
-var ReactionIdentifierMessage;
 protobuf.load(proto_url).then(function (root) {
     schema_parent = root;
-    schema = root.nested["ord"]
+    schema = root.nested["ord"];
 
-    ReactionMessage = schema.Reaction;
-    ReactionUnrepeatedMessage = schema.ReactionUnrepeated;
-    ReactionIdentifierMessage = schema.ReactionIdentifier;
-
-    message = ReactionMessage; // set message here!! keep above lines intact
+    message = schema.Reaction; 
     reaction = message.create(); // create instance of reaction
     console.log(schema);
 
     $('#submit').click(submit_button_function);
     $('.json-editor-btn-add').click(identifier_add_button_function);
 });
-// TODO how to return a success message? Busy-wait using cookies?
+// All the form's protobuf functionality doesn't load until the protobuf loads;
+// so no "loading..." indicator is necessary, I think
 
 // Submit the reaction to the backend
-// TODO make this use the inputted data (right now, creates some fake sample data)
 function submit_button_function() {
     console.log("submit button clicked");
 
@@ -50,15 +43,15 @@ function submit_button_function() {
 
 }
 
+// Helper function that we might end up needing
 function getRandomString() {
     return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 }
 
-
 // Add reaction identifier to the form. Note that we don't need to keep
 // track of where we are in the hierarchy for this input, because we
 // will only have reaction identifiers defined at the highest level.
-function identifier_add_button_function () {
+function identifier_add_button_function() {
     console.log("add button clicked");
 
     var identifier_type_name = reaction.$type.fields["identifiers"].type;
@@ -84,7 +77,7 @@ function identifier_add_button_function () {
     input.addEventListener("change", function () {
         identifier.value = this.value;
         // identifier.removeAttribute("bytes_value"); // value and bytes_value mutually exclusive
-        // TODO make the above commented-out line work
+        // TODO make the above commented-out line work; removeAttribute doesn't seem to be a valid method
     });
     p.appendChild(input);
     p.appendChild(document.createElement("BR"));
