@@ -33,23 +33,12 @@ function submit_button_function() {
     // get inputted data, using elements in html form
     var identifiers = $("#identifiers-list").children('');
     console.log(identifiers);
-    // TODO actually get from elements
 
-    // Loop over fields
-    fieldnames = Object.keys(reaction.$type.fields);
-    for (i = 0, len = fieldnames.length; i < len; i++) {
-        var fieldname = fieldnames[i];
-        console.log(fieldname);
-        console.log(reaction.$type.fields[fieldname])
-    }
+    var err = message.verify(reaction);
+    if (err) throw Error(err);
 
-    payload = { identifiers: [{ type: ReactionIdentifierMessage.IdentifierType.RINCHI }] }
-    var encode = message.encode(payload).finish()
-    console.log(encode)
-    // TODO (1) figure out how repeated fields work
-
-    // TODO don't forget to verify!!
-    message.verify(reaction);
+    var encode = message.encode(reaction).finish()
+    console.log(encode);
 
     // We encode the payload as a string, to use Python's ParseFromString in backend
     // and to allow sending through Ajax/jQuery
@@ -61,13 +50,10 @@ function submit_button_function() {
 
 }
 
-
 function getRandomString() {
     return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 }
 
-
-var p;
 
 // Add reaction identifier to the form. Note that we don't need to keep
 // track of where we are in the hierarchy for this input, because we
@@ -97,7 +83,8 @@ function identifier_add_button_function () {
     input.setAttribute("maxlength", "1000");
     input.addEventListener("change", function () {
         identifier.value = this.value;
-        identifier.removeAttribute("bytes_value"); // value and bytes_value mutually exclusive
+        // identifier.removeAttribute("bytes_value"); // value and bytes_value mutually exclusive
+        // TODO make the above commented-out line work
     });
     p.appendChild(input);
     p.appendChild(document.createElement("BR"));
