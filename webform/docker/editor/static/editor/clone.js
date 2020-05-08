@@ -1,7 +1,7 @@
 // var proto_url = "https://raw.githubusercontent.com/Open-Reaction-Database/ord-schema/master/proto/reaction.proto"
 var proto_url = "https://raw.githubusercontent.com/Open-Reaction-Database/ord-schema/webform/webform/docker/editor/static/editor/small.proto"
 
-// Load the protobuf
+// Load the protobuf, and hook up buttons
 var reaction;
 var schema_parent;
 var schema;
@@ -10,23 +10,24 @@ var ReactionUnrepeatedMessage;
 var ReactionIdentifierMessage;
 protobuf.load(proto_url).then(function (root) {
     schema_parent = root;
-    schema = root.nested["ord"] // load schema
+    schema = root.nested["ord"]
 
     ReactionMessage = schema.Reaction;
     ReactionUnrepeatedMessage = schema.ReactionUnrepeated;
     ReactionIdentifierMessage = schema.ReactionIdentifier;
 
-    message = ReactionMessage; // set here!!
+    message = ReactionMessage; // set message here!! keep above lines intact
     reaction = message.create(); // create instance of reaction
     console.log(schema);
+
+    $('#submit').click(submit_button_function);
+    $('.json-editor-btn-add').click(identifier_add_button_function);
 });
-
-var encodeString;
-
 // TODO how to return a success message? Busy-wait using cookies?
 
-// Hook up the Submit button
-$('#submit').on('click', function () {
+// Submit the reaction to the backend
+// TODO make this use the inputted data (right now, creates some fake sample data)
+function submit_button_function() {
     console.log("submit button clicked");
 
     // get inputted data, using elements in html form
@@ -58,7 +59,7 @@ $('#submit').on('click', function () {
         console.log(data);
     });
 
-});
+}
 
 
 function getRandomString() {
@@ -67,13 +68,11 @@ function getRandomString() {
 
 
 var p;
-// TODO split the following into two different functions
 
-// Hook up the add button for Reaction Identifier, and
 // Add reaction identifier to the form. Note that we don't need to keep
 // track of where we are in the hierarchy for this input, because we
 // will only have reaction identifiers defined at the highest level.
-$('.json-editor-btn-add').on('click', function () {
+function identifier_add_button_function () {
     console.log("add button clicked");
 
     var identifier_type_name = reaction.$type.fields["identifiers"].type;
@@ -81,8 +80,7 @@ $('.json-editor-btn-add').on('click', function () {
     var identifier = identifier_type.create(); // start empty, but could put payload into create()
     reaction.identifiers.push(identifier);
 
-
-    // Create the HTML div element that will contain the form
+    // Create the HTML div element that will contain the identifier
     var p = document.createElement("div");
     p.class = "ReactionIdentifier";
     p.id = getRandomString();
@@ -149,9 +147,8 @@ $('.json-editor-btn-add').on('click', function () {
     // TODO: create an event listener for the whole div so that onchange,
     // we can serialize "identifier" and send it back to Python for validation.
 
-    // add it to the site!
+    // Add the div element to the site!
     $("#identifiers-list").append(p);
+};
 
-});
-
-// TODO a live validation system, e.g. a rectangle that turns red when 
+// TODO a live validation system, e.g. a rectangle that turns red when the inputted data is invalid
