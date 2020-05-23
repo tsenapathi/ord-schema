@@ -4,14 +4,10 @@ RUN mkdir /code
 WORKDIR /code
 COPY requirements.txt /code/
 
-# prereqs to instal psycopg2
+# Prereqs to install psycopg2
 RUN apt-get update && apt-get install -y libpq-dev gcc swig libssl-dev dpkg-dev netcat
-# RUN pip3 install psycopg2
-# RUN apt-get autoremove -y gcc
 
 RUN pip install -r requirements.txt
 COPY . /code/
 
-# to actually run commands from within container, for deployment
-# CMD [ "python", "./manage.py", "runserver", "0.0.0.0:80"]
 CMD [ "uwsgi", "--ini", "uwsgi.ini"]

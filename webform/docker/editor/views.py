@@ -4,16 +4,6 @@ from django.template import loader
 from django.views.decorators.http import require_http_methods
 from editor import small_pb2
 
-def index(request):
-    template = loader.get_template('editor/webform.html')
-    context = {}
-    return HttpResponse(template.render(context, request))
-
-def small(request):
-    template = loader.get_template('editor/small.html')
-    context = {}
-    return HttpResponse(template.render(context, request))
-
 def clone(request):
     template = loader.get_template('editor/clone.html')
     context = {}
