@@ -1,5 +1,6 @@
 // var proto_url = "https://raw.githubusercontent.com/Open-Reaction-Database/ord-schema/master/proto/reaction.proto"
-var proto_url = "https://raw.githubusercontent.com/Open-Reaction-Database/ord-schema/webform/proto/small.proto"
+// var proto_url = "https://raw.githubusercontent.com/Open-Reaction-Database/ord-schema/webform/proto/small.proto"
+var proto_url = "/static/editor/small.proto"
 
 // Load the protobuf, and hook up buttons
 var reaction;
