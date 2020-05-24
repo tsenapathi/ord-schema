@@ -1,5 +1,5 @@
 cd ..
-cp proto/small.proto webform/docker/editor/static/editor
+cp proto/reaction.proto webform/docker/editor/static/editor
 python3 setup.py build
-cp build/lib/ord_schema/proto/small_pb2.py webform/docker/editor
+cp build/lib/ord_schema/proto/reaction_pb2.py webform/docker/editor
 rm -r build

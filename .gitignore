@@ -1,9 +1,10 @@
 # PyCharm files.
 .idea/
 
+# Generated protocol buffer wrappers.
+*_pb2.py
+
 # Helper files for webform development.
 __pycache__/
 webform/docker/venv
-
-# Generated protocol buffer wrappers.
-*_pb2.py
+!webform/docker/editor/*_pb2.py
