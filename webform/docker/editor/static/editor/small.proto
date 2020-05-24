@@ -1,0 +1,50 @@
+// Schema for the Open Reaction Database.
+syntax = "proto3";
+
+package ord;
+
+
+/**
+ * Throughout this schema, we introduce enums to encourage consistency in
+ * nomenclature and to avoid unnecessary downstream data processing that would
+ * otherwise be required to consolidate equivalent entries. However, we do
+ * not wish to restrict what users are able to specify if their synthesis
+ * does not fit cleanly into a pre-existing enum field. For that reason, many
+ * enums contain a CUSTOM field, which must be accompanied by setting the
+ * 'details' field (or '<field_name>_details', where appropriate).
+ *
+ * NOTE(kearnes): In many places, we deliberately violate the style guide for
+ * enums by nesting instead of prefixing; this is not done lightly. The primary
+ * consideration is API consistency and the ability to use unqualified strings
+ * as enum values. For instance, we want 'CUSTOM' to be a valid value for all
+ * enums that support custom types.
+ */
+message Reaction {
+  repeated ReactionIdentifier identifiers = 1;
+}
+
+/**
+ * Reaction identifiers define descriptions of the overall reaction.
+ * While we encourage the use of SMILES strings, these do not work well in
+ * all cases. The <reaction_smiles> field should be able to be derived
+ * from the information present in the ReactionInput and ReactionOutcome
+ * fields of any Reaction message.
+ */
+message ReactionIdentifier {
+  // Possible identifier types are listed in an enum for extensibility
+  enum IdentifierType {
+    UNSPECIFIED = 0;
+    CUSTOM = 1;
+    REACTION_SMILES = 2;
+    ATOM_MAPPED_SMILES = 3;
+    RINCHI = 4;  // Reaction InChI.
+    NAME = 5;  // Named reaction or reaction category.
+    RDKIT_BINARY = 6;  // RDKit binary format (for fast loading).
+  }
+  IdentifierType type = 1;
+  string details = 2;
+  oneof kind {
+    string value = 3;
+    bytes bytes_value = 4;
+  }
+}
