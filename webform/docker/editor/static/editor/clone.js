@@ -128,8 +128,12 @@ function identifier_add_button_function() {
     });
     p.appendChild(remove_button);
 
-    // TODO: create an event listener for the whole div so that onchange,
-    // we can serialize "identifier" and send it back to Python for validation.
+    // TODO: make this event listener include the add button
+    // or better yet, create an event listener for the entire identifiers-list element
+    p.addEventListener("change", function () {
+        console.log("change");
+        submit_button_function();
+    });
 
     // Add the div element to the site!
     $("#identifiers-list").append(p);
