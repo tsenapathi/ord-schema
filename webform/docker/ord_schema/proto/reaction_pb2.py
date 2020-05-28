@@ -18,7 +18,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='ord',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=b'\n\x1ford-schema/proto/reaction.proto\x12\x03ord\"\xd8\x03\n\x08Reaction\x12,\n\x0bidentifiers\x18\x01 \x03(\x0b\x32\x17.ord.ReactionIdentifier\x12)\n\x06inputs\x18\x02 \x03(\x0b\x32\x19.ord.Reaction.InputsEntry\x12!\n\x05setup\x18\x03 \x01(\x0b\x32\x12.ord.ReactionSetup\x12+\n\nconditions\x18\x04 \x01(\x0b\x32\x17.ord.ReactionConditions\x12!\n\x05notes\x18\x05 \x01(\x0b\x32\x12.ord.ReactionNotes\x12.\n\x0cobservations\x18\x06 \x03(\x0b\x32\x18.ord.ReactionObservation\x12#\n\x06workup\x18\x07 \x03(\x0b\x32\x13.ord.ReactionWorkup\x12&\n\x08outcomes\x18\x08 \x03(\x0b\x32\x14.ord.ReactionOutcome\x12+\n\nprovenance\x18\t \x01(\x0b\x32\x17.ord.ReactionProvenance\x12\x13\n\x0breaction_id\x18\n \x01(\t\x1a\x41\n\x0bInputsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12!\n\x05value\x18\x02 \x01(\x0b\x32\x12.ord.ReactionInput:\x02\x38\x01\"\x90\x02\n\x12ReactionIdentifier\x12\x34\n\x04type\x18\x01 \x01(\x0e\x32&.ord.ReactionIdentifier.IdentifierType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\x12\x0f\n\x05value\x18\x03 \x01(\tH\x00\x12\x15\n\x0b\x62ytes_value\x18\x04 \x01(\x0cH\x00\"\x82\x01\n\x0eIdentifierType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x13\n\x0fREACTION_SMILES\x10\x02\x12\x16\n\x12\x41TOM_MAPPED_SMILES\x10\x03\x12\n\n\x06RINCHI\x10\x04\x12\x08\n\x04NAME\x10\x05\x12\x10\n\x0cRDKIT_BINARY\x10\x06\x42\x06\n\x04kind\"\xfa\x02\n\rReactionInput\x12!\n\ncomponents\x18\x01 \x03(\x0b\x32\r.ord.Compound\x12\x16\n\x0e\x61\x64\x64ition_order\x18\x02 \x01(\x05\x12 \n\raddition_time\x18\x03 \x01(\x0b\x32\t.ord.Time\x12J\n\x0e\x61\x64\x64ition_speed\x18\x04 \x01(\x0e\x32\x32.ord.ReactionInput.AdditionSpeed.AdditionSpeedType\x12$\n\x11\x61\x64\x64ition_duration\x18\x05 \x01(\x0b\x32\t.ord.Time\x12 \n\tflow_rate\x18\x06 \x01(\x0b\x32\r.ord.FlowRate\x1ax\n\rAdditionSpeed\"g\n\x11\x41\x64\x64itionSpeedType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0f\n\x0b\x41LL_AT_ONCE\x10\x01\x12\x08\n\x04\x46\x41ST\x10\x02\x12\x08\n\x04SLOW\x10\x03\x12\x0c\n\x08\x44ROPWISE\x10\x04\x12\x0e\n\nCONTINUOUS\x10\x05\"\xe2\x05\n\x08\x43ompound\x12,\n\x0bidentifiers\x18\x01 \x03(\x0b\x32\x17.ord.CompoundIdentifier\x12\x19\n\x04mass\x18\x02 \x01(\x0b\x32\t.ord.MassH\x00\x12\x1b\n\x05moles\x18\x03 \x01(\x0b\x32\n.ord.MolesH\x00\x12\x1d\n\x06volume\x18\x04 \x01(\x0b\x32\x0b.ord.VolumeH\x00\x12:\n\x17volume_includes_solutes\x18\x0e \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x12\x42\n\rreaction_role\x18\x05 \x01(\x0e\x32+.ord.Compound.ReactionRole.ReactionRoleType\x12.\n\x0bis_limiting\x18\x06 \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x12-\n\x0bpreparation\x18\x07 \x01(\x0b\x32\x18.ord.CompoundPreparation\x12\x15\n\rvendor_source\x18\x08 \x01(\t\x12\x11\n\tvendor_id\x18\t \x01(\t\x12\x12\n\nvendor_lot\x18\n \x01(\t\x12\'\n\x08\x66\x65\x61tures\x18\r \x03(\x0b\x32\x15.ord.Compound.Feature\x1a\x9a\x01\n\x0cReactionRole\"\x89\x01\n\x10ReactionRoleType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0c\n\x08REACTANT\x10\x01\x12\x0b\n\x07REAGENT\x10\x02\x12\x0b\n\x07SOLVENT\x10\x03\x12\x0c\n\x08\x43\x41TALYST\x10\x04\x12\n\n\x06WORKUP\x10\x05\x12\x0b\n\x07PRODUCT\x10\x06\x12\x15\n\x11INTERNAL_STANDARD\x10\x07\x1a\x64\n\x07\x46\x65\x61ture\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x16\n\x0cstring_value\x18\x02 \x01(\tH\x00\x12\x15\n\x0b\x66loat_value\x18\x03 \x01(\x02H\x00\x12\x14\n\x0chow_computed\x18\x04 \x01(\tB\x06\n\x04kindB\x08\n\x06\x61mount\"\xd1\x01\n\x13\x43ompoundPreparation\x12\x36\n\x04type\x18\x01 \x01(\x0e\x32(.ord.CompoundPreparation.PreparationType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\"q\n\x0fPreparationType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x08\n\x04NONE\x10\x02\x12\x0e\n\nREPURIFIED\x10\x03\x12\x0b\n\x07SPARGED\x10\x04\x12\t\n\x05\x44RIED\x10\x05\x12\x0f\n\x0bSYNTHESIZED\x10\x06\"\x82\x03\n\x12\x43ompoundIdentifier\x12\x34\n\x04type\x18\x01 \x01(\x0e\x32&.ord.CompoundIdentifier.IdentifierType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\x12\x0f\n\x05value\x18\x03 \x01(\tH\x00\x12\x15\n\x0b\x62ytes_value\x18\x04 \x01(\x0cH\x00\"\xf4\x01\n\x0eIdentifierType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\n\n\x06SMILES\x10\x02\x12\t\n\x05INCHI\x10\x03\x12\x0c\n\x08MOLBLOCK\x10\x04\x12\x0e\n\nIUPAC_NAME\x10\x05\x12\x08\n\x04NAME\x10\x06\x12\x0e\n\nCAS_NUMBER\x10\x07\x12\x0f\n\x0bPUBCHEM_CID\x10\x08\x12\x11\n\rCHEMSPIDER_ID\x10\t\x12\x0c\n\x08\x43XSMILES\x10\n\x12\r\n\tINCHI_KEY\x10\x0b\x12\x07\n\x03XYZ\x10\x0c\x12\x0e\n\nUNIPROT_ID\x10\r\x12\n\n\x06PDB_ID\x10\x0e\x12\x10\n\x0cRDKIT_BINARY\x10\x0f\x42\x06\n\x04kind\"\xce\x05\n\x06Vessel\x12\x33\n\x04type\x18\x01 \x01(\x0e\x32%.ord.Vessel.VesselType.VesselTypeEnum\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\x12?\n\x08material\x18\x03 \x01(\x0e\x32-.ord.Vessel.VesselMaterial.VesselMaterialType\x12\x18\n\x10material_details\x18\x04 \x01(\t\x12H\n\x0bpreparation\x18\x05 \x01(\x0e\x32\x33.ord.Vessel.VesselPreparation.VesselPreparationType\x12\x1b\n\x13preparation_details\x18\x06 \x01(\t\x12\x1b\n\x06volume\x18\x07 \x01(\x0b\x32\x0b.ord.Volume\x1a\xc9\x01\n\nVesselType\"\xba\x01\n\x0eVesselTypeEnum\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x16\n\x12ROUND_BOTTOM_FLASK\x10\x02\x12\x08\n\x04VIAL\x10\x03\x12\x0e\n\nWELL_PLATE\x10\x04\x12\x12\n\x0eMICROWAVE_VIAL\x10\x05\x12\x08\n\x04TUBE\x10\x06\x12#\n\x1f\x43ONTINUOUS_STIRRED_TANK_REACTOR\x10\x07\x12\x16\n\x12PACKED_BED_REACTOR\x10\x08\x1an\n\x0eVesselMaterial\"\\\n\x12VesselMaterialType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\t\n\x05GLASS\x10\x02\x12\x11\n\rPOLYPROPYLENE\x10\x03\x12\x0b\n\x07PLASTIC\x10\x04\x1a\x63\n\x11VesselPreparation\"N\n\x15VesselPreparationType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x08\n\x04NONE\x10\x02\x12\x0e\n\nOVEN_DRIED\x10\x03\"\xfd\x01\n\rReactionSetup\x12\x1b\n\x06vessel\x18\x01 \x01(\x0b\x32\x0b.ord.Vessel\x12/\n\x0cis_automated\x18\x02 \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x12\x1b\n\x13\x61utomation_platform\x18\x03 \x01(\t\x12?\n\x0f\x61utomation_code\x18\x04 \x03(\x0b\x32&.ord.ReactionSetup.AutomationCodeEntry\x1a@\n\x13\x41utomationCodeEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x18\n\x05value\x18\x02 \x01(\x0b\x32\t.ord.Data:\x02\x38\x01\"\xaf\x03\n\x12ReactionConditions\x12/\n\x0btemperature\x18\x01 \x01(\x0b\x32\x1a.ord.TemperatureConditions\x12)\n\x08pressure\x18\x02 \x01(\x0b\x32\x17.ord.PressureConditions\x12)\n\x08stirring\x18\x03 \x01(\x0b\x32\x17.ord.StirringConditions\x12\x31\n\x0cillumination\x18\x04 \x01(\x0b\x32\x1b.ord.IlluminationConditions\x12\x39\n\x10\x65lectrochemistry\x18\x05 \x01(\x0b\x32\x1f.ord.ElectrochemistryConditions\x12!\n\x04\x66low\x18\x06 \x01(\x0b\x32\x13.ord.FlowConditions\x12)\n\x06reflux\x18\x07 \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x12\n\n\x02pH\x18\x08 \x01(\x02\x12\x39\n\x16\x63onditions_are_dynamic\x18\t \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x12\x0f\n\x07\x64\x65tails\x18\n \x01(\t\"\xeb\x05\n\x15TemperatureConditions\x12R\n\x04type\x18\x01 \x01(\x0e\x32\x44.ord.TemperatureConditions.TemperatureControl.TemperatureControlType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\x12\"\n\x08setpoint\x18\x03 \x01(\x0b\x32\x10.ord.Temperature\x12<\n\x0cmeasurements\x18\x04 \x03(\x0b\x32&.ord.TemperatureConditions.Measurement\x1a\xef\x01\n\x12TemperatureControl\"\xd8\x01\n\x16TemperatureControlType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x0b\n\x07\x41MBIENT\x10\x02\x12\x0c\n\x08OIL_BATH\x10\x03\x12\x0e\n\nWATER_BATH\x10\x04\x12\r\n\tSAND_BATH\x10\x05\x12\x0c\n\x08ICE_BATH\x10\x06\x12\x16\n\x12\x44RY_ALUMINUM_PLATE\x10\x07\x12\r\n\tMICROWAVE\x10\x08\x12\x10\n\x0c\x44RY_ICE_BATH\x10\t\x12\x0b\n\x07\x41IR_FAN\x10\n\x12\x13\n\x0fLIQUID_NITROGEN\x10\x0b\x1a\x98\x02\n\x0bMeasurement\x12\x44\n\x04type\x18\x01 \x01(\x0e\x32\x36.ord.TemperatureConditions.Measurement.MeasurementType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\x12\x17\n\x04time\x18\x03 \x01(\x0b\x32\t.ord.Time\x12%\n\x0btemperature\x18\x04 \x01(\x0b\x32\x10.ord.Temperature\"r\n\x0fMeasurementType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x19\n\x15THERMOCOUPLE_INTERNAL\x10\x02\x12\x19\n\x15THERMOCOUPLE_EXTERNAL\x10\x03\x12\x0c\n\x08INFRARED\x10\x04\"\xb1\x06\n\x12PressureConditions\x12I\n\x04type\x18\x01 \x01(\x0e\x32;.ord.PressureConditions.PressureControl.PressureControlType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\x12\x1f\n\x08setpoint\x18\x03 \x01(\x0b\x32\r.ord.Pressure\x12\x45\n\natmosphere\x18\x04 \x01(\x0e\x32\x31.ord.PressureConditions.Atmosphere.AtmosphereType\x12\x1a\n\x12\x61tmosphere_details\x18\x05 \x01(\t\x12\x39\n\x0cmeasurements\x18\x06 \x03(\x0b\x32#.ord.PressureConditions.Measurement\x1a\x9f\x01\n\x0fPressureControl\"\x8b\x01\n\x13PressureControlType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x0b\n\x07\x41MBIENT\x10\x02\x12\x0b\n\x07\x42\x41LLOON\x10\x03\x12\n\n\x06SEALED\x10\x04\x12\x16\n\x12SEPTUM_WITH_NEEDLE\x10\x05\x12\x10\n\x0cRELEASEVALVE\x10\x06\x12\x07\n\x03\x42PR\x10\x07\x1aw\n\nAtmosphere\"i\n\x0e\x41tmosphereType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x07\n\x03\x41IR\x10\x02\x12\x0c\n\x08NITROGEN\x10\x03\x12\t\n\x05\x41RGON\x10\x04\x12\n\n\x06OXYGEN\x10\x05\x12\x0c\n\x08HYDROGEN\x10\x06\x1a\xe4\x01\n\x0bMeasurement\x12\x41\n\x04type\x18\x01 \x01(\x0e\x32\x33.ord.PressureConditions.Measurement.MeasurementType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\x12\x17\n\x04time\x18\x03 \x01(\x0b\x32\t.ord.Time\x12\x1f\n\x08pressure\x18\x04 \x01(\x0b\x32\r.ord.Pressure\"G\n\x0fMeasurementType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x17\n\x13PRESSURE_TRANSDUCER\x10\x02\"\x94\x03\n\x12StirringConditions\x12G\n\x04type\x18\x01 \x01(\x0e\x32\x39.ord.StirringConditions.StirringMethod.StirringMethodType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\x12\x43\n\x04rate\x18\x03 \x01(\x0e\x32\x35.ord.StirringConditions.StirringRate.StirringRateType\x12\x0b\n\x03rpm\x18\x04 \x01(\x05\x1a~\n\x0eStirringMethod\"l\n\x12StirringMethodType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x08\n\x04NONE\x10\x02\x12\x0c\n\x08STIR_BAR\x10\x03\x12\x12\n\x0eOVERHEAD_MIXER\x10\x04\x12\r\n\tAGITATION\x10\x05\x1aR\n\x0cStirringRate\"B\n\x10StirringRateType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x08\n\x04HIGH\x10\x01\x12\n\n\x06MEDIUM\x10\x02\x12\x07\n\x03LOW\x10\x03\"\xe8\x02\n\x16IlluminationConditions\x12:\n\x04type\x18\x01 \x01(\x0e\x32,.ord.IlluminationConditions.IlluminationType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\x12(\n\x0fpeak_wavelength\x18\x03 \x01(\x0b\x32\x0f.ord.Wavelength\x12\r\n\x05\x63olor\x18\x04 \x01(\t\x12\'\n\x12\x64istance_to_vessel\x18\x05 \x01(\x0b\x32\x0b.ord.Length\"\x9e\x01\n\x10IlluminationType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x0b\n\x07\x41MBIENT\x10\x02\x12\x08\n\x04\x44\x41RK\x10\x03\x12\x07\n\x03LED\x10\x04\x12\x10\n\x0cHALOGEN_LAMP\x10\x05\x12\x12\n\x0e\x44\x45UTERIUM_LAMP\x10\x06\x12\x13\n\x0fSOLAR_SIMULATOR\x10\x07\x12\x12\n\x0e\x42ROAD_SPECTRUM\x10\x08\"\xa2\x04\n\x1a\x45lectrochemistryConditions\x12\x42\n\x04type\x18\x01 \x01(\x0e\x32\x34.ord.ElectrochemistryConditions.ElectrochemistryType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\x12\x1d\n\x07\x63urrent\x18\x03 \x01(\x0b\x32\x0c.ord.Current\x12\x1d\n\x07voltage\x18\x04 \x01(\x0b\x32\x0c.ord.Voltage\x12\x16\n\x0e\x61node_material\x18\x05 \x01(\t\x12\x18\n\x10\x63\x61thode_material\x18\x06 \x01(\t\x12)\n\x14\x65lectrode_separation\x18\x07 \x01(\x0b\x32\x0b.ord.Length\x12\x41\n\x0cmeasurements\x18\x08 \x03(\x0b\x32+.ord.ElectrochemistryConditions.Measurement\x1ap\n\x0bMeasurement\x12\x17\n\x04time\x18\x01 \x01(\x0b\x32\t.ord.Time\x12\x1f\n\x07\x63urrent\x18\x02 \x01(\x0b\x32\x0c.ord.CurrentH\x00\x12\x1f\n\x07voltage\x18\x03 \x01(\x0b\x32\x0c.ord.VoltageH\x00\x42\x06\n\x04kind\"_\n\x14\x45lectrochemistryType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x14\n\x10\x43ONSTANT_CURRENT\x10\x02\x12\x14\n\x10\x43ONSTANT_VOLTAGE\x10\x03\"\xa4\x04\n\x0e\x46lowConditions\x12*\n\x04type\x18\x01 \x01(\x0e\x32\x1c.ord.FlowConditions.FlowType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\x12\x11\n\tpump_type\x18\x03 \x01(\t\x12*\n\x06tubing\x18\x04 \x01(\x0b\x32\x1a.ord.FlowConditions.Tubing\x1a\x98\x02\n\x06Tubing\x12;\n\x04type\x18\x01 \x01(\x0e\x32-.ord.FlowConditions.Tubing.TubingMaterialType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\x12\x1d\n\x08\x64iameter\x18\x03 \x01(\x0b\x32\x0b.ord.Length\"\xa0\x01\n\x12TubingMaterialType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\t\n\x05STEEL\x10\x02\x12\n\n\x06\x43OPPER\x10\x03\x12\x07\n\x03PFA\x10\x04\x12\x07\n\x03\x46\x45P\x10\x05\x12\x0c\n\x08TEFLONAF\x10\x06\x12\x08\n\x04PTFE\x10\x07\x12\t\n\x05GLASS\x10\x08\x12\n\n\x06QUARTZ\x10\t\x12\x0b\n\x07SILICON\x10\n\x12\x08\n\x04PDMS\x10\x0b\"{\n\x08\x46lowType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x15\n\x11PLUG_FLOW_REACTOR\x10\x02\x12#\n\x1f\x43ONTINUOUS_STIRRED_TANK_REACTOR\x10\x03\x12\x16\n\x12PACKED_BED_REACTOR\x10\x04\"\x8a\x03\n\rReactionNotes\x12\x33\n\x10is_heterogeneous\x18\x01 \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x12\x30\n\ris_exothermic\x18\x02 \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x12/\n\x0cis_offgasses\x18\x03 \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x12;\n\x18is_sensitive_to_moisture\x18\x04 \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x12\x39\n\x16is_sensitive_to_oxygen\x18\x05 \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x12\x38\n\x15is_sensitive_to_light\x18\x06 \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x12\x14\n\x0csafety_notes\x18\x07 \x01(\t\x12\x19\n\x11procedure_details\x18\x08 \x01(\t\"Y\n\x13ReactionObservation\x12\x17\n\x04time\x18\x01 \x01(\x0b\x32\t.ord.Time\x12\x0f\n\x07\x63omment\x18\x02 \x01(\t\x12\x18\n\x05image\x18\x03 \x01(\x0b\x32\t.ord.Data\"\xd5\x04\n\x0eReactionWorkup\x12,\n\x04type\x18\x01 \x01(\x0e\x32\x1e.ord.ReactionWorkup.WorkupType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\x12\x1b\n\x08\x64uration\x18\x03 \x01(\x0b\x32\t.ord.Time\x12!\n\ncomponents\x18\x04 \x03(\x0b\x32\r.ord.Compound\x12/\n\x0btemperature\x18\x05 \x01(\x0b\x32\x1a.ord.TemperatureConditions\x12\x12\n\nkeep_phase\x18\x06 \x01(\t\x12)\n\x08stirring\x18\x07 \x01(\x0b\x32\x17.ord.StirringConditions\x12\x11\n\ttarget_ph\x18\x08 \x01(\x02\"\xc0\x02\n\nWorkupType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x0c\n\x08\x41\x44\x44ITION\x10\x02\x12\x0f\n\x0bTEMPERATURE\x10\x03\x12\x11\n\rCONCENTRATION\x10\x04\x12\x0e\n\nEXTRACTION\x10\x05\x12\x0e\n\nFILTRATION\x10\x06\x12\x08\n\x04WASH\x10\x07\x12\x11\n\rDRY_IN_VACUUM\x10\x08\x12\x15\n\x11\x44RY_WITH_MATERIAL\x10\t\x12\x18\n\x14\x46LASH_CHROMATOGRAPHY\x10\n\x12\x18\n\x14OTHER_CHROMATOGRAPHY\x10\x0b\x12\x0e\n\nSCAVENGING\x10\x0c\x12\x08\n\x04WAIT\x10\r\x12\x0c\n\x08STIRRING\x10\x0e\x12\x13\n\x0f\x43RYSTALLIZATION\x10\x0f\x12\r\n\tPH_ADJUST\x10\x10\x12\x0f\n\x0b\x44ISSOLUTION\x10\x11\"\xfe\x01\n\x0fReactionOutcome\x12 \n\rreaction_time\x18\x01 \x01(\x0b\x32\t.ord.Time\x12#\n\nconversion\x18\x02 \x01(\x0b\x32\x0f.ord.Percentage\x12&\n\x08products\x18\x03 \x03(\x0b\x32\x14.ord.ReactionProduct\x12\x34\n\x08\x61nalyses\x18\x04 \x03(\x0b\x32\".ord.ReactionOutcome.AnalysesEntry\x1a\x46\n\rAnalysesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12$\n\x05value\x18\x02 \x01(\x0b\x32\x15.ord.ReactionAnalysis:\x02\x38\x01\"\x89\x04\n\x0fReactionProduct\x12\x1f\n\x08\x63ompound\x18\x01 \x01(\x0b\x32\r.ord.Compound\x12\x35\n\x12is_desired_product\x18\x02 \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x12\'\n\x0e\x63ompound_yield\x18\x03 \x01(\x0b\x32\x0f.ord.Percentage\x12\x1f\n\x06purity\x18\x04 \x01(\x0b\x32\x0f.ord.Percentage\x12%\n\x0bselectivity\x18\x05 \x01(\x0b\x32\x10.ord.Selectivity\x12\x19\n\x11\x61nalysis_identity\x18\x06 \x03(\t\x12\x16\n\x0e\x61nalysis_yield\x18\x07 \x03(\t\x12\x17\n\x0f\x61nalysis_purity\x18\x08 \x03(\t\x12\x1c\n\x14\x61nalysis_selectivity\x18\t \x03(\t\x12\x16\n\x0eisolated_color\x18\n \x01(\t\x12\x39\n\x07texture\x18\x0b \x01(\x0e\x32(.ord.ReactionProduct.Texture.TextureType\x12\x17\n\x0ftexture_details\x18\x0c \x01(\t\x1aW\n\x07Texture\"L\n\x0bTextureType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\n\n\x06POWDER\x10\x02\x12\x0b\n\x07\x43RYSTAL\x10\x03\x12\x07\n\x03OIL\x10\x04\"\xb8\x01\n\x0bSelectivity\x12.\n\x04type\x18\x01 \x01(\x0e\x32 .ord.Selectivity.SelectivityType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\x12\r\n\x05value\x18\x03 \x01(\x02\x12\x11\n\tprecision\x18\x04 \x01(\x02\"F\n\x0fSelectivityType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x06\n\x02\x45\x45\x10\x02\x12\x06\n\x02\x45R\x10\x03\x12\x06\n\x02\x44\x45\x10\x04\"\x19\n\x08\x44\x61teTime\x12\r\n\x05value\x18\x01 \x01(\t\"\xa8\x05\n\x10ReactionAnalysis\x12\x30\n\x04type\x18\x01 \x01(\x0e\x32\".ord.ReactionAnalysis.AnalysisType\x12\x0f\n\x07\x63hmo_id\x18\x02 \x01(\x05\x12\x0f\n\x07\x64\x65tails\x18\x03 \x01(\t\x12@\n\x0eprocessed_data\x18\x04 \x03(\x0b\x32(.ord.ReactionAnalysis.ProcessedDataEntry\x12\x34\n\x08raw_data\x18\x05 \x03(\x0b\x32\".ord.ReactionAnalysis.RawDataEntry\x12\x1f\n\x17instrument_manufacturer\x18\x06 \x01(\t\x12\x31\n\x1ainstrument_last_calibrated\x18\x07 \x01(\x0b\x32\r.ord.DateTime\x12\x39\n\x16uses_internal_standard\x18\x08 \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x1a?\n\x12ProcessedDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x18\n\x05value\x18\x02 \x01(\x0b\x32\t.ord.Data:\x02\x38\x01\x1a\x39\n\x0cRawDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x18\n\x05value\x18\x02 \x01(\x0b\x32\t.ord.Data:\x02\x38\x01\"\xbc\x01\n\x0c\x41nalysisType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x06\n\x02LC\x10\x02\x12\x06\n\x02GC\x10\x03\x12\x06\n\x02IR\x10\x04\x12\x07\n\x03NMR\x10\x05\x12\x06\n\x02MP\x10\x06\x12\x06\n\x02UV\x10\x07\x12\x07\n\x03TLC\x10\x08\x12\x06\n\x02MS\x10\t\x12\x08\n\x04HRMS\x10\n\x12\x08\n\x04MSMS\x10\x0b\x12\n\n\x06WEIGHT\x10\x0c\x12\x08\n\x04LCMS\x10\r\x12\x08\n\x04GCMS\x10\x0e\x12\x08\n\x04\x45LSD\x10\x0f\x12\x06\n\x02\x43\x44\x10\x10\x12\x07\n\x03SFC\x10\x11\"\xf9\x01\n\x12ReactionProvenance\x12!\n\x0c\x65xperimenter\x18\x01 \x01(\x0b\x32\x0b.ord.Person\x12\x0c\n\x04\x63ity\x18\x02 \x01(\t\x12\'\n\x10\x65xperiment_start\x18\x03 \x01(\x0b\x32\r.ord.DateTime\x12\x0b\n\x03\x64oi\x18\x04 \x01(\t\x12\x0e\n\x06patent\x18\x05 \x01(\t\x12\x17\n\x0fpublication_url\x18\x06 \x01(\t\x12(\n\x0erecord_created\x18\x07 \x01(\x0b\x32\x10.ord.RecordEvent\x12)\n\x0frecord_modified\x18\x08 \x03(\x0b\x32\x10.ord.RecordEvent\"M\n\x06Person\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\r\n\x05orcid\x18\x03 \x01(\t\x12\x14\n\x0corganization\x18\x04 \x01(\t\"X\n\x0bRecordEvent\x12\x1b\n\x04time\x18\x01 \x01(\x0b\x32\r.ord.DateTime\x12\x1b\n\x06person\x18\x02 \x01(\x0b\x32\x0b.ord.Person\x12\x0f\n\x07\x64\x65tails\x18\x03 \x01(\t\"\x8a\x01\n\x04Time\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x11\n\tprecision\x18\x02 \x01(\x02\x12!\n\x05units\x18\x03 \x01(\x0e\x32\x12.ord.Time.TimeUnit\"=\n\x08TimeUnit\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x08\n\x04HOUR\x10\x01\x12\n\n\x06MINUTE\x10\x02\x12\n\n\x06SECOND\x10\x03\"\x9e\x01\n\x04Mass\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x11\n\tprecision\x18\x02 \x01(\x02\x12!\n\x05units\x18\x03 \x01(\x0e\x32\x12.ord.Mass.MassUnit\"Q\n\x08MassUnit\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x08\n\x04GRAM\x10\x01\x12\r\n\tMILLIGRAM\x10\x02\x12\r\n\tMICROGRAM\x10\x03\x12\x0c\n\x08KILOGRAM\x10\x04\"\xa2\x01\n\x05Moles\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x11\n\tprecision\x18\x02 \x01(\x02\x12#\n\x05units\x18\x03 \x01(\x0e\x32\x14.ord.Moles.MolesUnit\"R\n\tMolesUnit\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x08\n\x04MOLE\x10\x01\x12\r\n\tMILLIMOLE\x10\x02\x12\r\n\tMICROMOLE\x10\x03\x12\x0c\n\x08NANOMOLE\x10\x04\"\x9b\x01\n\x06Volume\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x11\n\tprecision\x18\x02 \x01(\x02\x12%\n\x05units\x18\x03 \x01(\x0e\x32\x16.ord.Volume.VolumeUnit\"H\n\nVolumeUnit\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0e\n\nMILLILITER\x10\x01\x12\x0e\n\nMICROLITER\x10\x02\x12\t\n\x05LITER\x10\x03\"\xb7\x01\n\rConcentration\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x11\n\tprecision\x18\x02 \x01(\x02\x12\x33\n\x05units\x18\x03 \x01(\x0e\x32$.ord.Concentration.ConcentrationUnit\"O\n\x11\x43oncentrationUnit\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\t\n\x05MOLAR\x10\x01\x12\x0e\n\nMILLIMOLAR\x10\x02\x12\x0e\n\nMICROMOLAR\x10\x03\"\xc0\x01\n\x08Pressure\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x11\n\tprecision\x18\x02 \x01(\x02\x12)\n\x05units\x18\x03 \x01(\x0e\x32\x1a.ord.Pressure.PressureUnit\"g\n\x0cPressureUnit\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x07\n\x03\x42\x41R\x10\x01\x12\x0e\n\nATMOSPHERE\x10\x02\x12\x07\n\x03PSI\x10\x03\x12\x08\n\x04KPSI\x10\x04\x12\n\n\x06PASCAL\x10\x05\x12\x0e\n\nKILOPASCAL\x10\x06\"\xad\x01\n\x0bTemperature\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x11\n\tprecision\x18\x02 \x01(\x02\x12/\n\x05units\x18\x03 \x01(\x0e\x32 .ord.Temperature.TemperatureUnit\"K\n\x0fTemperatureUnit\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0b\n\x07\x43\x45LSIUS\x10\x01\x12\x0e\n\nFAHRENHEIT\x10\x02\x12\n\n\x06KELVIN\x10\x03\"\x91\x01\n\x07\x43urrent\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x11\n\tprecision\x18\x02 \x01(\x02\x12\'\n\x05units\x18\x03 \x01(\x0e\x32\x18.ord.Current.CurrentUnit\";\n\x0b\x43urrentUnit\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x41MPERE\x10\x01\x12\x0f\n\x0bMILLIAMPERE\x10\x02\"\x8d\x01\n\x07Voltage\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x11\n\tprecision\x18\x02 \x01(\x02\x12\'\n\x05units\x18\x03 \x01(\x0e\x32\x18.ord.Voltage.VoltageUnit\"7\n\x0bVoltageUnit\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x08\n\x04VOLT\x10\x01\x12\r\n\tMILLIVOLT\x10\x02\"\xaf\x01\n\x06Length\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x11\n\tprecision\x18\x02 \x01(\x02\x12%\n\x05units\x18\x03 \x01(\x0e\x32\x16.ord.Length.LengthUnit\"\\\n\nLengthUnit\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0e\n\nCENTIMETER\x10\x01\x12\x0e\n\nMILLIMETER\x10\x02\x12\t\n\x05METER\x10\x03\x12\x08\n\x04INCH\x10\x04\x12\x08\n\x04\x46OOT\x10\x05\"\x9f\x01\n\nWavelength\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x11\n\tprecision\x18\x02 \x01(\x02\x12-\n\x05units\x18\x03 \x01(\x0e\x32\x1e.ord.Wavelength.WavelengthUnit\"@\n\x0eWavelengthUnit\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\r\n\tNANOMETER\x10\x01\x12\x0e\n\nWAVENUMBER\x10\x02\"\xfe\x01\n\x08\x46lowRate\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x11\n\tprecision\x18\x02 \x01(\x02\x12)\n\x05units\x18\x03 \x01(\x0e\x32\x1a.ord.FlowRate.FlowRateUnit\"\xa4\x01\n\x0c\x46lowRateUnit\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x19\n\x15MICROLITER_PER_MINUTE\x10\x01\x12\x19\n\x15MICROLITER_PER_SECOND\x10\x02\x12\x19\n\x15MILLILITER_PER_MINUTE\x10\x03\x12\x19\n\x15MILLILITER_PER_SECOND\x10\x04\x12\x17\n\x13MICROLITER_PER_HOUR\x10\x05\".\n\nPercentage\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x11\n\tprecision\x18\x02 \x01(\x02\"\x88\x01\n\x04\x44\x61ta\x12\x16\n\x0cstring_value\x18\x01 \x01(\tH\x00\x12\x15\n\x0b\x66loat_value\x18\x02 \x01(\x02H\x00\x12\x15\n\x0b\x62ytes_value\x18\x03 \x01(\x0cH\x00\x12\r\n\x03url\x18\x04 \x01(\tH\x00\x12\x13\n\x0b\x64\x65scription\x18\x05 \x01(\t\x12\x0e\n\x06\x66ormat\x18\x06 \x01(\tB\x06\n\x04kind\"i\n\x07\x42oolean\x12(\n\x05value\x18\x01 \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\"4\n\x0c\x42ooleanValue\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x08\n\x04TRUE\x10\x01\x12\t\n\x05\x46\x41LSE\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n\x1ford-schema/proto/reaction.proto\x12\x03ord\"\xd8\x03\n\x08Reaction\x12,\n\x0bidentifiers\x18\x01 \x03(\x0b\x32\x17.ord.ReactionIdentifier\x12)\n\x06inputs\x18\x02 \x03(\x0b\x32\x19.ord.Reaction.InputsEntry\x12!\n\x05setup\x18\x03 \x01(\x0b\x32\x12.ord.ReactionSetup\x12+\n\nconditions\x18\x04 \x01(\x0b\x32\x17.ord.ReactionConditions\x12!\n\x05notes\x18\x05 \x01(\x0b\x32\x12.ord.ReactionNotes\x12.\n\x0cobservations\x18\x06 \x03(\x0b\x32\x18.ord.ReactionObservation\x12#\n\x06workup\x18\x07 \x03(\x0b\x32\x13.ord.ReactionWorkup\x12&\n\x08outcomes\x18\x08 \x03(\x0b\x32\x14.ord.ReactionOutcome\x12+\n\nprovenance\x18\t \x01(\x0b\x32\x17.ord.ReactionProvenance\x12\x13\n\x0breaction_id\x18\n \x01(\t\x1a\x41\n\x0bInputsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12!\n\x05value\x18\x02 \x01(\x0b\x32\x12.ord.ReactionInput:\x02\x38\x01\"\x90\x02\n\x12ReactionIdentifier\x12\x34\n\x04type\x18\x01 \x01(\x0e\x32&.ord.ReactionIdentifier.IdentifierType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\x12\x0f\n\x05value\x18\x03 \x01(\tH\x00\x12\x15\n\x0b\x62ytes_value\x18\x04 \x01(\x0cH\x00\"\x82\x01\n\x0eIdentifierType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x13\n\x0fREACTION_SMILES\x10\x02\x12\x16\n\x12\x41TOM_MAPPED_SMILES\x10\x03\x12\n\n\x06RINCHI\x10\x04\x12\x08\n\x04NAME\x10\x05\x12\x10\n\x0cRDKIT_BINARY\x10\x06\x42\x06\n\x04kind\"\x8d\x06\n\rReactionInput\x12!\n\ncomponents\x18\x01 \x03(\x0b\x32\r.ord.Compound\x12\x16\n\x0e\x61\x64\x64ition_order\x18\x02 \x01(\x05\x12 \n\raddition_time\x18\x03 \x01(\x0b\x32\t.ord.Time\x12\x38\n\x0e\x61\x64\x64ition_speed\x18\x04 \x01(\x0b\x32 .ord.ReactionInput.AdditionSpeed\x12$\n\x11\x61\x64\x64ition_duration\x18\x05 \x01(\x0b\x32\t.ord.Time\x12 \n\tflow_rate\x18\x06 \x01(\x0b\x32\r.ord.FlowRate\x12:\n\x0f\x61\x64\x64ition_device\x18\x07 \x01(\x0b\x32!.ord.ReactionInput.AdditionDevice\x12.\n\x14\x61\x64\x64ition_temperature\x18\x08 \x01(\x0b\x32\x10.ord.Temperature\x1a\xdc\x01\n\rAdditionSpeed\x12@\n\x04type\x18\x01 \x01(\x0e\x32\x32.ord.ReactionInput.AdditionSpeed.AdditionSpeedType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\"x\n\x11\x41\x64\x64itionSpeedType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0f\n\x0b\x41LL_AT_ONCE\x10\x01\x12\x08\n\x04\x46\x41ST\x10\x02\x12\x08\n\x04SLOW\x10\x03\x12\x0c\n\x08\x44ROPWISE\x10\x04\x12\x0e\n\nCONTINUOUS\x10\x05\x12\x0f\n\x0bPORTIONWISE\x10\x06\x1a\xd1\x01\n\x0e\x41\x64\x64itionDevice\x12\x42\n\x04type\x18\x01 \x01(\x0e\x32\x34.ord.ReactionInput.AdditionDevice.AdditionDeviceType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\"j\n\x12\x41\x64\x64itionDeviceType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x08\n\x04NONE\x10\x02\x12\x0b\n\x07SYRINGE\x10\x03\x12\x0b\n\x07\x43\x41NNULA\x10\x04\x12\x13\n\x0f\x41\x44\x44ITION_FUNNEL\x10\x05\"\xe3\x05\n\x08\x43ompound\x12,\n\x0bidentifiers\x18\x01 \x03(\x0b\x32\x17.ord.CompoundIdentifier\x12\x19\n\x04mass\x18\x02 \x01(\x0b\x32\t.ord.MassH\x00\x12\x1b\n\x05moles\x18\x03 \x01(\x0b\x32\n.ord.MolesH\x00\x12\x1d\n\x06volume\x18\x04 \x01(\x0b\x32\x0b.ord.VolumeH\x00\x12:\n\x17volume_includes_solutes\x18\x0e \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x12\x42\n\rreaction_role\x18\x05 \x01(\x0e\x32+.ord.Compound.ReactionRole.ReactionRoleType\x12.\n\x0bis_limiting\x18\x06 \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x12.\n\x0cpreparations\x18\x07 \x03(\x0b\x32\x18.ord.CompoundPreparation\x12\x15\n\rvendor_source\x18\x08 \x01(\t\x12\x11\n\tvendor_id\x18\t \x01(\t\x12\x12\n\nvendor_lot\x18\n \x01(\t\x12\'\n\x08\x66\x65\x61tures\x18\r \x03(\x0b\x32\x15.ord.Compound.Feature\x1a\x9a\x01\n\x0cReactionRole\"\x89\x01\n\x10ReactionRoleType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0c\n\x08REACTANT\x10\x01\x12\x0b\n\x07REAGENT\x10\x02\x12\x0b\n\x07SOLVENT\x10\x03\x12\x0c\n\x08\x43\x41TALYST\x10\x04\x12\n\n\x06WORKUP\x10\x05\x12\x0b\n\x07PRODUCT\x10\x06\x12\x15\n\x11INTERNAL_STANDARD\x10\x07\x1a\x64\n\x07\x46\x65\x61ture\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x16\n\x0cstring_value\x18\x02 \x01(\tH\x00\x12\x15\n\x0b\x66loat_value\x18\x03 \x01(\x02H\x00\x12\x14\n\x0chow_computed\x18\x04 \x01(\tB\x06\n\x04kindB\x08\n\x06\x61mount\"\xd1\x01\n\x13\x43ompoundPreparation\x12\x36\n\x04type\x18\x01 \x01(\x0e\x32(.ord.CompoundPreparation.PreparationType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\"q\n\x0fPreparationType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x08\n\x04NONE\x10\x02\x12\x0e\n\nREPURIFIED\x10\x03\x12\x0b\n\x07SPARGED\x10\x04\x12\t\n\x05\x44RIED\x10\x05\x12\x0f\n\x0bSYNTHESIZED\x10\x06\"\x82\x03\n\x12\x43ompoundIdentifier\x12\x34\n\x04type\x18\x01 \x01(\x0e\x32&.ord.CompoundIdentifier.IdentifierType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\x12\x0f\n\x05value\x18\x03 \x01(\tH\x00\x12\x15\n\x0b\x62ytes_value\x18\x04 \x01(\x0cH\x00\"\xf4\x01\n\x0eIdentifierType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\n\n\x06SMILES\x10\x02\x12\t\n\x05INCHI\x10\x03\x12\x0c\n\x08MOLBLOCK\x10\x04\x12\x0e\n\nIUPAC_NAME\x10\x05\x12\x08\n\x04NAME\x10\x06\x12\x0e\n\nCAS_NUMBER\x10\x07\x12\x0f\n\x0bPUBCHEM_CID\x10\x08\x12\x11\n\rCHEMSPIDER_ID\x10\t\x12\x0c\n\x08\x43XSMILES\x10\n\x12\r\n\tINCHI_KEY\x10\x0b\x12\x07\n\x03XYZ\x10\x0c\x12\x0e\n\nUNIPROT_ID\x10\r\x12\n\n\x06PDB_ID\x10\x0e\x12\x10\n\x0cRDKIT_BINARY\x10\x0f\x42\x06\n\x04kind\"\xc5\x01\n\x06Vessel\x12\x1d\n\x04type\x18\x01 \x01(\x0b\x32\x0f.ord.VesselType\x12%\n\x08material\x18\x02 \x01(\x0b\x32\x13.ord.VesselMaterial\x12,\n\x0cpreparations\x18\x03 \x03(\x0b\x32\x16.ord.VesselPreparation\x12*\n\x0b\x61ttachments\x18\x04 \x03(\x0b\x32\x15.ord.VesselAttachment\x12\x1b\n\x06volume\x18\x05 \x01(\x0b\x32\x0b.ord.Volume\"\xda\x02\n\nVesselType\x12,\n\x04type\x18\x01 \x01(\x0e\x32\x1e.ord.VesselType.VesselTypeEnum\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\"\x8c\x02\n\x0eVesselTypeEnum\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x16\n\x12ROUND_BOTTOM_FLASK\x10\x02\x12\x08\n\x04VIAL\x10\x03\x12\x0e\n\nWELL_PLATE\x10\x04\x12\x12\n\x0eMICROWAVE_VIAL\x10\x05\x12\x08\n\x04TUBE\x10\x06\x12#\n\x1f\x43ONTINUOUS_STIRRED_TANK_REACTOR\x10\x07\x12\x16\n\x12PACKED_BED_REACTOR\x10\x08\x12\x0c\n\x08NMR_TUBE\x10\t\x12\x12\n\x0ePRESSURE_FLASK\x10\n\x12\x14\n\x10PRESSURE_REACTOR\x10\x0b\x12\x18\n\x14\x45LECTROCHEMICAL_CELL\x10\x0c\"\xcc\x01\n\x0eVesselMaterial\x12\x34\n\x04type\x18\x01 \x01(\x0e\x32&.ord.VesselMaterial.VesselMaterialType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\"s\n\x12VesselMaterialType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\t\n\x05GLASS\x10\x02\x12\x11\n\rPOLYPROPYLENE\x10\x03\x12\x0b\n\x07PLASTIC\x10\x04\x12\t\n\x05METAL\x10\x05\x12\n\n\x06QUARTZ\x10\x06\"\x8e\x03\n\x10VesselAttachment\x12\x38\n\x04type\x18\x01 \x01(\x0e\x32*.ord.VesselAttachment.VesselAttachmentType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\"\xae\x02\n\x14VesselAttachmentType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x08\n\x04NONE\x10\x01\x12\n\n\x06\x43USTOM\x10\x02\x12\n\n\x06SEPTUM\x10\x03\x12\x07\n\x03\x43\x41P\x10\x04\x12\x14\n\x10REFLUX_CONDENSER\x10\x06\x12\x0f\n\x0bVENT_NEEDLE\x10\x07\x12\x0e\n\nDEAN_STARK\x10\x08\x12\x0f\n\x0bVACUUM_TUBE\x10\t\x12\x13\n\x0f\x41\x44\x44ITION_FUNNEL\x10\n\x12\x0f\n\x0b\x44RYING_TUBE\x10\x0b\x12\x11\n\rALUMINUM_FOIL\x10\x0c\x12\x10\n\x0cTHERMOCOUPLE\x10\r\x12\x0b\n\x07\x42\x41LLOON\x10\x0e\x12\x0f\n\x0bGAS_ADAPTER\x10\x0f\x12\x16\n\x12PRESSURE_REGULATOR\x10\x10\x12\x11\n\rRELEASE_VALVE\x10\x11\"\xe8\x01\n\x11VesselPreparation\x12:\n\x04type\x18\x01 \x01(\x0e\x32,.ord.VesselPreparation.VesselPreparationType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\"\x85\x01\n\x15VesselPreparationType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x08\n\x04NONE\x10\x02\x12\x0e\n\nOVEN_DRIED\x10\x03\x12\x0f\n\x0b\x46LAME_DRIED\x10\x04\x12\x18\n\x14\x45VACUATED_BACKFILLED\x10\x05\x12\n\n\x06PURGED\x10\x06\"\xa5\x04\n\rReactionSetup\x12\x1b\n\x06vessel\x18\x01 \x01(\x0b\x32\x0b.ord.Vessel\x12/\n\x0cis_automated\x18\x02 \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x12\x1b\n\x13\x61utomation_platform\x18\x03 \x01(\t\x12?\n\x0f\x61utomation_code\x18\x04 \x03(\x0b\x32&.ord.ReactionSetup.AutomationCodeEntry\x12;\n\x0b\x65nvironment\x18\x05 \x01(\x0b\x32&.ord.ReactionSetup.ReactionEnvironment\x1a@\n\x13\x41utomationCodeEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x18\n\x05value\x18\x02 \x01(\x0b\x32\t.ord.Data:\x02\x38\x01\x1a\xe8\x01\n\x13ReactionEnvironment\x12L\n\x04type\x18\x01 \x01(\x0e\x32>.ord.ReactionSetup.ReactionEnvironment.ReactionEnvironmentType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\"r\n\x17ReactionEnvironmentType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\r\n\tFUME_HOOD\x10\x02\x12\r\n\tBENCH_TOP\x10\x03\x12\r\n\tGLOVE_BOX\x10\x04\x12\r\n\tGLOVE_BAG\x10\x05\"\xaf\x03\n\x12ReactionConditions\x12/\n\x0btemperature\x18\x01 \x01(\x0b\x32\x1a.ord.TemperatureConditions\x12)\n\x08pressure\x18\x02 \x01(\x0b\x32\x17.ord.PressureConditions\x12)\n\x08stirring\x18\x03 \x01(\x0b\x32\x17.ord.StirringConditions\x12\x31\n\x0cillumination\x18\x04 \x01(\x0b\x32\x1b.ord.IlluminationConditions\x12\x39\n\x10\x65lectrochemistry\x18\x05 \x01(\x0b\x32\x1f.ord.ElectrochemistryConditions\x12!\n\x04\x66low\x18\x06 \x01(\x0b\x32\x13.ord.FlowConditions\x12)\n\x06reflux\x18\x07 \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x12\n\n\x02pH\x18\x08 \x01(\x02\x12\x39\n\x16\x63onditions_are_dynamic\x18\t \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x12\x0f\n\x07\x64\x65tails\x18\n \x01(\t\"\xab\x06\n\x15TemperatureConditions\x12>\n\x07\x63ontrol\x18\x01 \x01(\x0b\x32-.ord.TemperatureConditions.TemperatureControl\x12\"\n\x08setpoint\x18\x02 \x01(\x0b\x32\x10.ord.Temperature\x12<\n\x0cmeasurements\x18\x03 \x03(\x0b\x32&.ord.TemperatureConditions.Measurement\x1a\xd4\x02\n\x12TemperatureControl\x12R\n\x04type\x18\x01 \x01(\x0e\x32\x44.ord.TemperatureConditions.TemperatureControl.TemperatureControlType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\"\xd8\x01\n\x16TemperatureControlType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x0b\n\x07\x41MBIENT\x10\x02\x12\x0c\n\x08OIL_BATH\x10\x03\x12\x0e\n\nWATER_BATH\x10\x04\x12\r\n\tSAND_BATH\x10\x05\x12\x0c\n\x08ICE_BATH\x10\x06\x12\x16\n\x12\x44RY_ALUMINUM_PLATE\x10\x07\x12\r\n\tMICROWAVE\x10\x08\x12\x10\n\x0c\x44RY_ICE_BATH\x10\t\x12\x0b\n\x07\x41IR_FAN\x10\n\x12\x13\n\x0fLIQUID_NITROGEN\x10\x0b\x1a\x98\x02\n\x0bMeasurement\x12\x44\n\x04type\x18\x01 \x01(\x0e\x32\x36.ord.TemperatureConditions.Measurement.MeasurementType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\x12\x17\n\x04time\x18\x03 \x01(\x0b\x32\t.ord.Time\x12%\n\x0btemperature\x18\x04 \x01(\x0b\x32\x10.ord.Temperature\"r\n\x0fMeasurementType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x19\n\x15THERMOCOUPLE_INTERNAL\x10\x02\x12\x19\n\x15THERMOCOUPLE_EXTERNAL\x10\x03\x12\x0c\n\x08INFRARED\x10\x04\"\xe4\x07\n\x12PressureConditions\x12\x38\n\x07\x63ontrol\x18\x01 \x01(\x0b\x32\'.ord.PressureConditions.PressureControl\x12\x1f\n\x08setpoint\x18\x02 \x01(\x0b\x32\r.ord.Pressure\x12\x36\n\natmosphere\x18\x03 \x01(\x0b\x32\".ord.PressureConditions.Atmosphere\x12\x39\n\x0cmeasurements\x18\x04 \x03(\x0b\x32#.ord.PressureConditions.Measurement\x1a\xe0\x01\n\x0fPressureControl\x12I\n\x04type\x18\x01 \x01(\x0e\x32;.ord.PressureConditions.PressureControl.PressureControlType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\"q\n\x13PressureControlType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x0b\n\x07\x41MBIENT\x10\x02\x12\x13\n\x0fSLIGHT_POSITIVE\x10\x03\x12\n\n\x06SEALED\x10\x04\x12\x0f\n\x0bPRESSURIZED\x10\x05\x1a\xb5\x02\n\nAtmosphere\x12?\n\x04type\x18\x01 \x01(\x0e\x32\x31.ord.PressureConditions.Atmosphere.AtmosphereType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\"\xd4\x01\n\x0e\x41tmosphereType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x07\n\x03\x41IR\x10\x02\x12\x0c\n\x08NITROGEN\x10\x03\x12\t\n\x05\x41RGON\x10\x04\x12\n\n\x06OXYGEN\x10\x05\x12\x0c\n\x08HYDROGEN\x10\x06\x12\x13\n\x0f\x43\x41RBON_MONOXIDE\x10\x07\x12\x12\n\x0e\x43\x41RBON_DIOXIDE\x10\x08\x12\x0b\n\x07METHANE\x10\t\x12\x0b\n\x07\x41MMONIA\x10\n\x12\t\n\x05OZONE\x10\x0b\x12\x0c\n\x08\x45THYLENE\x10\x0c\x12\r\n\tACETYLENE\x10\r\x1a\xe4\x01\n\x0bMeasurement\x12\x41\n\x04type\x18\x01 \x01(\x0e\x32\x33.ord.PressureConditions.Measurement.MeasurementType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\x12\x17\n\x04time\x18\x03 \x01(\x0b\x32\t.ord.Time\x12\x1f\n\x08pressure\x18\x04 \x01(\x0b\x32\r.ord.Pressure\"G\n\x0fMeasurementType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x17\n\x13PRESSURE_TRANSDUCER\x10\x02\"\xb6\x04\n\x12StirringConditions\x12\x36\n\x06method\x18\x01 \x01(\x0b\x32&.ord.StirringConditions.StirringMethod\x12\x32\n\x04rate\x18\x02 \x01(\x0b\x32$.ord.StirringConditions.StirringRate\x1a\xfb\x01\n\x0eStirringMethod\x12G\n\x04type\x18\x01 \x01(\x0e\x32\x39.ord.StirringConditions.StirringMethod.StirringMethodType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\"\x8e\x01\n\x12StirringMethodType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x08\n\x04NONE\x10\x02\x12\x0c\n\x08STIR_BAR\x10\x03\x12\x12\n\x0eOVERHEAD_MIXER\x10\x04\x12\r\n\tAGITATION\x10\x05\x12\x10\n\x0c\x42\x41LL_MILLING\x10\x06\x12\x0e\n\nSONICATION\x10\x07\x1a\xb5\x01\n\x0cStirringRate\x12\x43\n\x04type\x18\x01 \x01(\x0e\x32\x35.ord.StirringConditions.StirringRate.StirringRateType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\x12\x0b\n\x03rpm\x18\x03 \x01(\x05\"B\n\x10StirringRateType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x08\n\x04HIGH\x10\x01\x12\n\n\x06MEDIUM\x10\x02\x12\x07\n\x03LOW\x10\x03\"\xd2\x03\n\x16IlluminationConditions\x12:\n\x04type\x18\x01 \x01(\x0b\x32,.ord.IlluminationConditions.IlluminationType\x12(\n\x0fpeak_wavelength\x18\x02 \x01(\x0b\x32\x0f.ord.Wavelength\x12\r\n\x05\x63olor\x18\x03 \x01(\t\x12\'\n\x12\x64istance_to_vessel\x18\x04 \x01(\x0b\x32\x0b.ord.Length\x1a\x99\x02\n\x10IlluminationType\x12O\n\x04type\x18\x01 \x01(\x0e\x32\x41.ord.IlluminationConditions.IlluminationType.IlluminationTypeEnum\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\"\xa2\x01\n\x14IlluminationTypeEnum\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x0b\n\x07\x41MBIENT\x10\x02\x12\x08\n\x04\x44\x41RK\x10\x03\x12\x07\n\x03LED\x10\x04\x12\x10\n\x0cHALOGEN_LAMP\x10\x05\x12\x12\n\x0e\x44\x45UTERIUM_LAMP\x10\x06\x12\x13\n\x0fSOLAR_SIMULATOR\x10\x07\x12\x12\n\x0e\x42ROAD_SPECTRUM\x10\x08\"\xd7\x07\n\x1a\x45lectrochemistryConditions\x12S\n\x15\x65lectrochemistry_type\x18\x01 \x01(\x0b\x32\x34.ord.ElectrochemistryConditions.ElectrochemistryType\x12\x1d\n\x07\x63urrent\x18\x02 \x01(\x0b\x32\x0c.ord.Current\x12\x1d\n\x07voltage\x18\x03 \x01(\x0b\x32\x0c.ord.Voltage\x12\x16\n\x0e\x61node_material\x18\x04 \x01(\t\x12\x18\n\x10\x63\x61thode_material\x18\x05 \x01(\t\x12)\n\x14\x65lectrode_separation\x18\x06 \x01(\x0b\x32\x0b.ord.Length\x12\x41\n\x0cmeasurements\x18\x07 \x03(\x0b\x32+.ord.ElectrochemistryConditions.Measurement\x12\x42\n\x04\x63\x65ll\x18\x08 \x01(\x0b\x32\x34.ord.ElectrochemistryConditions.ElectrochemistryCell\x1a\xe9\x01\n\x14\x45lectrochemistryType\x12[\n\x04type\x18\x01 \x01(\x0e\x32M.ord.ElectrochemistryConditions.ElectrochemistryType.ElectrochemistryTypeEnum\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\"c\n\x18\x45lectrochemistryTypeEnum\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x14\n\x10\x43ONSTANT_CURRENT\x10\x02\x12\x14\n\x10\x43ONSTANT_VOLTAGE\x10\x03\x1ap\n\x0bMeasurement\x12\x17\n\x04time\x18\x01 \x01(\x0b\x32\t.ord.Time\x12\x1f\n\x07\x63urrent\x18\x02 \x01(\x0b\x32\x0c.ord.CurrentH\x00\x12\x1f\n\x07voltage\x18\x03 \x01(\x0b\x32\x0c.ord.VoltageH\x00\x42\x06\n\x04kind\x1a\xe3\x01\n\x14\x45lectrochemistryCell\x12[\n\x04type\x18\x01 \x01(\x0e\x32M.ord.ElectrochemistryConditions.ElectrochemistryCell.ElectrochemistryCellType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\"]\n\x18\x45lectrochemistryCellType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x10\n\x0c\x44IVIDED_CELL\x10\x02\x12\x12\n\x0eUNDIVIDED_CELL\x10\x03\"\xf3\x04\n\x0e\x46lowConditions\x12/\n\tflow_type\x18\x01 \x01(\x0b\x32\x1c.ord.FlowConditions.FlowType\x12\x11\n\tpump_type\x18\x02 \x01(\t\x12*\n\x06tubing\x18\x03 \x01(\x0b\x32\x1a.ord.FlowConditions.Tubing\x1a\xd5\x01\n\x08\x46lowType\x12\x37\n\x04type\x18\x01 \x01(\x0e\x32).ord.FlowConditions.FlowType.FlowTypeEnum\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\"\x7f\n\x0c\x46lowTypeEnum\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x15\n\x11PLUG_FLOW_REACTOR\x10\x02\x12#\n\x1f\x43ONTINUOUS_STIRRED_TANK_REACTOR\x10\x03\x12\x16\n\x12PACKED_BED_REACTOR\x10\x04\x1a\x98\x02\n\x06Tubing\x12;\n\x04type\x18\x01 \x01(\x0e\x32-.ord.FlowConditions.Tubing.TubingMaterialType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\x12\x1d\n\x08\x64iameter\x18\x03 \x01(\x0b\x32\x0b.ord.Length\"\xa0\x01\n\x12TubingMaterialType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\t\n\x05STEEL\x10\x02\x12\n\n\x06\x43OPPER\x10\x03\x12\x07\n\x03PFA\x10\x04\x12\x07\n\x03\x46\x45P\x10\x05\x12\x0c\n\x08TEFLONAF\x10\x06\x12\x08\n\x04PTFE\x10\x07\x12\t\n\x05GLASS\x10\x08\x12\n\n\x06QUARTZ\x10\t\x12\x0b\n\x07SILICON\x10\n\x12\x08\n\x04PDMS\x10\x0b\"\xbd\x03\n\rReactionNotes\x12\x33\n\x10is_heterogeneous\x18\x01 \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x12\x34\n\x11\x66orms_precipitate\x18\x02 \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x12\x30\n\ris_exothermic\x18\x03 \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x12,\n\toffgasses\x18\x04 \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x12;\n\x18is_sensitive_to_moisture\x18\x05 \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x12\x39\n\x16is_sensitive_to_oxygen\x18\x06 \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x12\x38\n\x15is_sensitive_to_light\x18\x07 \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x12\x14\n\x0csafety_notes\x18\x08 \x01(\t\x12\x19\n\x11procedure_details\x18\t \x01(\t\"Y\n\x13ReactionObservation\x12\x17\n\x04time\x18\x01 \x01(\x0b\x32\t.ord.Time\x12\x0f\n\x07\x63omment\x18\x02 \x01(\t\x12\x18\n\x05image\x18\x03 \x01(\x0b\x32\t.ord.Data\"\x83\x05\n\x0eReactionWorkup\x12,\n\x04type\x18\x01 \x01(\x0e\x32\x1e.ord.ReactionWorkup.WorkupType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\x12\x1b\n\x08\x64uration\x18\x03 \x01(\x0b\x32\t.ord.Time\x12!\n\x05input\x18\x04 \x01(\x0b\x32\x12.ord.ReactionInput\x12/\n\x0btemperature\x18\x05 \x01(\x0b\x32\x1a.ord.TemperatureConditions\x12\x12\n\nkeep_phase\x18\x06 \x01(\t\x12)\n\x08stirring\x18\x07 \x01(\x0b\x32\x17.ord.StirringConditions\x12\x11\n\ttarget_ph\x18\x08 \x01(\x02\x12/\n\x0cis_automated\x18\n \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\"\xbd\x02\n\nWorkupType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x0c\n\x08\x41\x44\x44ITION\x10\x02\x12\x0f\n\x0bTEMPERATURE\x10\x03\x12\x11\n\rCONCENTRATION\x10\x04\x12\x0e\n\nEXTRACTION\x10\x05\x12\x0e\n\nFILTRATION\x10\x06\x12\x08\n\x04WASH\x10\x07\x12\x11\n\rDRY_IN_VACUUM\x10\x08\x12\x15\n\x11\x44RY_WITH_MATERIAL\x10\t\x12\x18\n\x14\x46LASH_CHROMATOGRAPHY\x10\n\x12\x18\n\x14OTHER_CHROMATOGRAPHY\x10\x0b\x12\x0e\n\nSCAVENGING\x10\x0c\x12\x08\n\x04WAIT\x10\r\x12\x0c\n\x08STIRRING\x10\x0e\x12\r\n\tPH_ADJUST\x10\x0f\x12\x0f\n\x0b\x44ISSOLUTION\x10\x10\x12\x10\n\x0c\x44ISTILLATION\x10\x11\"\xfe\x01\n\x0fReactionOutcome\x12 \n\rreaction_time\x18\x01 \x01(\x0b\x32\t.ord.Time\x12#\n\nconversion\x18\x02 \x01(\x0b\x32\x0f.ord.Percentage\x12&\n\x08products\x18\x03 \x03(\x0b\x32\x14.ord.ReactionProduct\x12\x34\n\x08\x61nalyses\x18\x04 \x03(\x0b\x32\".ord.ReactionOutcome.AnalysesEntry\x1a\x46\n\rAnalysesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12$\n\x05value\x18\x02 \x01(\x0b\x32\x15.ord.ReactionAnalysis:\x02\x38\x01\"\xe7\x04\n\x0fReactionProduct\x12\x1f\n\x08\x63ompound\x18\x01 \x01(\x0b\x32\r.ord.Compound\x12\x35\n\x12is_desired_product\x18\x02 \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x12\'\n\x0e\x63ompound_yield\x18\x03 \x01(\x0b\x32\x0f.ord.Percentage\x12\x1f\n\x06purity\x18\x04 \x01(\x0b\x32\x0f.ord.Percentage\x12%\n\x0bselectivity\x18\x05 \x01(\x0b\x32\x10.ord.Selectivity\x12\x19\n\x11\x61nalysis_identity\x18\x06 \x03(\t\x12\x16\n\x0e\x61nalysis_yield\x18\x07 \x03(\t\x12\x17\n\x0f\x61nalysis_purity\x18\x08 \x03(\t\x12\x1c\n\x14\x61nalysis_selectivity\x18\t \x03(\t\x12\x16\n\x0eisolated_color\x18\n \x01(\t\x12-\n\x07texture\x18\x0b \x01(\x0b\x32\x1c.ord.ReactionProduct.Texture\x1a\xd9\x01\n\x07Texture\x12\x36\n\x04type\x18\x01 \x01(\x0e\x32(.ord.ReactionProduct.Texture.TextureType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\"\x84\x01\n\x0bTextureType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\n\n\x06POWDER\x10\x02\x12\x0b\n\x07\x43RYSTAL\x10\x03\x12\x07\n\x03OIL\x10\x04\x12\x13\n\x0f\x41MORPHOUS_SOLID\x10\x05\x12\x08\n\x04\x46OAM\x10\x06\x12\x07\n\x03WAX\x10\x07\x12\x0e\n\nSEMI_SOLID\x10\x08\"\xc8\x01\n\x0bSelectivity\x12.\n\x04type\x18\x01 \x01(\x0e\x32 .ord.Selectivity.SelectivityType\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\x12\r\n\x05value\x18\x03 \x01(\x02\x12\x11\n\tprecision\x18\x04 \x01(\x02\"V\n\x0fSelectivityType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x06\n\x02\x45\x45\x10\x02\x12\x06\n\x02\x45R\x10\x03\x12\x06\n\x02\x44R\x10\x04\x12\x06\n\x02\x45Z\x10\x05\x12\x06\n\x02ZE\x10\x06\"\x19\n\x08\x44\x61teTime\x12\r\n\x05value\x18\x01 \x01(\t\"\xa8\x06\n\x10ReactionAnalysis\x12\x30\n\x04type\x18\x01 \x01(\x0e\x32\".ord.ReactionAnalysis.AnalysisType\x12\x0f\n\x07\x63hmo_id\x18\x02 \x01(\x05\x12\x0f\n\x07\x64\x65tails\x18\x03 \x01(\t\x12@\n\x0eprocessed_data\x18\x04 \x03(\x0b\x32(.ord.ReactionAnalysis.ProcessedDataEntry\x12\x34\n\x08raw_data\x18\x05 \x03(\x0b\x32\".ord.ReactionAnalysis.RawDataEntry\x12\x1f\n\x17instrument_manufacturer\x18\x06 \x01(\t\x12\x31\n\x1ainstrument_last_calibrated\x18\x07 \x01(\x0b\x32\r.ord.DateTime\x12\x39\n\x16uses_internal_standard\x18\x08 \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x12:\n\x17uses_authentic_standard\x18\t \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\x1a?\n\x12ProcessedDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x18\n\x05value\x18\x02 \x01(\x0b\x32\t.ord.Data:\x02\x38\x01\x1a\x39\n\x0cRawDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x18\n\x05value\x18\x02 \x01(\x0b\x32\t.ord.Data:\x02\x38\x01\"\x80\x02\n\x0c\x41nalysisType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x06\n\x02LC\x10\x02\x12\x06\n\x02GC\x10\x03\x12\x06\n\x02IR\x10\x04\x12\n\n\x06NMR_1H\x10\x05\x12\x0b\n\x07NMR_13C\x10\x06\x12\r\n\tNMR_OTHER\x10\x07\x12\x06\n\x02MP\x10\x08\x12\x06\n\x02UV\x10\t\x12\x07\n\x03TLC\x10\n\x12\x06\n\x02MS\x10\x0b\x12\x08\n\x04HRMS\x10\x0c\x12\x08\n\x04MSMS\x10\r\x12\n\n\x06WEIGHT\x10\x0e\x12\x08\n\x04LCMS\x10\x0f\x12\x08\n\x04GCMS\x10\x10\x12\x08\n\x04\x45LSD\x10\x11\x12\x06\n\x02\x43\x44\x10\x12\x12\x07\n\x03SFC\x10\x13\x12\x07\n\x03\x45PR\x10\x14\x12\x07\n\x03XRD\x10\x15\x12\t\n\x05RAMAN\x10\x16\x12\x06\n\x02\x45\x44\x10\x17\"\xf9\x01\n\x12ReactionProvenance\x12!\n\x0c\x65xperimenter\x18\x01 \x01(\x0b\x32\x0b.ord.Person\x12\x0c\n\x04\x63ity\x18\x02 \x01(\t\x12\'\n\x10\x65xperiment_start\x18\x03 \x01(\x0b\x32\r.ord.DateTime\x12\x0b\n\x03\x64oi\x18\x04 \x01(\t\x12\x0e\n\x06patent\x18\x05 \x01(\t\x12\x17\n\x0fpublication_url\x18\x06 \x01(\t\x12(\n\x0erecord_created\x18\x07 \x01(\x0b\x32\x10.ord.RecordEvent\x12)\n\x0frecord_modified\x18\x08 \x03(\x0b\x32\x10.ord.RecordEvent\"M\n\x06Person\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\r\n\x05orcid\x18\x03 \x01(\t\x12\x14\n\x0corganization\x18\x04 \x01(\t\"X\n\x0bRecordEvent\x12\x1b\n\x04time\x18\x01 \x01(\x0b\x32\r.ord.DateTime\x12\x1b\n\x06person\x18\x02 \x01(\x0b\x32\x0b.ord.Person\x12\x0f\n\x07\x64\x65tails\x18\x03 \x01(\t\"\x8a\x01\n\x04Time\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x11\n\tprecision\x18\x02 \x01(\x02\x12!\n\x05units\x18\x03 \x01(\x0e\x32\x12.ord.Time.TimeUnit\"=\n\x08TimeUnit\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x08\n\x04HOUR\x10\x01\x12\n\n\x06MINUTE\x10\x02\x12\n\n\x06SECOND\x10\x03\"\x9e\x01\n\x04Mass\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x11\n\tprecision\x18\x02 \x01(\x02\x12!\n\x05units\x18\x03 \x01(\x0e\x32\x12.ord.Mass.MassUnit\"Q\n\x08MassUnit\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x08\n\x04GRAM\x10\x01\x12\r\n\tMILLIGRAM\x10\x02\x12\r\n\tMICROGRAM\x10\x03\x12\x0c\n\x08KILOGRAM\x10\x04\"\xa2\x01\n\x05Moles\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x11\n\tprecision\x18\x02 \x01(\x02\x12#\n\x05units\x18\x03 \x01(\x0e\x32\x14.ord.Moles.MolesUnit\"R\n\tMolesUnit\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x08\n\x04MOLE\x10\x01\x12\r\n\tMILLIMOLE\x10\x02\x12\r\n\tMICROMOLE\x10\x03\x12\x0c\n\x08NANOMOLE\x10\x04\"\x9b\x01\n\x06Volume\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x11\n\tprecision\x18\x02 \x01(\x02\x12%\n\x05units\x18\x03 \x01(\x0e\x32\x16.ord.Volume.VolumeUnit\"H\n\nVolumeUnit\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0e\n\nMILLILITER\x10\x01\x12\x0e\n\nMICROLITER\x10\x02\x12\t\n\x05LITER\x10\x03\"\xb7\x01\n\rConcentration\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x11\n\tprecision\x18\x02 \x01(\x02\x12\x33\n\x05units\x18\x03 \x01(\x0e\x32$.ord.Concentration.ConcentrationUnit\"O\n\x11\x43oncentrationUnit\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\t\n\x05MOLAR\x10\x01\x12\x0e\n\nMILLIMOLAR\x10\x02\x12\x0e\n\nMICROMOLAR\x10\x03\"\xd5\x01\n\x08Pressure\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x11\n\tprecision\x18\x02 \x01(\x02\x12)\n\x05units\x18\x03 \x01(\x0e\x32\x1a.ord.Pressure.PressureUnit\"|\n\x0cPressureUnit\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x07\n\x03\x42\x41R\x10\x01\x12\x0e\n\nATMOSPHERE\x10\x02\x12\x07\n\x03PSI\x10\x03\x12\x08\n\x04KPSI\x10\x04\x12\n\n\x06PASCAL\x10\x05\x12\x0e\n\nKILOPASCAL\x10\x06\x12\x08\n\x04TORR\x10\x07\x12\t\n\x05MM_HG\x10\x08\"\xad\x01\n\x0bTemperature\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x11\n\tprecision\x18\x02 \x01(\x02\x12/\n\x05units\x18\x03 \x01(\x0e\x32 .ord.Temperature.TemperatureUnit\"K\n\x0fTemperatureUnit\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0b\n\x07\x43\x45LSIUS\x10\x01\x12\x0e\n\nFAHRENHEIT\x10\x02\x12\n\n\x06KELVIN\x10\x03\"\x91\x01\n\x07\x43urrent\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x11\n\tprecision\x18\x02 \x01(\x02\x12\'\n\x05units\x18\x03 \x01(\x0e\x32\x18.ord.Current.CurrentUnit\";\n\x0b\x43urrentUnit\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x41MPERE\x10\x01\x12\x0f\n\x0bMILLIAMPERE\x10\x02\"\x8d\x01\n\x07Voltage\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x11\n\tprecision\x18\x02 \x01(\x02\x12\'\n\x05units\x18\x03 \x01(\x0e\x32\x18.ord.Voltage.VoltageUnit\"7\n\x0bVoltageUnit\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x08\n\x04VOLT\x10\x01\x12\r\n\tMILLIVOLT\x10\x02\"\xaf\x01\n\x06Length\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x11\n\tprecision\x18\x02 \x01(\x02\x12%\n\x05units\x18\x03 \x01(\x0e\x32\x16.ord.Length.LengthUnit\"\\\n\nLengthUnit\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0e\n\nCENTIMETER\x10\x01\x12\x0e\n\nMILLIMETER\x10\x02\x12\t\n\x05METER\x10\x03\x12\x08\n\x04INCH\x10\x04\x12\x08\n\x04\x46OOT\x10\x05\"\x9f\x01\n\nWavelength\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x11\n\tprecision\x18\x02 \x01(\x02\x12-\n\x05units\x18\x03 \x01(\x0e\x32\x1e.ord.Wavelength.WavelengthUnit\"@\n\x0eWavelengthUnit\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\r\n\tNANOMETER\x10\x01\x12\x0e\n\nWAVENUMBER\x10\x02\"\xfe\x01\n\x08\x46lowRate\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x11\n\tprecision\x18\x02 \x01(\x02\x12)\n\x05units\x18\x03 \x01(\x0e\x32\x1a.ord.FlowRate.FlowRateUnit\"\xa4\x01\n\x0c\x46lowRateUnit\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x19\n\x15MICROLITER_PER_MINUTE\x10\x01\x12\x19\n\x15MICROLITER_PER_SECOND\x10\x02\x12\x19\n\x15MILLILITER_PER_MINUTE\x10\x03\x12\x19\n\x15MILLILITER_PER_SECOND\x10\x04\x12\x17\n\x13MICROLITER_PER_HOUR\x10\x05\".\n\nPercentage\x12\r\n\x05value\x18\x01 \x01(\x02\x12\x11\n\tprecision\x18\x02 \x01(\x02\"\x88\x01\n\x04\x44\x61ta\x12\x16\n\x0cstring_value\x18\x01 \x01(\tH\x00\x12\x15\n\x0b\x66loat_value\x18\x02 \x01(\x02H\x00\x12\x15\n\x0b\x62ytes_value\x18\x03 \x01(\x0cH\x00\x12\r\n\x03url\x18\x04 \x01(\tH\x00\x12\x13\n\x0b\x64\x65scription\x18\x05 \x01(\t\x12\x0e\n\x06\x66ormat\x18\x06 \x01(\tB\x06\n\x04kind\"i\n\x07\x42oolean\x12(\n\x05value\x18\x01 \x01(\x0e\x32\x19.ord.Boolean.BooleanValue\"4\n\x0c\x42ooleanValue\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x08\n\x04TRUE\x10\x01\x12\t\n\x05\x46\x41LSE\x10\x02\x62\x06proto3'
 )
 
 
@@ -95,13 +95,55 @@ _REACTIONINPUT_ADDITIONSPEED_ADDITIONSPEEDTYPE = _descriptor.EnumDescriptor(
       name='CONTINUOUS', index=5, number=5,
       serialized_options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='PORTIONWISE', index=6, number=6,
+      serialized_options=None,
+      type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1066,
-  serialized_end=1169,
+  serialized_start=1240,
+  serialized_end=1360,
 )
 _sym_db.RegisterEnumDescriptor(_REACTIONINPUT_ADDITIONSPEED_ADDITIONSPEEDTYPE)
+
+_REACTIONINPUT_ADDITIONDEVICE_ADDITIONDEVICETYPE = _descriptor.EnumDescriptor(
+  name='AdditionDeviceType',
+  full_name='ord.ReactionInput.AdditionDevice.AdditionDeviceType',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CUSTOM', index=1, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='NONE', index=2, number=2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SYRINGE', index=3, number=3,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CANNULA', index=4, number=4,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ADDITION_FUNNEL', index=5, number=5,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=1466,
+  serialized_end=1572,
+)
+_sym_db.RegisterEnumDescriptor(_REACTIONINPUT_ADDITIONDEVICE_ADDITIONDEVICETYPE)
 
 _COMPOUND_REACTIONROLE_REACTIONROLETYPE = _descriptor.EnumDescriptor(
   name='ReactionRoleType',
@@ -144,8 +186,8 @@ _COMPOUND_REACTIONROLE_REACTIONROLETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1661,
-  serialized_end=1798,
+  serialized_start=2065,
+  serialized_end=2202,
 )
 _sym_db.RegisterEnumDescriptor(_COMPOUND_REACTIONROLE_REACTIONROLETYPE)
 
@@ -186,8 +228,8 @@ _COMPOUNDPREPARATION_PREPARATIONTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2009,
-  serialized_end=2122,
+  serialized_start=2413,
+  serialized_end=2526,
 )
 _sym_db.RegisterEnumDescriptor(_COMPOUNDPREPARATION_PREPARATIONTYPE)
 
@@ -264,14 +306,14 @@ _COMPOUNDIDENTIFIER_IDENTIFIERTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2259,
-  serialized_end=2503,
+  serialized_start=2663,
+  serialized_end=2907,
 )
 _sym_db.RegisterEnumDescriptor(_COMPOUNDIDENTIFIER_IDENTIFIERTYPE)
 
-_VESSEL_VESSELTYPE_VESSELTYPEENUM = _descriptor.EnumDescriptor(
+_VESSELTYPE_VESSELTYPEENUM = _descriptor.EnumDescriptor(
   name='VesselTypeEnum',
-  full_name='ord.Vessel.VesselType.VesselTypeEnum',
+  full_name='ord.VesselType.VesselTypeEnum',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -311,17 +353,33 @@ _VESSEL_VESSELTYPE_VESSELTYPEENUM = _descriptor.EnumDescriptor(
       name='PACKED_BED_REACTOR', index=8, number=8,
       serialized_options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='NMR_TUBE', index=9, number=9,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='PRESSURE_FLASK', index=10, number=10,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='PRESSURE_REACTOR', index=11, number=11,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ELECTROCHEMICAL_CELL', index=12, number=12,
+      serialized_options=None,
+      type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2833,
-  serialized_end=3019,
+  serialized_start=3196,
+  serialized_end=3464,
 )
-_sym_db.RegisterEnumDescriptor(_VESSEL_VESSELTYPE_VESSELTYPEENUM)
+_sym_db.RegisterEnumDescriptor(_VESSELTYPE_VESSELTYPEENUM)
 
-_VESSEL_VESSELMATERIAL_VESSELMATERIALTYPE = _descriptor.EnumDescriptor(
+_VESSELMATERIAL_VESSELMATERIALTYPE = _descriptor.EnumDescriptor(
   name='VesselMaterialType',
-  full_name='ord.Vessel.VesselMaterial.VesselMaterialType',
+  full_name='ord.VesselMaterial.VesselMaterialType',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -345,17 +403,107 @@ _VESSEL_VESSELMATERIAL_VESSELMATERIALTYPE = _descriptor.EnumDescriptor(
       name='PLASTIC', index=4, number=4,
       serialized_options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='METAL', index=5, number=5,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='QUARTZ', index=6, number=6,
+      serialized_options=None,
+      type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3039,
-  serialized_end=3131,
+  serialized_start=3556,
+  serialized_end=3671,
 )
-_sym_db.RegisterEnumDescriptor(_VESSEL_VESSELMATERIAL_VESSELMATERIALTYPE)
+_sym_db.RegisterEnumDescriptor(_VESSELMATERIAL_VESSELMATERIALTYPE)
 
-_VESSEL_VESSELPREPARATION_VESSELPREPARATIONTYPE = _descriptor.EnumDescriptor(
+_VESSELATTACHMENT_VESSELATTACHMENTTYPE = _descriptor.EnumDescriptor(
+  name='VesselAttachmentType',
+  full_name='ord.VesselAttachment.VesselAttachmentType',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='NONE', index=1, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CUSTOM', index=2, number=2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SEPTUM', index=3, number=3,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CAP', index=4, number=4,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='REFLUX_CONDENSER', index=5, number=6,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='VENT_NEEDLE', index=6, number=7,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DEAN_STARK', index=7, number=8,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='VACUUM_TUBE', index=8, number=9,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ADDITION_FUNNEL', index=9, number=10,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DRYING_TUBE', index=10, number=11,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ALUMINUM_FOIL', index=11, number=12,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='THERMOCOUPLE', index=12, number=13,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BALLOON', index=13, number=14,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='GAS_ADAPTER', index=14, number=15,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='PRESSURE_REGULATOR', index=15, number=16,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='RELEASE_VALVE', index=16, number=17,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=3770,
+  serialized_end=4072,
+)
+_sym_db.RegisterEnumDescriptor(_VESSELATTACHMENT_VESSELATTACHMENTTYPE)
+
+_VESSELPREPARATION_VESSELPREPARATIONTYPE = _descriptor.EnumDescriptor(
   name='VesselPreparationType',
-  full_name='ord.Vessel.VesselPreparation.VesselPreparationType',
+  full_name='ord.VesselPreparation.VesselPreparationType',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -375,13 +523,63 @@ _VESSEL_VESSELPREPARATION_VESSELPREPARATIONTYPE = _descriptor.EnumDescriptor(
       name='OVEN_DRIED', index=3, number=3,
       serialized_options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='FLAME_DRIED', index=4, number=4,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='EVACUATED_BACKFILLED', index=5, number=5,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='PURGED', index=6, number=6,
+      serialized_options=None,
+      type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3154,
-  serialized_end=3232,
+  serialized_start=4174,
+  serialized_end=4307,
 )
-_sym_db.RegisterEnumDescriptor(_VESSEL_VESSELPREPARATION_VESSELPREPARATIONTYPE)
+_sym_db.RegisterEnumDescriptor(_VESSELPREPARATION_VESSELPREPARATIONTYPE)
+
+_REACTIONSETUP_REACTIONENVIRONMENT_REACTIONENVIRONMENTTYPE = _descriptor.EnumDescriptor(
+  name='ReactionEnvironmentType',
+  full_name='ord.ReactionSetup.ReactionEnvironment.ReactionEnvironmentType',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CUSTOM', index=1, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='FUME_HOOD', index=2, number=2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BENCH_TOP', index=3, number=3,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='GLOVE_BOX', index=4, number=4,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='GLOVE_BAG', index=5, number=5,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=4745,
+  serialized_end=4859,
+)
+_sym_db.RegisterEnumDescriptor(_REACTIONSETUP_REACTIONENVIRONMENT_REACTIONENVIRONMENTTYPE)
 
 _TEMPERATURECONDITIONS_TEMPERATURECONTROL_TEMPERATURECONTROLTYPE = _descriptor.EnumDescriptor(
   name='TemperatureControlType',
@@ -440,8 +638,8 @@ _TEMPERATURECONDITIONS_TEMPERATURECONTROL_TEMPERATURECONTROLTYPE = _descriptor.E
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4173,
-  serialized_end=4389,
+  serialized_start=5608,
+  serialized_end=5824,
 )
 _sym_db.RegisterEnumDescriptor(_TEMPERATURECONDITIONS_TEMPERATURECONTROL_TEMPERATURECONTROLTYPE)
 
@@ -474,8 +672,8 @@ _TEMPERATURECONDITIONS_MEASUREMENT_MEASUREMENTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4558,
-  serialized_end=4672,
+  serialized_start=5993,
+  serialized_end=6107,
 )
 _sym_db.RegisterEnumDescriptor(_TEMPERATURECONDITIONS_MEASUREMENT_MEASUREMENTTYPE)
 
@@ -498,7 +696,7 @@ _PRESSURECONDITIONS_PRESSURECONTROL_PRESSURECONTROLTYPE = _descriptor.EnumDescri
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='BALLOON', index=3, number=3,
+      name='SLIGHT_POSITIVE', index=3, number=3,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
@@ -506,22 +704,14 @@ _PRESSURECONDITIONS_PRESSURECONTROL_PRESSURECONTROLTYPE = _descriptor.EnumDescri
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SEPTUM_WITH_NEEDLE', index=5, number=5,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='RELEASEVALVE', index=6, number=6,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='BPR', index=7, number=7,
+      name='PRESSURIZED', index=5, number=5,
       serialized_options=None,
       type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5001,
-  serialized_end=5140,
+  serialized_start=6450,
+  serialized_end=6563,
 )
 _sym_db.RegisterEnumDescriptor(_PRESSURECONDITIONS_PRESSURECONTROL_PRESSURECONTROLTYPE)
 
@@ -559,11 +749,39 @@ _PRESSURECONDITIONS_ATMOSPHERE_ATMOSPHERETYPE = _descriptor.EnumDescriptor(
       name='HYDROGEN', index=6, number=6,
       serialized_options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CARBON_MONOXIDE', index=7, number=7,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CARBON_DIOXIDE', index=8, number=8,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='METHANE', index=9, number=9,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='AMMONIA', index=10, number=10,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='OZONE', index=11, number=11,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ETHYLENE', index=12, number=12,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ACETYLENE', index=13, number=13,
+      serialized_options=None,
+      type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5156,
-  serialized_end=5261,
+  serialized_start=6663,
+  serialized_end=6875,
 )
 _sym_db.RegisterEnumDescriptor(_PRESSURECONDITIONS_ATMOSPHERE_ATMOSPHERETYPE)
 
@@ -588,8 +806,8 @@ _PRESSURECONDITIONS_MEASUREMENT_MEASUREMENTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5421,
-  serialized_end=5492,
+  serialized_start=7035,
+  serialized_end=7106,
 )
 _sym_db.RegisterEnumDescriptor(_PRESSURECONDITIONS_MEASUREMENT_MEASUREMENTTYPE)
 
@@ -623,11 +841,19 @@ _STIRRINGCONDITIONS_STIRRINGMETHOD_STIRRINGMETHODTYPE = _descriptor.EnumDescript
       name='AGITATION', index=5, number=5,
       serialized_options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BALL_MILLING', index=6, number=6,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SONICATION', index=7, number=7,
+      serialized_options=None,
+      type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5707,
-  serialized_end=5815,
+  serialized_start=7349,
+  serialized_end=7491,
 )
 _sym_db.RegisterEnumDescriptor(_STIRRINGCONDITIONS_STIRRINGMETHOD_STIRRINGMETHODTYPE)
 
@@ -656,14 +882,14 @@ _STIRRINGCONDITIONS_STIRRINGRATE_STIRRINGRATETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5833,
-  serialized_end=5899,
+  serialized_start=7609,
+  serialized_end=7675,
 )
 _sym_db.RegisterEnumDescriptor(_STIRRINGCONDITIONS_STIRRINGRATE_STIRRINGRATETYPE)
 
-_ILLUMINATIONCONDITIONS_ILLUMINATIONTYPE = _descriptor.EnumDescriptor(
-  name='IlluminationType',
-  full_name='ord.IlluminationConditions.IlluminationType',
+_ILLUMINATIONCONDITIONS_ILLUMINATIONTYPE_ILLUMINATIONTYPEENUM = _descriptor.EnumDescriptor(
+  name='IlluminationTypeEnum',
+  full_name='ord.IlluminationConditions.IlluminationType.IlluminationTypeEnum',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -706,14 +932,14 @@ _ILLUMINATIONCONDITIONS_ILLUMINATIONTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=6104,
-  serialized_end=6262,
+  serialized_start=7982,
+  serialized_end=8144,
 )
-_sym_db.RegisterEnumDescriptor(_ILLUMINATIONCONDITIONS_ILLUMINATIONTYPE)
+_sym_db.RegisterEnumDescriptor(_ILLUMINATIONCONDITIONS_ILLUMINATIONTYPE_ILLUMINATIONTYPEENUM)
 
-_ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYTYPE = _descriptor.EnumDescriptor(
-  name='ElectrochemistryType',
-  full_name='ord.ElectrochemistryConditions.ElectrochemistryType',
+_ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYTYPE_ELECTROCHEMISTRYTYPEENUM = _descriptor.EnumDescriptor(
+  name='ElectrochemistryTypeEnum',
+  full_name='ord.ElectrochemistryConditions.ElectrochemistryType.ElectrochemistryTypeEnum',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -736,10 +962,74 @@ _ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=6716,
-  serialized_end=6811,
+  serialized_start=8687,
+  serialized_end=8786,
 )
-_sym_db.RegisterEnumDescriptor(_ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYTYPE)
+_sym_db.RegisterEnumDescriptor(_ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYTYPE_ELECTROCHEMISTRYTYPEENUM)
+
+_ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYCELL_ELECTROCHEMISTRYCELLTYPE = _descriptor.EnumDescriptor(
+  name='ElectrochemistryCellType',
+  full_name='ord.ElectrochemistryConditions.ElectrochemistryCell.ElectrochemistryCellType',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CUSTOM', index=1, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DIVIDED_CELL', index=2, number=2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='UNDIVIDED_CELL', index=3, number=3,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=9037,
+  serialized_end=9130,
+)
+_sym_db.RegisterEnumDescriptor(_ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYCELL_ELECTROCHEMISTRYCELLTYPE)
+
+_FLOWCONDITIONS_FLOWTYPE_FLOWTYPEENUM = _descriptor.EnumDescriptor(
+  name='FlowTypeEnum',
+  full_name='ord.FlowConditions.FlowType.FlowTypeEnum',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CUSTOM', index=1, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='PLUG_FLOW_REACTOR', index=2, number=2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CONTINUOUS_STIRRED_TANK_REACTOR', index=3, number=3,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='PACKED_BED_REACTOR', index=4, number=4,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=9350,
+  serialized_end=9477,
+)
+_sym_db.RegisterEnumDescriptor(_FLOWCONDITIONS_FLOWTYPE_FLOWTYPEENUM)
 
 _FLOWCONDITIONS_TUBING_TUBINGMATERIALTYPE = _descriptor.EnumDescriptor(
   name='TubingMaterialType',
@@ -798,44 +1088,10 @@ _FLOWCONDITIONS_TUBING_TUBINGMATERIALTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=7077,
-  serialized_end=7237,
+  serialized_start=9600,
+  serialized_end=9760,
 )
 _sym_db.RegisterEnumDescriptor(_FLOWCONDITIONS_TUBING_TUBINGMATERIALTYPE)
-
-_FLOWCONDITIONS_FLOWTYPE = _descriptor.EnumDescriptor(
-  name='FlowType',
-  full_name='ord.FlowConditions.FlowType',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='UNSPECIFIED', index=0, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='CUSTOM', index=1, number=1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='PLUG_FLOW_REACTOR', index=2, number=2,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='CONTINUOUS_STIRRED_TANK_REACTOR', index=3, number=3,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='PACKED_BED_REACTOR', index=4, number=4,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=7239,
-  serialized_end=7362,
-)
-_sym_db.RegisterEnumDescriptor(_FLOWCONDITIONS_FLOWTYPE)
 
 _REACTIONWORKUP_WORKUPTYPE = _descriptor.EnumDescriptor(
   name='WorkupType',
@@ -904,22 +1160,22 @@ _REACTIONWORKUP_WORKUPTYPE = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='CRYSTALLIZATION', index=15, number=15,
+      name='PH_ADJUST', index=15, number=15,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='PH_ADJUST', index=16, number=16,
+      name='DISSOLUTION', index=16, number=16,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='DISSOLUTION', index=17, number=17,
+      name='DISTILLATION', index=17, number=17,
       serialized_options=None,
       type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=8130,
-  serialized_end=8450,
+  serialized_start=10628,
+  serialized_end=10945,
 )
 _sym_db.RegisterEnumDescriptor(_REACTIONWORKUP_WORKUPTYPE)
 
@@ -949,11 +1205,27 @@ _REACTIONPRODUCT_TEXTURE_TEXTURETYPE = _descriptor.EnumDescriptor(
       name='OIL', index=4, number=4,
       serialized_options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='AMORPHOUS_SOLID', index=5, number=5,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='FOAM', index=6, number=6,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='WAX', index=7, number=7,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SEMI_SOLID', index=8, number=8,
+      serialized_options=None,
+      type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=9155,
-  serialized_end=9231,
+  serialized_start=11688,
+  serialized_end=11820,
 )
 _sym_db.RegisterEnumDescriptor(_REACTIONPRODUCT_TEXTURE_TEXTURETYPE)
 
@@ -980,14 +1252,22 @@ _SELECTIVITY_SELECTIVITYTYPE = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='DE', index=4, number=4,
+      name='DR', index=4, number=4,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='EZ', index=5, number=5,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ZE', index=6, number=6,
       serialized_options=None,
       type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=9348,
-  serialized_end=9418,
+  serialized_start=11937,
+  serialized_end=12023,
 )
 _sym_db.RegisterEnumDescriptor(_SELECTIVITY_SELECTIVITYTYPE)
 
@@ -1018,62 +1298,86 @@ _REACTIONANALYSIS_ANALYSISTYPE = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='NMR', index=5, number=5,
+      name='NMR_1H', index=5, number=5,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='MP', index=6, number=6,
+      name='NMR_13C', index=6, number=6,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='UV', index=7, number=7,
+      name='NMR_OTHER', index=7, number=7,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='TLC', index=8, number=8,
+      name='MP', index=8, number=8,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='MS', index=9, number=9,
+      name='UV', index=9, number=9,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='HRMS', index=10, number=10,
+      name='TLC', index=10, number=10,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='MSMS', index=11, number=11,
+      name='MS', index=11, number=11,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='WEIGHT', index=12, number=12,
+      name='HRMS', index=12, number=12,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='LCMS', index=13, number=13,
+      name='MSMS', index=13, number=13,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='GCMS', index=14, number=14,
+      name='WEIGHT', index=14, number=14,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='ELSD', index=15, number=15,
+      name='LCMS', index=15, number=15,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='CD', index=16, number=16,
+      name='GCMS', index=16, number=16,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SFC', index=17, number=17,
+      name='ELSD', index=17, number=17,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CD', index=18, number=18,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SFC', index=19, number=19,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='EPR', index=20, number=20,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='XRD', index=21, number=21,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='RAMAN', index=22, number=22,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ED', index=23, number=23,
       serialized_options=None,
       type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=9940,
-  serialized_end=10128,
+  serialized_start=12605,
+  serialized_end=12861,
 )
 _sym_db.RegisterEnumDescriptor(_REACTIONANALYSIS_ANALYSISTYPE)
 
@@ -1102,8 +1406,8 @@ _TIME_TIMEUNIT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=10629,
-  serialized_end=10690,
+  serialized_start=13362,
+  serialized_end=13423,
 )
 _sym_db.RegisterEnumDescriptor(_TIME_TIMEUNIT)
 
@@ -1136,8 +1440,8 @@ _MASS_MASSUNIT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=10770,
-  serialized_end=10851,
+  serialized_start=13503,
+  serialized_end=13584,
 )
 _sym_db.RegisterEnumDescriptor(_MASS_MASSUNIT)
 
@@ -1170,8 +1474,8 @@ _MOLES_MOLESUNIT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=10934,
-  serialized_end=11016,
+  serialized_start=13667,
+  serialized_end=13749,
 )
 _sym_db.RegisterEnumDescriptor(_MOLES_MOLESUNIT)
 
@@ -1200,8 +1504,8 @@ _VOLUME_VOLUMEUNIT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=11102,
-  serialized_end=11174,
+  serialized_start=13835,
+  serialized_end=13907,
 )
 _sym_db.RegisterEnumDescriptor(_VOLUME_VOLUMEUNIT)
 
@@ -1230,8 +1534,8 @@ _CONCENTRATION_CONCENTRATIONUNIT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=11281,
-  serialized_end=11360,
+  serialized_start=14014,
+  serialized_end=14093,
 )
 _sym_db.RegisterEnumDescriptor(_CONCENTRATION_CONCENTRATIONUNIT)
 
@@ -1269,11 +1573,19 @@ _PRESSURE_PRESSUREUNIT = _descriptor.EnumDescriptor(
       name='KILOPASCAL', index=6, number=6,
       serialized_options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='TORR', index=7, number=7,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='MM_HG', index=8, number=8,
+      serialized_options=None,
+      type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=11452,
-  serialized_end=11555,
+  serialized_start=14185,
+  serialized_end=14309,
 )
 _sym_db.RegisterEnumDescriptor(_PRESSURE_PRESSUREUNIT)
 
@@ -1302,8 +1614,8 @@ _TEMPERATURE_TEMPERATUREUNIT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=11656,
-  serialized_end=11731,
+  serialized_start=14410,
+  serialized_end=14485,
 )
 _sym_db.RegisterEnumDescriptor(_TEMPERATURE_TEMPERATUREUNIT)
 
@@ -1328,8 +1640,8 @@ _CURRENT_CURRENTUNIT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=11820,
-  serialized_end=11879,
+  serialized_start=14574,
+  serialized_end=14633,
 )
 _sym_db.RegisterEnumDescriptor(_CURRENT_CURRENTUNIT)
 
@@ -1354,8 +1666,8 @@ _VOLTAGE_VOLTAGEUNIT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=11968,
-  serialized_end=12023,
+  serialized_start=14722,
+  serialized_end=14777,
 )
 _sym_db.RegisterEnumDescriptor(_VOLTAGE_VOLTAGEUNIT)
 
@@ -1392,8 +1704,8 @@ _LENGTH_LENGTHUNIT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=12109,
-  serialized_end=12201,
+  serialized_start=14863,
+  serialized_end=14955,
 )
 _sym_db.RegisterEnumDescriptor(_LENGTH_LENGTHUNIT)
 
@@ -1418,8 +1730,8 @@ _WAVELENGTH_WAVELENGTHUNIT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=12299,
-  serialized_end=12363,
+  serialized_start=15053,
+  serialized_end=15117,
 )
 _sym_db.RegisterEnumDescriptor(_WAVELENGTH_WAVELENGTHUNIT)
 
@@ -1456,8 +1768,8 @@ _FLOWRATE_FLOWRATEUNIT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=12456,
-  serialized_end=12620,
+  serialized_start=15210,
+  serialized_end=15374,
 )
 _sym_db.RegisterEnumDescriptor(_FLOWRATE_FLOWRATEUNIT)
 
@@ -1482,8 +1794,8 @@ _BOOLEAN_BOOLEANVALUE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=12862,
-  serialized_end=12914,
+  serialized_start=15616,
+  serialized_end=15668,
 )
 _sym_db.RegisterEnumDescriptor(_BOOLEAN_BOOLEANVALUE)
 
@@ -1682,6 +1994,20 @@ _REACTIONINPUT_ADDITIONSPEED = _descriptor.Descriptor(
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='ord.ReactionInput.AdditionSpeed.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='details', full_name='ord.ReactionInput.AdditionSpeed.details', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -1695,8 +2021,46 @@ _REACTIONINPUT_ADDITIONSPEED = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1049,
-  serialized_end=1169,
+  serialized_start=1140,
+  serialized_end=1360,
+)
+
+_REACTIONINPUT_ADDITIONDEVICE = _descriptor.Descriptor(
+  name='AdditionDevice',
+  full_name='ord.ReactionInput.AdditionDevice',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='ord.ReactionInput.AdditionDevice.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='details', full_name='ord.ReactionInput.AdditionDevice.details', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _REACTIONINPUT_ADDITIONDEVICE_ADDITIONDEVICETYPE,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1363,
+  serialized_end=1572,
 )
 
 _REACTIONINPUT = _descriptor.Descriptor(
@@ -1729,8 +2093,8 @@ _REACTIONINPUT = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='addition_speed', full_name='ord.ReactionInput.addition_speed', index=3,
-      number=4, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -1748,10 +2112,24 @@ _REACTIONINPUT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='addition_device', full_name='ord.ReactionInput.addition_device', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='addition_temperature', full_name='ord.ReactionInput.addition_temperature', index=7,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
-  nested_types=[_REACTIONINPUT_ADDITIONSPEED, ],
+  nested_types=[_REACTIONINPUT_ADDITIONSPEED, _REACTIONINPUT_ADDITIONDEVICE, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -1761,7 +2139,7 @@ _REACTIONINPUT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=791,
-  serialized_end=1169,
+  serialized_end=1572,
 )
 
 
@@ -1785,8 +2163,8 @@ _COMPOUND_REACTIONROLE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1644,
-  serialized_end=1798,
+  serialized_start=2048,
+  serialized_end=2202,
 )
 
 _COMPOUND_FEATURE = _descriptor.Descriptor(
@@ -1839,8 +2217,8 @@ _COMPOUND_FEATURE = _descriptor.Descriptor(
       name='kind', full_name='ord.Compound.Feature.kind',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=1800,
-  serialized_end=1900,
+  serialized_start=2204,
+  serialized_end=2304,
 )
 
 _COMPOUND = _descriptor.Descriptor(
@@ -1900,9 +2278,9 @@ _COMPOUND = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='preparation', full_name='ord.Compound.preparation', index=7,
-      number=7, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='preparations', full_name='ord.Compound.preparations', index=7,
+      number=7, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -1949,8 +2327,8 @@ _COMPOUND = _descriptor.Descriptor(
       name='amount', full_name='ord.Compound.amount',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=1172,
-  serialized_end=1910,
+  serialized_start=1575,
+  serialized_end=2314,
 )
 
 
@@ -1988,8 +2366,8 @@ _COMPOUNDPREPARATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1913,
-  serialized_end=2122,
+  serialized_start=2317,
+  serialized_end=2526,
 )
 
 
@@ -2044,82 +2422,10 @@ _COMPOUNDIDENTIFIER = _descriptor.Descriptor(
       name='kind', full_name='ord.CompoundIdentifier.kind',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=2125,
-  serialized_end=2511,
+  serialized_start=2529,
+  serialized_end=2915,
 )
 
-
-_VESSEL_VESSELTYPE = _descriptor.Descriptor(
-  name='VesselType',
-  full_name='ord.Vessel.VesselType',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-    _VESSEL_VESSELTYPE_VESSELTYPEENUM,
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2818,
-  serialized_end=3019,
-)
-
-_VESSEL_VESSELMATERIAL = _descriptor.Descriptor(
-  name='VesselMaterial',
-  full_name='ord.Vessel.VesselMaterial',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-    _VESSEL_VESSELMATERIAL_VESSELMATERIALTYPE,
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3021,
-  serialized_end=3131,
-)
-
-_VESSEL_VESSELPREPARATION = _descriptor.Descriptor(
-  name='VesselPreparation',
-  full_name='ord.Vessel.VesselPreparation',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-    _VESSEL_VESSELPREPARATION_VESSELPREPARATIONTYPE,
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3133,
-  serialized_end=3232,
-)
 
 _VESSEL = _descriptor.Descriptor(
   name='Vessel',
@@ -2130,49 +2436,35 @@ _VESSEL = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='type', full_name='ord.Vessel.type', index=0,
-      number=1, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='details', full_name='ord.Vessel.details', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      name='material', full_name='ord.Vessel.material', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='material', full_name='ord.Vessel.material', index=2,
-      number=3, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
+      name='preparations', full_name='ord.Vessel.preparations', index=2,
+      number=3, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='material_details', full_name='ord.Vessel.material_details', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      name='attachments', full_name='ord.Vessel.attachments', index=3,
+      number=4, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='preparation', full_name='ord.Vessel.preparation', index=4,
-      number=5, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='preparation_details', full_name='ord.Vessel.preparation_details', index=5,
-      number=6, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='volume', full_name='ord.Vessel.volume', index=6,
-      number=7, type=11, cpp_type=10, label=1,
+      name='volume', full_name='ord.Vessel.volume', index=4,
+      number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -2180,7 +2472,7 @@ _VESSEL = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_VESSEL_VESSELTYPE, _VESSEL_VESSELMATERIAL, _VESSEL_VESSELPREPARATION, ],
+  nested_types=[],
   enum_types=[
   ],
   serialized_options=None,
@@ -2189,8 +2481,164 @@ _VESSEL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2514,
-  serialized_end=3232,
+  serialized_start=2918,
+  serialized_end=3115,
+)
+
+
+_VESSELTYPE = _descriptor.Descriptor(
+  name='VesselType',
+  full_name='ord.VesselType',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='ord.VesselType.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='details', full_name='ord.VesselType.details', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _VESSELTYPE_VESSELTYPEENUM,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3118,
+  serialized_end=3464,
+)
+
+
+_VESSELMATERIAL = _descriptor.Descriptor(
+  name='VesselMaterial',
+  full_name='ord.VesselMaterial',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='ord.VesselMaterial.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='details', full_name='ord.VesselMaterial.details', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _VESSELMATERIAL_VESSELMATERIALTYPE,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3467,
+  serialized_end=3671,
+)
+
+
+_VESSELATTACHMENT = _descriptor.Descriptor(
+  name='VesselAttachment',
+  full_name='ord.VesselAttachment',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='ord.VesselAttachment.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='details', full_name='ord.VesselAttachment.details', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _VESSELATTACHMENT_VESSELATTACHMENTTYPE,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3674,
+  serialized_end=4072,
+)
+
+
+_VESSELPREPARATION = _descriptor.Descriptor(
+  name='VesselPreparation',
+  full_name='ord.VesselPreparation',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='ord.VesselPreparation.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='details', full_name='ord.VesselPreparation.details', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _VESSELPREPARATION_VESSELPREPARATIONTYPE,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4075,
+  serialized_end=4307,
 )
 
 
@@ -2227,8 +2675,46 @@ _REACTIONSETUP_AUTOMATIONCODEENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3424,
-  serialized_end=3488,
+  serialized_start=4560,
+  serialized_end=4624,
+)
+
+_REACTIONSETUP_REACTIONENVIRONMENT = _descriptor.Descriptor(
+  name='ReactionEnvironment',
+  full_name='ord.ReactionSetup.ReactionEnvironment',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='ord.ReactionSetup.ReactionEnvironment.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='details', full_name='ord.ReactionSetup.ReactionEnvironment.details', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _REACTIONSETUP_REACTIONENVIRONMENT_REACTIONENVIRONMENTTYPE,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4627,
+  serialized_end=4859,
 )
 
 _REACTIONSETUP = _descriptor.Descriptor(
@@ -2266,10 +2752,17 @@ _REACTIONSETUP = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='environment', full_name='ord.ReactionSetup.environment', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
-  nested_types=[_REACTIONSETUP_AUTOMATIONCODEENTRY, ],
+  nested_types=[_REACTIONSETUP_AUTOMATIONCODEENTRY, _REACTIONSETUP_REACTIONENVIRONMENT, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -2278,8 +2771,8 @@ _REACTIONSETUP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3235,
-  serialized_end=3488,
+  serialized_start=4310,
+  serialized_end=4859,
 )
 
 
@@ -2372,8 +2865,8 @@ _REACTIONCONDITIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3491,
-  serialized_end=3922,
+  serialized_start=4862,
+  serialized_end=5293,
 )
 
 
@@ -2384,6 +2877,20 @@ _TEMPERATURECONDITIONS_TEMPERATURECONTROL = _descriptor.Descriptor(
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='ord.TemperatureConditions.TemperatureControl.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='details', full_name='ord.TemperatureConditions.TemperatureControl.details', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -2397,8 +2904,8 @@ _TEMPERATURECONDITIONS_TEMPERATURECONTROL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4150,
-  serialized_end=4389,
+  serialized_start=5484,
+  serialized_end=5824,
 )
 
 _TEMPERATURECONDITIONS_MEASUREMENT = _descriptor.Descriptor(
@@ -2449,8 +2956,8 @@ _TEMPERATURECONDITIONS_MEASUREMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4392,
-  serialized_end=4672,
+  serialized_start=5827,
+  serialized_end=6107,
 )
 
 _TEMPERATURECONDITIONS = _descriptor.Descriptor(
@@ -2461,29 +2968,22 @@ _TEMPERATURECONDITIONS = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='type', full_name='ord.TemperatureConditions.type', index=0,
-      number=1, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='details', full_name='ord.TemperatureConditions.details', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='setpoint', full_name='ord.TemperatureConditions.setpoint', index=2,
-      number=3, type=11, cpp_type=10, label=1,
+      name='control', full_name='ord.TemperatureConditions.control', index=0,
+      number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='measurements', full_name='ord.TemperatureConditions.measurements', index=3,
-      number=4, type=11, cpp_type=10, label=3,
+      name='setpoint', full_name='ord.TemperatureConditions.setpoint', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='measurements', full_name='ord.TemperatureConditions.measurements', index=2,
+      number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -2500,8 +3000,8 @@ _TEMPERATURECONDITIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3925,
-  serialized_end=4672,
+  serialized_start=5296,
+  serialized_end=6107,
 )
 
 
@@ -2512,6 +3012,20 @@ _PRESSURECONDITIONS_PRESSURECONTROL = _descriptor.Descriptor(
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='ord.PressureConditions.PressureControl.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='details', full_name='ord.PressureConditions.PressureControl.details', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -2525,8 +3039,8 @@ _PRESSURECONDITIONS_PRESSURECONTROL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4981,
-  serialized_end=5140,
+  serialized_start=6339,
+  serialized_end=6563,
 )
 
 _PRESSURECONDITIONS_ATMOSPHERE = _descriptor.Descriptor(
@@ -2536,6 +3050,20 @@ _PRESSURECONDITIONS_ATMOSPHERE = _descriptor.Descriptor(
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='ord.PressureConditions.Atmosphere.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='details', full_name='ord.PressureConditions.Atmosphere.details', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -2549,8 +3077,8 @@ _PRESSURECONDITIONS_ATMOSPHERE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5142,
-  serialized_end=5261,
+  serialized_start=6566,
+  serialized_end=6875,
 )
 
 _PRESSURECONDITIONS_MEASUREMENT = _descriptor.Descriptor(
@@ -2601,8 +3129,8 @@ _PRESSURECONDITIONS_MEASUREMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5264,
-  serialized_end=5492,
+  serialized_start=6878,
+  serialized_end=7106,
 )
 
 _PRESSURECONDITIONS = _descriptor.Descriptor(
@@ -2613,43 +3141,29 @@ _PRESSURECONDITIONS = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='type', full_name='ord.PressureConditions.type', index=0,
-      number=1, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
+      name='control', full_name='ord.PressureConditions.control', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='details', full_name='ord.PressureConditions.details', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      name='setpoint', full_name='ord.PressureConditions.setpoint', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='setpoint', full_name='ord.PressureConditions.setpoint', index=2,
+      name='atmosphere', full_name='ord.PressureConditions.atmosphere', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='atmosphere', full_name='ord.PressureConditions.atmosphere', index=3,
-      number=4, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='atmosphere_details', full_name='ord.PressureConditions.atmosphere_details', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='measurements', full_name='ord.PressureConditions.measurements', index=5,
-      number=6, type=11, cpp_type=10, label=3,
+      name='measurements', full_name='ord.PressureConditions.measurements', index=3,
+      number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -2666,8 +3180,8 @@ _PRESSURECONDITIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4675,
-  serialized_end=5492,
+  serialized_start=6110,
+  serialized_end=7106,
 )
 
 
@@ -2678,6 +3192,20 @@ _STIRRINGCONDITIONS_STIRRINGMETHOD = _descriptor.Descriptor(
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='ord.StirringConditions.StirringMethod.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='details', full_name='ord.StirringConditions.StirringMethod.details', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -2691,8 +3219,8 @@ _STIRRINGCONDITIONS_STIRRINGMETHOD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5689,
-  serialized_end=5815,
+  serialized_start=7240,
+  serialized_end=7491,
 )
 
 _STIRRINGCONDITIONS_STIRRINGRATE = _descriptor.Descriptor(
@@ -2702,6 +3230,27 @@ _STIRRINGCONDITIONS_STIRRINGRATE = _descriptor.Descriptor(
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='ord.StirringConditions.StirringRate.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='details', full_name='ord.StirringConditions.StirringRate.details', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='rpm', full_name='ord.StirringConditions.StirringRate.rpm', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -2715,8 +3264,8 @@ _STIRRINGCONDITIONS_STIRRINGRATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5817,
-  serialized_end=5899,
+  serialized_start=7494,
+  serialized_end=7675,
 )
 
 _STIRRINGCONDITIONS = _descriptor.Descriptor(
@@ -2727,30 +3276,16 @@ _STIRRINGCONDITIONS = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='type', full_name='ord.StirringConditions.type', index=0,
-      number=1, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
+      name='method', full_name='ord.StirringConditions.method', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='details', full_name='ord.StirringConditions.details', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='rate', full_name='ord.StirringConditions.rate', index=2,
-      number=3, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='rpm', full_name='ord.StirringConditions.rpm', index=3,
-      number=4, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      name='rate', full_name='ord.StirringConditions.rate', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -2766,10 +3301,48 @@ _STIRRINGCONDITIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5495,
-  serialized_end=5899,
+  serialized_start=7109,
+  serialized_end=7675,
 )
 
+
+_ILLUMINATIONCONDITIONS_ILLUMINATIONTYPE = _descriptor.Descriptor(
+  name='IlluminationType',
+  full_name='ord.IlluminationConditions.IlluminationType',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='ord.IlluminationConditions.IlluminationType.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='details', full_name='ord.IlluminationConditions.IlluminationType.details', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _ILLUMINATIONCONDITIONS_ILLUMINATIONTYPE_ILLUMINATIONTYPEENUM,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=7863,
+  serialized_end=8144,
+)
 
 _ILLUMINATIONCONDITIONS = _descriptor.Descriptor(
   name='IlluminationConditions',
@@ -2780,36 +3353,67 @@ _ILLUMINATIONCONDITIONS = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='type', full_name='ord.IlluminationConditions.type', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='peak_wavelength', full_name='ord.IlluminationConditions.peak_wavelength', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='color', full_name='ord.IlluminationConditions.color', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='distance_to_vessel', full_name='ord.IlluminationConditions.distance_to_vessel', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[_ILLUMINATIONCONDITIONS_ILLUMINATIONTYPE, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=7678,
+  serialized_end=8144,
+)
+
+
+_ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYTYPE = _descriptor.Descriptor(
+  name='ElectrochemistryType',
+  full_name='ord.ElectrochemistryConditions.ElectrochemistryType',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='ord.ElectrochemistryConditions.ElectrochemistryType.type', index=0,
       number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='details', full_name='ord.IlluminationConditions.details', index=1,
+      name='details', full_name='ord.ElectrochemistryConditions.ElectrochemistryType.details', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='peak_wavelength', full_name='ord.IlluminationConditions.peak_wavelength', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='color', full_name='ord.IlluminationConditions.color', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='distance_to_vessel', full_name='ord.IlluminationConditions.distance_to_vessel', index=4,
-      number=5, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -2818,7 +3422,7 @@ _ILLUMINATIONCONDITIONS = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _ILLUMINATIONCONDITIONS_ILLUMINATIONTYPE,
+    _ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYTYPE_ELECTROCHEMISTRYTYPEENUM,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -2826,10 +3430,9 @@ _ILLUMINATIONCONDITIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5902,
-  serialized_end=6262,
+  serialized_start=8553,
+  serialized_end=8786,
 )
-
 
 _ELECTROCHEMISTRYCONDITIONS_MEASUREMENT = _descriptor.Descriptor(
   name='Measurement',
@@ -2874,8 +3477,46 @@ _ELECTROCHEMISTRYCONDITIONS_MEASUREMENT = _descriptor.Descriptor(
       name='kind', full_name='ord.ElectrochemistryConditions.Measurement.kind',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=6602,
-  serialized_end=6714,
+  serialized_start=8788,
+  serialized_end=8900,
+)
+
+_ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYCELL = _descriptor.Descriptor(
+  name='ElectrochemistryCell',
+  full_name='ord.ElectrochemistryConditions.ElectrochemistryCell',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='ord.ElectrochemistryConditions.ElectrochemistryCell.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='details', full_name='ord.ElectrochemistryConditions.ElectrochemistryCell.details', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYCELL_ELECTROCHEMISTRYCELLTYPE,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=8903,
+  serialized_end=9130,
 )
 
 _ELECTROCHEMISTRYCONDITIONS = _descriptor.Descriptor(
@@ -2886,67 +3527,66 @@ _ELECTROCHEMISTRYCONDITIONS = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='type', full_name='ord.ElectrochemistryConditions.type', index=0,
-      number=1, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
+      name='electrochemistry_type', full_name='ord.ElectrochemistryConditions.electrochemistry_type', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='details', full_name='ord.ElectrochemistryConditions.details', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      name='current', full_name='ord.ElectrochemistryConditions.current', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='current', full_name='ord.ElectrochemistryConditions.current', index=2,
+      name='voltage', full_name='ord.ElectrochemistryConditions.voltage', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='voltage', full_name='ord.ElectrochemistryConditions.voltage', index=3,
-      number=4, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='anode_material', full_name='ord.ElectrochemistryConditions.anode_material', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='anode_material', full_name='ord.ElectrochemistryConditions.anode_material', index=4,
+      name='cathode_material', full_name='ord.ElectrochemistryConditions.cathode_material', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='cathode_material', full_name='ord.ElectrochemistryConditions.cathode_material', index=5,
-      number=6, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='electrode_separation', full_name='ord.ElectrochemistryConditions.electrode_separation', index=6,
-      number=7, type=11, cpp_type=10, label=1,
+      name='electrode_separation', full_name='ord.ElectrochemistryConditions.electrode_separation', index=5,
+      number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='measurements', full_name='ord.ElectrochemistryConditions.measurements', index=7,
-      number=8, type=11, cpp_type=10, label=3,
+      name='measurements', full_name='ord.ElectrochemistryConditions.measurements', index=6,
+      number=7, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='cell', full_name='ord.ElectrochemistryConditions.cell', index=7,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
-  nested_types=[_ELECTROCHEMISTRYCONDITIONS_MEASUREMENT, ],
+  nested_types=[_ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYTYPE, _ELECTROCHEMISTRYCONDITIONS_MEASUREMENT, _ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYCELL, ],
   enum_types=[
-    _ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYTYPE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -2954,10 +3594,48 @@ _ELECTROCHEMISTRYCONDITIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6265,
-  serialized_end=6811,
+  serialized_start=8147,
+  serialized_end=9130,
 )
 
+
+_FLOWCONDITIONS_FLOWTYPE = _descriptor.Descriptor(
+  name='FlowType',
+  full_name='ord.FlowConditions.FlowType',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='ord.FlowConditions.FlowType.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='details', full_name='ord.FlowConditions.FlowType.details', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _FLOWCONDITIONS_FLOWTYPE_FLOWTYPEENUM,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=9264,
+  serialized_end=9477,
+)
 
 _FLOWCONDITIONS_TUBING = _descriptor.Descriptor(
   name='Tubing',
@@ -3000,8 +3678,8 @@ _FLOWCONDITIONS_TUBING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6957,
-  serialized_end=7237,
+  serialized_start=9480,
+  serialized_end=9760,
 )
 
 _FLOWCONDITIONS = _descriptor.Descriptor(
@@ -3012,29 +3690,22 @@ _FLOWCONDITIONS = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='type', full_name='ord.FlowConditions.type', index=0,
-      number=1, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
+      name='flow_type', full_name='ord.FlowConditions.flow_type', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='details', full_name='ord.FlowConditions.details', index=1,
+      name='pump_type', full_name='ord.FlowConditions.pump_type', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='pump_type', full_name='ord.FlowConditions.pump_type', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='tubing', full_name='ord.FlowConditions.tubing', index=3,
-      number=4, type=11, cpp_type=10, label=1,
+      name='tubing', full_name='ord.FlowConditions.tubing', index=2,
+      number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -3042,9 +3713,8 @@ _FLOWCONDITIONS = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_FLOWCONDITIONS_TUBING, ],
+  nested_types=[_FLOWCONDITIONS_FLOWTYPE, _FLOWCONDITIONS_TUBING, ],
   enum_types=[
-    _FLOWCONDITIONS_FLOWTYPE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -3052,8 +3722,8 @@ _FLOWCONDITIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6814,
-  serialized_end=7362,
+  serialized_start=9133,
+  serialized_end=9760,
 )
 
 
@@ -3072,50 +3742,57 @@ _REACTIONNOTES = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='is_exothermic', full_name='ord.ReactionNotes.is_exothermic', index=1,
+      name='forms_precipitate', full_name='ord.ReactionNotes.forms_precipitate', index=1,
       number=2, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='is_offgasses', full_name='ord.ReactionNotes.is_offgasses', index=2,
+      name='is_exothermic', full_name='ord.ReactionNotes.is_exothermic', index=2,
       number=3, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='is_sensitive_to_moisture', full_name='ord.ReactionNotes.is_sensitive_to_moisture', index=3,
+      name='offgasses', full_name='ord.ReactionNotes.offgasses', index=3,
       number=4, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='is_sensitive_to_oxygen', full_name='ord.ReactionNotes.is_sensitive_to_oxygen', index=4,
+      name='is_sensitive_to_moisture', full_name='ord.ReactionNotes.is_sensitive_to_moisture', index=4,
       number=5, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='is_sensitive_to_light', full_name='ord.ReactionNotes.is_sensitive_to_light', index=5,
+      name='is_sensitive_to_oxygen', full_name='ord.ReactionNotes.is_sensitive_to_oxygen', index=5,
       number=6, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='safety_notes', full_name='ord.ReactionNotes.safety_notes', index=6,
-      number=7, type=9, cpp_type=9, label=1,
+      name='is_sensitive_to_light', full_name='ord.ReactionNotes.is_sensitive_to_light', index=6,
+      number=7, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='safety_notes', full_name='ord.ReactionNotes.safety_notes', index=7,
+      number=8, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='procedure_details', full_name='ord.ReactionNotes.procedure_details', index=7,
-      number=8, type=9, cpp_type=9, label=1,
+      name='procedure_details', full_name='ord.ReactionNotes.procedure_details', index=8,
+      number=9, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -3132,8 +3809,8 @@ _REACTIONNOTES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7365,
-  serialized_end=7759,
+  serialized_start=9763,
+  serialized_end=10208,
 )
 
 
@@ -3177,8 +3854,8 @@ _REACTIONOBSERVATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7761,
-  serialized_end=7850,
+  serialized_start=10210,
+  serialized_end=10299,
 )
 
 
@@ -3211,9 +3888,9 @@ _REACTIONWORKUP = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='components', full_name='ord.ReactionWorkup.components', index=3,
-      number=4, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
+      name='input', full_name='ord.ReactionWorkup.input', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -3245,6 +3922,13 @@ _REACTIONWORKUP = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='is_automated', full_name='ord.ReactionWorkup.is_automated', index=8,
+      number=10, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -3258,8 +3942,8 @@ _REACTIONWORKUP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7853,
-  serialized_end=8450,
+  serialized_start=10302,
+  serialized_end=10945,
 )
 
 
@@ -3296,8 +3980,8 @@ _REACTIONOUTCOME_ANALYSESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8637,
-  serialized_end=8707,
+  serialized_start=11132,
+  serialized_end=11202,
 )
 
 _REACTIONOUTCOME = _descriptor.Descriptor(
@@ -3347,8 +4031,8 @@ _REACTIONOUTCOME = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8453,
-  serialized_end=8707,
+  serialized_start=10948,
+  serialized_end=11202,
 )
 
 
@@ -3359,6 +4043,20 @@ _REACTIONPRODUCT_TEXTURE = _descriptor.Descriptor(
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='ord.ReactionProduct.Texture.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='details', full_name='ord.ReactionProduct.Texture.details', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -3372,8 +4070,8 @@ _REACTIONPRODUCT_TEXTURE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9144,
-  serialized_end=9231,
+  serialized_start=11603,
+  serialized_end=11820,
 )
 
 _REACTIONPRODUCT = _descriptor.Descriptor(
@@ -3455,15 +4153,8 @@ _REACTIONPRODUCT = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='texture', full_name='ord.ReactionProduct.texture', index=10,
-      number=11, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='texture_details', full_name='ord.ReactionProduct.texture_details', index=11,
-      number=12, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      number=11, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -3479,8 +4170,8 @@ _REACTIONPRODUCT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8710,
-  serialized_end=9231,
+  serialized_start=11205,
+  serialized_end=11820,
 )
 
 
@@ -3532,8 +4223,8 @@ _SELECTIVITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9234,
-  serialized_end=9418,
+  serialized_start=11823,
+  serialized_end=12023,
 )
 
 
@@ -3563,8 +4254,8 @@ _DATETIME = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9420,
-  serialized_end=9445,
+  serialized_start=12025,
+  serialized_end=12050,
 )
 
 
@@ -3601,8 +4292,8 @@ _REACTIONANALYSIS_PROCESSEDDATAENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9815,
-  serialized_end=9878,
+  serialized_start=12480,
+  serialized_end=12543,
 )
 
 _REACTIONANALYSIS_RAWDATAENTRY = _descriptor.Descriptor(
@@ -3638,8 +4329,8 @@ _REACTIONANALYSIS_RAWDATAENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9880,
-  serialized_end=9937,
+  serialized_start=12545,
+  serialized_end=12602,
 )
 
 _REACTIONANALYSIS = _descriptor.Descriptor(
@@ -3705,6 +4396,13 @@ _REACTIONANALYSIS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='uses_authentic_standard', full_name='ord.ReactionAnalysis.uses_authentic_standard', index=8,
+      number=9, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -3718,8 +4416,8 @@ _REACTIONANALYSIS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9448,
-  serialized_end=10128,
+  serialized_start=12053,
+  serialized_end=12861,
 )
 
 
@@ -3798,8 +4496,8 @@ _REACTIONPROVENANCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10131,
-  serialized_end=10380,
+  serialized_start=12864,
+  serialized_end=13113,
 )
 
 
@@ -3850,8 +4548,8 @@ _PERSON = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10382,
-  serialized_end=10459,
+  serialized_start=13115,
+  serialized_end=13192,
 )
 
 
@@ -3895,8 +4593,8 @@ _RECORDEVENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10461,
-  serialized_end=10549,
+  serialized_start=13194,
+  serialized_end=13282,
 )
 
 
@@ -3941,8 +4639,8 @@ _TIME = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10552,
-  serialized_end=10690,
+  serialized_start=13285,
+  serialized_end=13423,
 )
 
 
@@ -3987,8 +4685,8 @@ _MASS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10693,
-  serialized_end=10851,
+  serialized_start=13426,
+  serialized_end=13584,
 )
 
 
@@ -4033,8 +4731,8 @@ _MOLES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10854,
-  serialized_end=11016,
+  serialized_start=13587,
+  serialized_end=13749,
 )
 
 
@@ -4079,8 +4777,8 @@ _VOLUME = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11019,
-  serialized_end=11174,
+  serialized_start=13752,
+  serialized_end=13907,
 )
 
 
@@ -4125,8 +4823,8 @@ _CONCENTRATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11177,
-  serialized_end=11360,
+  serialized_start=13910,
+  serialized_end=14093,
 )
 
 
@@ -4171,8 +4869,8 @@ _PRESSURE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11363,
-  serialized_end=11555,
+  serialized_start=14096,
+  serialized_end=14309,
 )
 
 
@@ -4217,8 +4915,8 @@ _TEMPERATURE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11558,
-  serialized_end=11731,
+  serialized_start=14312,
+  serialized_end=14485,
 )
 
 
@@ -4263,8 +4961,8 @@ _CURRENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11734,
-  serialized_end=11879,
+  serialized_start=14488,
+  serialized_end=14633,
 )
 
 
@@ -4309,8 +5007,8 @@ _VOLTAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11882,
-  serialized_end=12023,
+  serialized_start=14636,
+  serialized_end=14777,
 )
 
 
@@ -4355,8 +5053,8 @@ _LENGTH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=12026,
-  serialized_end=12201,
+  serialized_start=14780,
+  serialized_end=14955,
 )
 
 
@@ -4401,8 +5099,8 @@ _WAVELENGTH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=12204,
-  serialized_end=12363,
+  serialized_start=14958,
+  serialized_end=15117,
 )
 
 
@@ -4447,8 +5145,8 @@ _FLOWRATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=12366,
-  serialized_end=12620,
+  serialized_start=15120,
+  serialized_end=15374,
 )
 
 
@@ -4485,8 +5183,8 @@ _PERCENTAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=12622,
-  serialized_end=12668,
+  serialized_start=15376,
+  serialized_end=15422,
 )
 
 
@@ -4554,8 +5252,8 @@ _DATA = _descriptor.Descriptor(
       name='kind', full_name='ord.Data.kind',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=12671,
-  serialized_end=12807,
+  serialized_start=15425,
+  serialized_end=15561,
 )
 
 
@@ -4586,8 +5284,8 @@ _BOOLEAN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=12809,
-  serialized_end=12914,
+  serialized_start=15563,
+  serialized_end=15668,
 )
 
 _REACTION_INPUTSENTRY.fields_by_name['value'].message_type = _REACTIONINPUT
@@ -4609,13 +5307,19 @@ _REACTIONIDENTIFIER.fields_by_name['value'].containing_oneof = _REACTIONIDENTIFI
 _REACTIONIDENTIFIER.oneofs_by_name['kind'].fields.append(
   _REACTIONIDENTIFIER.fields_by_name['bytes_value'])
 _REACTIONIDENTIFIER.fields_by_name['bytes_value'].containing_oneof = _REACTIONIDENTIFIER.oneofs_by_name['kind']
+_REACTIONINPUT_ADDITIONSPEED.fields_by_name['type'].enum_type = _REACTIONINPUT_ADDITIONSPEED_ADDITIONSPEEDTYPE
 _REACTIONINPUT_ADDITIONSPEED.containing_type = _REACTIONINPUT
 _REACTIONINPUT_ADDITIONSPEED_ADDITIONSPEEDTYPE.containing_type = _REACTIONINPUT_ADDITIONSPEED
+_REACTIONINPUT_ADDITIONDEVICE.fields_by_name['type'].enum_type = _REACTIONINPUT_ADDITIONDEVICE_ADDITIONDEVICETYPE
+_REACTIONINPUT_ADDITIONDEVICE.containing_type = _REACTIONINPUT
+_REACTIONINPUT_ADDITIONDEVICE_ADDITIONDEVICETYPE.containing_type = _REACTIONINPUT_ADDITIONDEVICE
 _REACTIONINPUT.fields_by_name['components'].message_type = _COMPOUND
 _REACTIONINPUT.fields_by_name['addition_time'].message_type = _TIME
-_REACTIONINPUT.fields_by_name['addition_speed'].enum_type = _REACTIONINPUT_ADDITIONSPEED_ADDITIONSPEEDTYPE
+_REACTIONINPUT.fields_by_name['addition_speed'].message_type = _REACTIONINPUT_ADDITIONSPEED
 _REACTIONINPUT.fields_by_name['addition_duration'].message_type = _TIME
 _REACTIONINPUT.fields_by_name['flow_rate'].message_type = _FLOWRATE
+_REACTIONINPUT.fields_by_name['addition_device'].message_type = _REACTIONINPUT_ADDITIONDEVICE
+_REACTIONINPUT.fields_by_name['addition_temperature'].message_type = _TEMPERATURE
 _COMPOUND_REACTIONROLE.containing_type = _COMPOUND
 _COMPOUND_REACTIONROLE_REACTIONROLETYPE.containing_type = _COMPOUND_REACTIONROLE
 _COMPOUND_FEATURE.containing_type = _COMPOUND
@@ -4632,7 +5336,7 @@ _COMPOUND.fields_by_name['volume'].message_type = _VOLUME
 _COMPOUND.fields_by_name['volume_includes_solutes'].enum_type = _BOOLEAN_BOOLEANVALUE
 _COMPOUND.fields_by_name['reaction_role'].enum_type = _COMPOUND_REACTIONROLE_REACTIONROLETYPE
 _COMPOUND.fields_by_name['is_limiting'].enum_type = _BOOLEAN_BOOLEANVALUE
-_COMPOUND.fields_by_name['preparation'].message_type = _COMPOUNDPREPARATION
+_COMPOUND.fields_by_name['preparations'].message_type = _COMPOUNDPREPARATION
 _COMPOUND.fields_by_name['features'].message_type = _COMPOUND_FEATURE
 _COMPOUND.oneofs_by_name['amount'].fields.append(
   _COMPOUND.fields_by_name['mass'])
@@ -4653,21 +5357,28 @@ _COMPOUNDIDENTIFIER.fields_by_name['value'].containing_oneof = _COMPOUNDIDENTIFI
 _COMPOUNDIDENTIFIER.oneofs_by_name['kind'].fields.append(
   _COMPOUNDIDENTIFIER.fields_by_name['bytes_value'])
 _COMPOUNDIDENTIFIER.fields_by_name['bytes_value'].containing_oneof = _COMPOUNDIDENTIFIER.oneofs_by_name['kind']
-_VESSEL_VESSELTYPE.containing_type = _VESSEL
-_VESSEL_VESSELTYPE_VESSELTYPEENUM.containing_type = _VESSEL_VESSELTYPE
-_VESSEL_VESSELMATERIAL.containing_type = _VESSEL
-_VESSEL_VESSELMATERIAL_VESSELMATERIALTYPE.containing_type = _VESSEL_VESSELMATERIAL
-_VESSEL_VESSELPREPARATION.containing_type = _VESSEL
-_VESSEL_VESSELPREPARATION_VESSELPREPARATIONTYPE.containing_type = _VESSEL_VESSELPREPARATION
-_VESSEL.fields_by_name['type'].enum_type = _VESSEL_VESSELTYPE_VESSELTYPEENUM
-_VESSEL.fields_by_name['material'].enum_type = _VESSEL_VESSELMATERIAL_VESSELMATERIALTYPE
-_VESSEL.fields_by_name['preparation'].enum_type = _VESSEL_VESSELPREPARATION_VESSELPREPARATIONTYPE
+_VESSEL.fields_by_name['type'].message_type = _VESSELTYPE
+_VESSEL.fields_by_name['material'].message_type = _VESSELMATERIAL
+_VESSEL.fields_by_name['preparations'].message_type = _VESSELPREPARATION
+_VESSEL.fields_by_name['attachments'].message_type = _VESSELATTACHMENT
 _VESSEL.fields_by_name['volume'].message_type = _VOLUME
+_VESSELTYPE.fields_by_name['type'].enum_type = _VESSELTYPE_VESSELTYPEENUM
+_VESSELTYPE_VESSELTYPEENUM.containing_type = _VESSELTYPE
+_VESSELMATERIAL.fields_by_name['type'].enum_type = _VESSELMATERIAL_VESSELMATERIALTYPE
+_VESSELMATERIAL_VESSELMATERIALTYPE.containing_type = _VESSELMATERIAL
+_VESSELATTACHMENT.fields_by_name['type'].enum_type = _VESSELATTACHMENT_VESSELATTACHMENTTYPE
+_VESSELATTACHMENT_VESSELATTACHMENTTYPE.containing_type = _VESSELATTACHMENT
+_VESSELPREPARATION.fields_by_name['type'].enum_type = _VESSELPREPARATION_VESSELPREPARATIONTYPE
+_VESSELPREPARATION_VESSELPREPARATIONTYPE.containing_type = _VESSELPREPARATION
 _REACTIONSETUP_AUTOMATIONCODEENTRY.fields_by_name['value'].message_type = _DATA
 _REACTIONSETUP_AUTOMATIONCODEENTRY.containing_type = _REACTIONSETUP
+_REACTIONSETUP_REACTIONENVIRONMENT.fields_by_name['type'].enum_type = _REACTIONSETUP_REACTIONENVIRONMENT_REACTIONENVIRONMENTTYPE
+_REACTIONSETUP_REACTIONENVIRONMENT.containing_type = _REACTIONSETUP
+_REACTIONSETUP_REACTIONENVIRONMENT_REACTIONENVIRONMENTTYPE.containing_type = _REACTIONSETUP_REACTIONENVIRONMENT
 _REACTIONSETUP.fields_by_name['vessel'].message_type = _VESSEL
 _REACTIONSETUP.fields_by_name['is_automated'].enum_type = _BOOLEAN_BOOLEANVALUE
 _REACTIONSETUP.fields_by_name['automation_code'].message_type = _REACTIONSETUP_AUTOMATIONCODEENTRY
+_REACTIONSETUP.fields_by_name['environment'].message_type = _REACTIONSETUP_REACTIONENVIRONMENT
 _REACTIONCONDITIONS.fields_by_name['temperature'].message_type = _TEMPERATURECONDITIONS
 _REACTIONCONDITIONS.fields_by_name['pressure'].message_type = _PRESSURECONDITIONS
 _REACTIONCONDITIONS.fields_by_name['stirring'].message_type = _STIRRINGCONDITIONS
@@ -4676,6 +5387,7 @@ _REACTIONCONDITIONS.fields_by_name['electrochemistry'].message_type = _ELECTROCH
 _REACTIONCONDITIONS.fields_by_name['flow'].message_type = _FLOWCONDITIONS
 _REACTIONCONDITIONS.fields_by_name['reflux'].enum_type = _BOOLEAN_BOOLEANVALUE
 _REACTIONCONDITIONS.fields_by_name['conditions_are_dynamic'].enum_type = _BOOLEAN_BOOLEANVALUE
+_TEMPERATURECONDITIONS_TEMPERATURECONTROL.fields_by_name['type'].enum_type = _TEMPERATURECONDITIONS_TEMPERATURECONTROL_TEMPERATURECONTROLTYPE
 _TEMPERATURECONDITIONS_TEMPERATURECONTROL.containing_type = _TEMPERATURECONDITIONS
 _TEMPERATURECONDITIONS_TEMPERATURECONTROL_TEMPERATURECONTROLTYPE.containing_type = _TEMPERATURECONDITIONS_TEMPERATURECONTROL
 _TEMPERATURECONDITIONS_MEASUREMENT.fields_by_name['type'].enum_type = _TEMPERATURECONDITIONS_MEASUREMENT_MEASUREMENTTYPE
@@ -4683,11 +5395,13 @@ _TEMPERATURECONDITIONS_MEASUREMENT.fields_by_name['time'].message_type = _TIME
 _TEMPERATURECONDITIONS_MEASUREMENT.fields_by_name['temperature'].message_type = _TEMPERATURE
 _TEMPERATURECONDITIONS_MEASUREMENT.containing_type = _TEMPERATURECONDITIONS
 _TEMPERATURECONDITIONS_MEASUREMENT_MEASUREMENTTYPE.containing_type = _TEMPERATURECONDITIONS_MEASUREMENT
-_TEMPERATURECONDITIONS.fields_by_name['type'].enum_type = _TEMPERATURECONDITIONS_TEMPERATURECONTROL_TEMPERATURECONTROLTYPE
+_TEMPERATURECONDITIONS.fields_by_name['control'].message_type = _TEMPERATURECONDITIONS_TEMPERATURECONTROL
 _TEMPERATURECONDITIONS.fields_by_name['setpoint'].message_type = _TEMPERATURE
 _TEMPERATURECONDITIONS.fields_by_name['measurements'].message_type = _TEMPERATURECONDITIONS_MEASUREMENT
+_PRESSURECONDITIONS_PRESSURECONTROL.fields_by_name['type'].enum_type = _PRESSURECONDITIONS_PRESSURECONTROL_PRESSURECONTROLTYPE
 _PRESSURECONDITIONS_PRESSURECONTROL.containing_type = _PRESSURECONDITIONS
 _PRESSURECONDITIONS_PRESSURECONTROL_PRESSURECONTROLTYPE.containing_type = _PRESSURECONDITIONS_PRESSURECONTROL
+_PRESSURECONDITIONS_ATMOSPHERE.fields_by_name['type'].enum_type = _PRESSURECONDITIONS_ATMOSPHERE_ATMOSPHERETYPE
 _PRESSURECONDITIONS_ATMOSPHERE.containing_type = _PRESSURECONDITIONS
 _PRESSURECONDITIONS_ATMOSPHERE_ATMOSPHERETYPE.containing_type = _PRESSURECONDITIONS_ATMOSPHERE
 _PRESSURECONDITIONS_MEASUREMENT.fields_by_name['type'].enum_type = _PRESSURECONDITIONS_MEASUREMENT_MEASUREMENTTYPE
@@ -4695,20 +5409,27 @@ _PRESSURECONDITIONS_MEASUREMENT.fields_by_name['time'].message_type = _TIME
 _PRESSURECONDITIONS_MEASUREMENT.fields_by_name['pressure'].message_type = _PRESSURE
 _PRESSURECONDITIONS_MEASUREMENT.containing_type = _PRESSURECONDITIONS
 _PRESSURECONDITIONS_MEASUREMENT_MEASUREMENTTYPE.containing_type = _PRESSURECONDITIONS_MEASUREMENT
-_PRESSURECONDITIONS.fields_by_name['type'].enum_type = _PRESSURECONDITIONS_PRESSURECONTROL_PRESSURECONTROLTYPE
+_PRESSURECONDITIONS.fields_by_name['control'].message_type = _PRESSURECONDITIONS_PRESSURECONTROL
 _PRESSURECONDITIONS.fields_by_name['setpoint'].message_type = _PRESSURE
-_PRESSURECONDITIONS.fields_by_name['atmosphere'].enum_type = _PRESSURECONDITIONS_ATMOSPHERE_ATMOSPHERETYPE
+_PRESSURECONDITIONS.fields_by_name['atmosphere'].message_type = _PRESSURECONDITIONS_ATMOSPHERE
 _PRESSURECONDITIONS.fields_by_name['measurements'].message_type = _PRESSURECONDITIONS_MEASUREMENT
+_STIRRINGCONDITIONS_STIRRINGMETHOD.fields_by_name['type'].enum_type = _STIRRINGCONDITIONS_STIRRINGMETHOD_STIRRINGMETHODTYPE
 _STIRRINGCONDITIONS_STIRRINGMETHOD.containing_type = _STIRRINGCONDITIONS
 _STIRRINGCONDITIONS_STIRRINGMETHOD_STIRRINGMETHODTYPE.containing_type = _STIRRINGCONDITIONS_STIRRINGMETHOD
+_STIRRINGCONDITIONS_STIRRINGRATE.fields_by_name['type'].enum_type = _STIRRINGCONDITIONS_STIRRINGRATE_STIRRINGRATETYPE
 _STIRRINGCONDITIONS_STIRRINGRATE.containing_type = _STIRRINGCONDITIONS
 _STIRRINGCONDITIONS_STIRRINGRATE_STIRRINGRATETYPE.containing_type = _STIRRINGCONDITIONS_STIRRINGRATE
-_STIRRINGCONDITIONS.fields_by_name['type'].enum_type = _STIRRINGCONDITIONS_STIRRINGMETHOD_STIRRINGMETHODTYPE
-_STIRRINGCONDITIONS.fields_by_name['rate'].enum_type = _STIRRINGCONDITIONS_STIRRINGRATE_STIRRINGRATETYPE
-_ILLUMINATIONCONDITIONS.fields_by_name['type'].enum_type = _ILLUMINATIONCONDITIONS_ILLUMINATIONTYPE
+_STIRRINGCONDITIONS.fields_by_name['method'].message_type = _STIRRINGCONDITIONS_STIRRINGMETHOD
+_STIRRINGCONDITIONS.fields_by_name['rate'].message_type = _STIRRINGCONDITIONS_STIRRINGRATE
+_ILLUMINATIONCONDITIONS_ILLUMINATIONTYPE.fields_by_name['type'].enum_type = _ILLUMINATIONCONDITIONS_ILLUMINATIONTYPE_ILLUMINATIONTYPEENUM
+_ILLUMINATIONCONDITIONS_ILLUMINATIONTYPE.containing_type = _ILLUMINATIONCONDITIONS
+_ILLUMINATIONCONDITIONS_ILLUMINATIONTYPE_ILLUMINATIONTYPEENUM.containing_type = _ILLUMINATIONCONDITIONS_ILLUMINATIONTYPE
+_ILLUMINATIONCONDITIONS.fields_by_name['type'].message_type = _ILLUMINATIONCONDITIONS_ILLUMINATIONTYPE
 _ILLUMINATIONCONDITIONS.fields_by_name['peak_wavelength'].message_type = _WAVELENGTH
 _ILLUMINATIONCONDITIONS.fields_by_name['distance_to_vessel'].message_type = _LENGTH
-_ILLUMINATIONCONDITIONS_ILLUMINATIONTYPE.containing_type = _ILLUMINATIONCONDITIONS
+_ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYTYPE.fields_by_name['type'].enum_type = _ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYTYPE_ELECTROCHEMISTRYTYPEENUM
+_ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYTYPE.containing_type = _ELECTROCHEMISTRYCONDITIONS
+_ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYTYPE_ELECTROCHEMISTRYTYPEENUM.containing_type = _ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYTYPE
 _ELECTROCHEMISTRYCONDITIONS_MEASUREMENT.fields_by_name['time'].message_type = _TIME
 _ELECTROCHEMISTRYCONDITIONS_MEASUREMENT.fields_by_name['current'].message_type = _CURRENT
 _ELECTROCHEMISTRYCONDITIONS_MEASUREMENT.fields_by_name['voltage'].message_type = _VOLTAGE
@@ -4719,22 +5440,28 @@ _ELECTROCHEMISTRYCONDITIONS_MEASUREMENT.fields_by_name['current'].containing_one
 _ELECTROCHEMISTRYCONDITIONS_MEASUREMENT.oneofs_by_name['kind'].fields.append(
   _ELECTROCHEMISTRYCONDITIONS_MEASUREMENT.fields_by_name['voltage'])
 _ELECTROCHEMISTRYCONDITIONS_MEASUREMENT.fields_by_name['voltage'].containing_oneof = _ELECTROCHEMISTRYCONDITIONS_MEASUREMENT.oneofs_by_name['kind']
-_ELECTROCHEMISTRYCONDITIONS.fields_by_name['type'].enum_type = _ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYTYPE
+_ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYCELL.fields_by_name['type'].enum_type = _ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYCELL_ELECTROCHEMISTRYCELLTYPE
+_ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYCELL.containing_type = _ELECTROCHEMISTRYCONDITIONS
+_ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYCELL_ELECTROCHEMISTRYCELLTYPE.containing_type = _ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYCELL
+_ELECTROCHEMISTRYCONDITIONS.fields_by_name['electrochemistry_type'].message_type = _ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYTYPE
 _ELECTROCHEMISTRYCONDITIONS.fields_by_name['current'].message_type = _CURRENT
 _ELECTROCHEMISTRYCONDITIONS.fields_by_name['voltage'].message_type = _VOLTAGE
 _ELECTROCHEMISTRYCONDITIONS.fields_by_name['electrode_separation'].message_type = _LENGTH
 _ELECTROCHEMISTRYCONDITIONS.fields_by_name['measurements'].message_type = _ELECTROCHEMISTRYCONDITIONS_MEASUREMENT
-_ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYTYPE.containing_type = _ELECTROCHEMISTRYCONDITIONS
+_ELECTROCHEMISTRYCONDITIONS.fields_by_name['cell'].message_type = _ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYCELL
+_FLOWCONDITIONS_FLOWTYPE.fields_by_name['type'].enum_type = _FLOWCONDITIONS_FLOWTYPE_FLOWTYPEENUM
+_FLOWCONDITIONS_FLOWTYPE.containing_type = _FLOWCONDITIONS
+_FLOWCONDITIONS_FLOWTYPE_FLOWTYPEENUM.containing_type = _FLOWCONDITIONS_FLOWTYPE
 _FLOWCONDITIONS_TUBING.fields_by_name['type'].enum_type = _FLOWCONDITIONS_TUBING_TUBINGMATERIALTYPE
 _FLOWCONDITIONS_TUBING.fields_by_name['diameter'].message_type = _LENGTH
 _FLOWCONDITIONS_TUBING.containing_type = _FLOWCONDITIONS
 _FLOWCONDITIONS_TUBING_TUBINGMATERIALTYPE.containing_type = _FLOWCONDITIONS_TUBING
-_FLOWCONDITIONS.fields_by_name['type'].enum_type = _FLOWCONDITIONS_FLOWTYPE
+_FLOWCONDITIONS.fields_by_name['flow_type'].message_type = _FLOWCONDITIONS_FLOWTYPE
 _FLOWCONDITIONS.fields_by_name['tubing'].message_type = _FLOWCONDITIONS_TUBING
-_FLOWCONDITIONS_FLOWTYPE.containing_type = _FLOWCONDITIONS
 _REACTIONNOTES.fields_by_name['is_heterogeneous'].enum_type = _BOOLEAN_BOOLEANVALUE
+_REACTIONNOTES.fields_by_name['forms_precipitate'].enum_type = _BOOLEAN_BOOLEANVALUE
 _REACTIONNOTES.fields_by_name['is_exothermic'].enum_type = _BOOLEAN_BOOLEANVALUE
-_REACTIONNOTES.fields_by_name['is_offgasses'].enum_type = _BOOLEAN_BOOLEANVALUE
+_REACTIONNOTES.fields_by_name['offgasses'].enum_type = _BOOLEAN_BOOLEANVALUE
 _REACTIONNOTES.fields_by_name['is_sensitive_to_moisture'].enum_type = _BOOLEAN_BOOLEANVALUE
 _REACTIONNOTES.fields_by_name['is_sensitive_to_oxygen'].enum_type = _BOOLEAN_BOOLEANVALUE
 _REACTIONNOTES.fields_by_name['is_sensitive_to_light'].enum_type = _BOOLEAN_BOOLEANVALUE
@@ -4742,9 +5469,10 @@ _REACTIONOBSERVATION.fields_by_name['time'].message_type = _TIME
 _REACTIONOBSERVATION.fields_by_name['image'].message_type = _DATA
 _REACTIONWORKUP.fields_by_name['type'].enum_type = _REACTIONWORKUP_WORKUPTYPE
 _REACTIONWORKUP.fields_by_name['duration'].message_type = _TIME
-_REACTIONWORKUP.fields_by_name['components'].message_type = _COMPOUND
+_REACTIONWORKUP.fields_by_name['input'].message_type = _REACTIONINPUT
 _REACTIONWORKUP.fields_by_name['temperature'].message_type = _TEMPERATURECONDITIONS
 _REACTIONWORKUP.fields_by_name['stirring'].message_type = _STIRRINGCONDITIONS
+_REACTIONWORKUP.fields_by_name['is_automated'].enum_type = _BOOLEAN_BOOLEANVALUE
 _REACTIONWORKUP_WORKUPTYPE.containing_type = _REACTIONWORKUP
 _REACTIONOUTCOME_ANALYSESENTRY.fields_by_name['value'].message_type = _REACTIONANALYSIS
 _REACTIONOUTCOME_ANALYSESENTRY.containing_type = _REACTIONOUTCOME
@@ -4752,6 +5480,7 @@ _REACTIONOUTCOME.fields_by_name['reaction_time'].message_type = _TIME
 _REACTIONOUTCOME.fields_by_name['conversion'].message_type = _PERCENTAGE
 _REACTIONOUTCOME.fields_by_name['products'].message_type = _REACTIONPRODUCT
 _REACTIONOUTCOME.fields_by_name['analyses'].message_type = _REACTIONOUTCOME_ANALYSESENTRY
+_REACTIONPRODUCT_TEXTURE.fields_by_name['type'].enum_type = _REACTIONPRODUCT_TEXTURE_TEXTURETYPE
 _REACTIONPRODUCT_TEXTURE.containing_type = _REACTIONPRODUCT
 _REACTIONPRODUCT_TEXTURE_TEXTURETYPE.containing_type = _REACTIONPRODUCT_TEXTURE
 _REACTIONPRODUCT.fields_by_name['compound'].message_type = _COMPOUND
@@ -4759,7 +5488,7 @@ _REACTIONPRODUCT.fields_by_name['is_desired_product'].enum_type = _BOOLEAN_BOOLE
 _REACTIONPRODUCT.fields_by_name['compound_yield'].message_type = _PERCENTAGE
 _REACTIONPRODUCT.fields_by_name['purity'].message_type = _PERCENTAGE
 _REACTIONPRODUCT.fields_by_name['selectivity'].message_type = _SELECTIVITY
-_REACTIONPRODUCT.fields_by_name['texture'].enum_type = _REACTIONPRODUCT_TEXTURE_TEXTURETYPE
+_REACTIONPRODUCT.fields_by_name['texture'].message_type = _REACTIONPRODUCT_TEXTURE
 _SELECTIVITY.fields_by_name['type'].enum_type = _SELECTIVITY_SELECTIVITYTYPE
 _SELECTIVITY_SELECTIVITYTYPE.containing_type = _SELECTIVITY
 _REACTIONANALYSIS_PROCESSEDDATAENTRY.fields_by_name['value'].message_type = _DATA
@@ -4771,6 +5500,7 @@ _REACTIONANALYSIS.fields_by_name['processed_data'].message_type = _REACTIONANALY
 _REACTIONANALYSIS.fields_by_name['raw_data'].message_type = _REACTIONANALYSIS_RAWDATAENTRY
 _REACTIONANALYSIS.fields_by_name['instrument_last_calibrated'].message_type = _DATETIME
 _REACTIONANALYSIS.fields_by_name['uses_internal_standard'].enum_type = _BOOLEAN_BOOLEANVALUE
+_REACTIONANALYSIS.fields_by_name['uses_authentic_standard'].enum_type = _BOOLEAN_BOOLEANVALUE
 _REACTIONANALYSIS_ANALYSISTYPE.containing_type = _REACTIONANALYSIS
 _REACTIONPROVENANCE.fields_by_name['experimenter'].message_type = _PERSON
 _REACTIONPROVENANCE.fields_by_name['experiment_start'].message_type = _DATETIME
@@ -4823,6 +5553,10 @@ DESCRIPTOR.message_types_by_name['Compound'] = _COMPOUND
 DESCRIPTOR.message_types_by_name['CompoundPreparation'] = _COMPOUNDPREPARATION
 DESCRIPTOR.message_types_by_name['CompoundIdentifier'] = _COMPOUNDIDENTIFIER
 DESCRIPTOR.message_types_by_name['Vessel'] = _VESSEL
+DESCRIPTOR.message_types_by_name['VesselType'] = _VESSELTYPE
+DESCRIPTOR.message_types_by_name['VesselMaterial'] = _VESSELMATERIAL
+DESCRIPTOR.message_types_by_name['VesselAttachment'] = _VESSELATTACHMENT
+DESCRIPTOR.message_types_by_name['VesselPreparation'] = _VESSELPREPARATION
 DESCRIPTOR.message_types_by_name['ReactionSetup'] = _REACTIONSETUP
 DESCRIPTOR.message_types_by_name['ReactionConditions'] = _REACTIONCONDITIONS
 DESCRIPTOR.message_types_by_name['TemperatureConditions'] = _TEMPERATURECONDITIONS
@@ -4889,12 +5623,20 @@ ReactionInput = _reflection.GeneratedProtocolMessageType('ReactionInput', (_mess
     # @@protoc_insertion_point(class_scope:ord.ReactionInput.AdditionSpeed)
     })
   ,
+
+  'AdditionDevice' : _reflection.GeneratedProtocolMessageType('AdditionDevice', (_message.Message,), {
+    'DESCRIPTOR' : _REACTIONINPUT_ADDITIONDEVICE,
+    '__module__' : 'ord_schema.proto.reaction_pb2'
+    # @@protoc_insertion_point(class_scope:ord.ReactionInput.AdditionDevice)
+    })
+  ,
   'DESCRIPTOR' : _REACTIONINPUT,
   '__module__' : 'ord_schema.proto.reaction_pb2'
   # @@protoc_insertion_point(class_scope:ord.ReactionInput)
   })
 _sym_db.RegisterMessage(ReactionInput)
 _sym_db.RegisterMessage(ReactionInput.AdditionSpeed)
+_sym_db.RegisterMessage(ReactionInput.AdditionDevice)
 
 Compound = _reflection.GeneratedProtocolMessageType('Compound', (_message.Message,), {
 
@@ -4934,35 +5676,39 @@ CompoundIdentifier = _reflection.GeneratedProtocolMessageType('CompoundIdentifie
 _sym_db.RegisterMessage(CompoundIdentifier)
 
 Vessel = _reflection.GeneratedProtocolMessageType('Vessel', (_message.Message,), {
-
-  'VesselType' : _reflection.GeneratedProtocolMessageType('VesselType', (_message.Message,), {
-    'DESCRIPTOR' : _VESSEL_VESSELTYPE,
-    '__module__' : 'ord_schema.proto.reaction_pb2'
-    # @@protoc_insertion_point(class_scope:ord.Vessel.VesselType)
-    })
-  ,
-
-  'VesselMaterial' : _reflection.GeneratedProtocolMessageType('VesselMaterial', (_message.Message,), {
-    'DESCRIPTOR' : _VESSEL_VESSELMATERIAL,
-    '__module__' : 'ord_schema.proto.reaction_pb2'
-    # @@protoc_insertion_point(class_scope:ord.Vessel.VesselMaterial)
-    })
-  ,
-
-  'VesselPreparation' : _reflection.GeneratedProtocolMessageType('VesselPreparation', (_message.Message,), {
-    'DESCRIPTOR' : _VESSEL_VESSELPREPARATION,
-    '__module__' : 'ord_schema.proto.reaction_pb2'
-    # @@protoc_insertion_point(class_scope:ord.Vessel.VesselPreparation)
-    })
-  ,
   'DESCRIPTOR' : _VESSEL,
   '__module__' : 'ord_schema.proto.reaction_pb2'
   # @@protoc_insertion_point(class_scope:ord.Vessel)
   })
 _sym_db.RegisterMessage(Vessel)
-_sym_db.RegisterMessage(Vessel.VesselType)
-_sym_db.RegisterMessage(Vessel.VesselMaterial)
-_sym_db.RegisterMessage(Vessel.VesselPreparation)
+
+VesselType = _reflection.GeneratedProtocolMessageType('VesselType', (_message.Message,), {
+  'DESCRIPTOR' : _VESSELTYPE,
+  '__module__' : 'ord_schema.proto.reaction_pb2'
+  # @@protoc_insertion_point(class_scope:ord.VesselType)
+  })
+_sym_db.RegisterMessage(VesselType)
+
+VesselMaterial = _reflection.GeneratedProtocolMessageType('VesselMaterial', (_message.Message,), {
+  'DESCRIPTOR' : _VESSELMATERIAL,
+  '__module__' : 'ord_schema.proto.reaction_pb2'
+  # @@protoc_insertion_point(class_scope:ord.VesselMaterial)
+  })
+_sym_db.RegisterMessage(VesselMaterial)
+
+VesselAttachment = _reflection.GeneratedProtocolMessageType('VesselAttachment', (_message.Message,), {
+  'DESCRIPTOR' : _VESSELATTACHMENT,
+  '__module__' : 'ord_schema.proto.reaction_pb2'
+  # @@protoc_insertion_point(class_scope:ord.VesselAttachment)
+  })
+_sym_db.RegisterMessage(VesselAttachment)
+
+VesselPreparation = _reflection.GeneratedProtocolMessageType('VesselPreparation', (_message.Message,), {
+  'DESCRIPTOR' : _VESSELPREPARATION,
+  '__module__' : 'ord_schema.proto.reaction_pb2'
+  # @@protoc_insertion_point(class_scope:ord.VesselPreparation)
+  })
+_sym_db.RegisterMessage(VesselPreparation)
 
 ReactionSetup = _reflection.GeneratedProtocolMessageType('ReactionSetup', (_message.Message,), {
 
@@ -4972,12 +5718,20 @@ ReactionSetup = _reflection.GeneratedProtocolMessageType('ReactionSetup', (_mess
     # @@protoc_insertion_point(class_scope:ord.ReactionSetup.AutomationCodeEntry)
     })
   ,
+
+  'ReactionEnvironment' : _reflection.GeneratedProtocolMessageType('ReactionEnvironment', (_message.Message,), {
+    'DESCRIPTOR' : _REACTIONSETUP_REACTIONENVIRONMENT,
+    '__module__' : 'ord_schema.proto.reaction_pb2'
+    # @@protoc_insertion_point(class_scope:ord.ReactionSetup.ReactionEnvironment)
+    })
+  ,
   'DESCRIPTOR' : _REACTIONSETUP,
   '__module__' : 'ord_schema.proto.reaction_pb2'
   # @@protoc_insertion_point(class_scope:ord.ReactionSetup)
   })
 _sym_db.RegisterMessage(ReactionSetup)
 _sym_db.RegisterMessage(ReactionSetup.AutomationCodeEntry)
+_sym_db.RegisterMessage(ReactionSetup.ReactionEnvironment)
 
 ReactionConditions = _reflection.GeneratedProtocolMessageType('ReactionConditions', (_message.Message,), {
   'DESCRIPTOR' : _REACTIONCONDITIONS,
@@ -5064,13 +5818,28 @@ _sym_db.RegisterMessage(StirringConditions.StirringMethod)
 _sym_db.RegisterMessage(StirringConditions.StirringRate)
 
 IlluminationConditions = _reflection.GeneratedProtocolMessageType('IlluminationConditions', (_message.Message,), {
+
+  'IlluminationType' : _reflection.GeneratedProtocolMessageType('IlluminationType', (_message.Message,), {
+    'DESCRIPTOR' : _ILLUMINATIONCONDITIONS_ILLUMINATIONTYPE,
+    '__module__' : 'ord_schema.proto.reaction_pb2'
+    # @@protoc_insertion_point(class_scope:ord.IlluminationConditions.IlluminationType)
+    })
+  ,
   'DESCRIPTOR' : _ILLUMINATIONCONDITIONS,
   '__module__' : 'ord_schema.proto.reaction_pb2'
   # @@protoc_insertion_point(class_scope:ord.IlluminationConditions)
   })
 _sym_db.RegisterMessage(IlluminationConditions)
+_sym_db.RegisterMessage(IlluminationConditions.IlluminationType)
 
 ElectrochemistryConditions = _reflection.GeneratedProtocolMessageType('ElectrochemistryConditions', (_message.Message,), {
+
+  'ElectrochemistryType' : _reflection.GeneratedProtocolMessageType('ElectrochemistryType', (_message.Message,), {
+    'DESCRIPTOR' : _ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYTYPE,
+    '__module__' : 'ord_schema.proto.reaction_pb2'
+    # @@protoc_insertion_point(class_scope:ord.ElectrochemistryConditions.ElectrochemistryType)
+    })
+  ,
 
   'Measurement' : _reflection.GeneratedProtocolMessageType('Measurement', (_message.Message,), {
     'DESCRIPTOR' : _ELECTROCHEMISTRYCONDITIONS_MEASUREMENT,
@@ -5078,14 +5847,30 @@ ElectrochemistryConditions = _reflection.GeneratedProtocolMessageType('Electroch
     # @@protoc_insertion_point(class_scope:ord.ElectrochemistryConditions.Measurement)
     })
   ,
+
+  'ElectrochemistryCell' : _reflection.GeneratedProtocolMessageType('ElectrochemistryCell', (_message.Message,), {
+    'DESCRIPTOR' : _ELECTROCHEMISTRYCONDITIONS_ELECTROCHEMISTRYCELL,
+    '__module__' : 'ord_schema.proto.reaction_pb2'
+    # @@protoc_insertion_point(class_scope:ord.ElectrochemistryConditions.ElectrochemistryCell)
+    })
+  ,
   'DESCRIPTOR' : _ELECTROCHEMISTRYCONDITIONS,
   '__module__' : 'ord_schema.proto.reaction_pb2'
   # @@protoc_insertion_point(class_scope:ord.ElectrochemistryConditions)
   })
 _sym_db.RegisterMessage(ElectrochemistryConditions)
+_sym_db.RegisterMessage(ElectrochemistryConditions.ElectrochemistryType)
 _sym_db.RegisterMessage(ElectrochemistryConditions.Measurement)
+_sym_db.RegisterMessage(ElectrochemistryConditions.ElectrochemistryCell)
 
 FlowConditions = _reflection.GeneratedProtocolMessageType('FlowConditions', (_message.Message,), {
+
+  'FlowType' : _reflection.GeneratedProtocolMessageType('FlowType', (_message.Message,), {
+    'DESCRIPTOR' : _FLOWCONDITIONS_FLOWTYPE,
+    '__module__' : 'ord_schema.proto.reaction_pb2'
+    # @@protoc_insertion_point(class_scope:ord.FlowConditions.FlowType)
+    })
+  ,
 
   'Tubing' : _reflection.GeneratedProtocolMessageType('Tubing', (_message.Message,), {
     'DESCRIPTOR' : _FLOWCONDITIONS_TUBING,
@@ -5098,6 +5883,7 @@ FlowConditions = _reflection.GeneratedProtocolMessageType('FlowConditions', (_me
   # @@protoc_insertion_point(class_scope:ord.FlowConditions)
   })
 _sym_db.RegisterMessage(FlowConditions)
+_sym_db.RegisterMessage(FlowConditions.FlowType)
 _sym_db.RegisterMessage(FlowConditions.Tubing)
 
 ReactionNotes = _reflection.GeneratedProtocolMessageType('ReactionNotes', (_message.Message,), {
