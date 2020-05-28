@@ -1,5 +1,10 @@
 Django>=2.0,<3.0
-# psycopg2==2.7.7
+
+# Webserver 
 psycopg2>=2.7,<3.0
 uWSGI>=2.0.18
+
+# Protobuf and validation
 protobuf>=3.11.0
+python-dateutil>=2.8.1
+absl-py>=0.9.0

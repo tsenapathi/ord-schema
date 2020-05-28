@@ -7,4 +7,4 @@
 # Helper files for webform development.
 __pycache__/
 webform/docker/venv
-!webform/docker/editor/*_pb2.py
+!webform/**/*_pb2.py
