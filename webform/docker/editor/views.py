@@ -2,7 +2,8 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 from django.template import loader
 from django.views.decorators.http import require_http_methods
-from editor import reaction_pb2, validations
+from ord_schema import validations
+from ord_schema.proto import reaction_pb2
 
 def clone(request):
     template = loader.get_template('editor/clone.html')
