@@ -13,11 +13,11 @@
 # limitations under the License.
 
 from django.http import HttpResponse
-from django.http import JsonResponse
 from django.template import loader
 from django.views.decorators.http import require_http_methods
 from ord_schema import validations
 from ord_schema.proto import reaction_pb2
+import json
 
 def clone(request):
     template = loader.get_template('editor/clone.html')
@@ -32,20 +32,19 @@ def identifier(request):
 @require_http_methods(["GET", "POST"])
 def send_protobuf(request):
     body = request.body
-    # print("bytearray:", [x for x in body])
-    # print("decoded:", body.decode('utf-8'))
-
     reaction = reaction_pb2.Reaction()
     reaction.ParseFromString(body)
-    print(reaction)
+    print("received reaction:", reaction)
 
-    response = "Got the reaction\n"
-    response += "Identifier types:\n"
-    identifiers = reaction.identifiers
-    identifier_type_enum = reaction_pb2.ReactionIdentifier.IdentifierType
-    for identifier in identifiers:
-        identifier_type_name = identifier_type_enum.Name(identifier.type)
-        print(identifier_type_name)
-        response += identifier_type_name + "\n"
+    response = ""
 
+    errors = validations.validate_message(reaction, raise_on_error=False)
+    print(errors)
+    # # TODO Is sending an empty message (to represent no erros) problematic?
+    # # It could be a confusing sentinel value
+    # if len(errors) == 0:
+    #     errors += "No errors found in validation"
+    response += json.dumps(errors)
+
+    # 1/0
     return HttpResponse(response)

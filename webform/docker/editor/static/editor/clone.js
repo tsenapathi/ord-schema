@@ -32,10 +32,12 @@ protobuf.load(proto_url).then(function (root) {
 
     $('#submit').click(submit_button_function);
     $('.json-editor-btn-add').click(identifier_add_button_function);
+    $('#valid_indicator')[0].style.backgroundColor = "gray";
 });
 // All the form's protobuf functionality doesn't load until the protobuf loads;
 // so no "loading..." indicator is necessary, I think
 
+var errors;
 // Submit the reaction to the backend
 function submit_button_function() {
     console.log("submit button clicked");
@@ -55,8 +57,26 @@ function submit_button_function() {
     var encodeString = String.fromCharCode.apply(null, encode)
     console.log(encodeString)
     $.post('/editor/send_protobuf', encodeString, function (data) {
-        console.log(data);
-    });
+        errors = JSON.parse(data);
+        console.log(errors);
+
+        var indicator = document.getElementById('valid_indicator');
+        
+        // Not valid
+        if(errors.length) {
+          indicator.style.backgroundColor = 'red';
+          indicator.textContent = "validation failed";
+        }
+        // Valid
+        else {
+          indicator.style.backgroundColor = 'green';
+          indicator.textContent = "validation passed";
+        }
+        // TODO handle this message: empty, non-empty, 500 error
+    })
+    .fail(function() {
+        alert( "error" );
+      });
 
 }
 
