@@ -8,3 +8,4 @@
 __pycache__/
 webform/docker/venv
 !webform/**/*_pb2.py
+.vscode/settings.json
