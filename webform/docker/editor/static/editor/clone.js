@@ -73,6 +73,10 @@ function submit_button_function() {
           indicator.textContent = "validation passed";
         }
         // TODO handle this message: empty, non-empty, 500 error
+
+        // TODO print this message on frontend
+        // TODO can't match an error emssage to where it specificcally comes from in proto; how to do this?
+        // Send the reaction part-by-part?
     })
     .fail(function() {
         alert( "error" );
