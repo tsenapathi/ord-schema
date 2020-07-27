@@ -1,0 +1,27 @@
+image: docker:stable
+
+services:
+  - docker:dind
+
+variables:
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_DRIVER: overlay2
+
+before_script:
+  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY  # login to makeit-data registry
+
+build-dev:  # build dev branch for continuous deployment
+  stage: build
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE:dev .
+    - docker push $CI_REGISTRY_IMAGE:dev
+  only:
+    - dev
+
+build-askcos-mods:  # build askcos-mods branch for CI testing
+  stage: build
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE:askcos-mods .
+    - docker push $CI_REGISTRY_IMAGE:askcos-mods
+  only:
+    - askcos-mods

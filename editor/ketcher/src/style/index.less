@@ -1,0 +1,338 @@
+// Note (ASKCOS): all generated css is wrapped in main[role=application] once,
+//  to ensure ketcher styling only applies to ketcher.
+// To prevent imports causing generated code to have this query twice (which would select nothing),
+//  we wrap only the bodies of normalize.css, index.less, and dialogs.less,
+//  (note that wrapping variables doesn't work, 
+//  and component.less gets used within dialogs.less and is already wrapped).
+//  Also we manually exclude a few things that would otherwise be wrapped twice.
+
+main[role=application] {	
+	@import (less) 'normalize.css';
+}
+
+@import 'variables';
+@import 'mixins';
+@import 'dialogs';
+
+// Dimensions of the Ketcher div.
+@ketcher-width: 800px;
+@ketcher-height: 432px;
+
+[role=application] {	
+	width: @ketcher-width;
+	height: @ketcher-height;
+}
+
+main[role=application] {
+// Overrides to Bootstrap interference.
+
+form.settings .accordion .ac_tab fieldset {
+	box-sizing: unset;
+}
+
+form.settings .accordion label {
+	margin-bottom: unset;
+}
+
+legend {
+	width: unset;
+}
+
+.elements-table .generic-groups .col {
+	flex-basis: unset;
+}
+
+/////////////////////
+// Basic layout
+
+li, ul, menu { // move to reset
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.set-size(large);
+
+position: relative;
+font: @base-size FreeSans, Arimo, "Droid Sans", Helvetica,
+				"Helvetica Neue", Arial, sans-serif;
+background-color: white;
+color: @main-color;
+
+#canvas {
+	.canvas;
+	user-select: none;
+
+	.measure-log {
+		&:extend(.-Measure);
+		&.visible {
+			opacity: 1;
+		}
+	}
+}
+
+#mainmenu {
+	.toolbar(top);
+}
+#elements {
+	.toolbar(right);
+}
+#template {
+	.toolbar(bottom);
+	& > menu {
+		overflow: hidden; // #300 quick fix,
+	}                     // no menu expansion
+}
+#toolbox {
+	.toolbar(left);
+}
+
+#meta {
+	position: absolute;
+	right: 0;
+}
+
+#chiral-flag {
+	overflow-y: hidden;
+	position: absolute;
+	right: 0;
+	& > button {
+		& > svg {
+			stroke-width: 0;
+		}
+		.toolbutton-horizontal(large, 2);
+	}
+}
+
+[role='toolbar'] {
+	user-select: none;
+	menu {
+		.remove-inline-spacing;
+	}
+	li {
+		display: inline-block;
+		vertical-align: top;
+		& > svg {
+			fill: @main-color;
+			display: none; // dropdown
+		}
+	}
+	button {
+		.toolbutton;
+	}
+	.selected button {
+		.highlight-invert;
+	}
+	kbd {
+		display: none;
+		font: 0.8em monospace;
+		color: @border-color;
+	}
+}
+
+.cliparea {
+	// Copied from http://bit.ly/12nphsK
+	// Search for less verbose way to make FF happy
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 0;
+	display: block;
+	font-size: 1px;
+	z-index: -1;
+	color: transparent;
+	background: transparent;
+	overflow: hidden;
+	border: none;
+	padding: 0;
+	resize: none;
+	outline: none;
+	user-select: text;
+	// Because for user-select:none,
+	// Safari won't allow input
+}
+
+li.opened {
+	.expanded;
+}
+
+#atom, #freq-atoms {
+	button {
+		font-size: @atom-size;
+	}
+	kbd {
+		display: none;
+	}
+}
+
+select {
+	// reset select size after inline-block
+	// space removing inside toolbar
+	font-size: @base-size;
+}
+
+//////////////////////////
+// Adjust to custom sizes
+
+#select, #bond-common, #bond-stereo, #bond-query, #reaction {
+	.collapsed-ifnot(opened);
+}
+
+& when (@ketcher-width < 840px) {
+	#zoom-in, #zoom-out {
+		display: none;
+	}
+}
+
+& when (@ketcher-width < 1040px) {
+	#bond-common, #bond-stereo, #bond-query {
+		.collapsed-size(small);
+	}
+}
+
+& when (@ketcher-height < 850px) {
+	#rgroup {
+		.collapsed-ifnot(opened);
+	}
+	& when (@ketcher-width < 1040px) { // better way not to dublicate?
+		#rgroup {                // inherit 100%, small? overflow-x?
+			.collapsed-size(small);
+		}
+	}
+}
+
+& when (@ketcher-height < 800px) {
+	#transform {
+		.collapsed-ifnot(opened);
+	}
+	& when (@ketcher-width < 1040px) {
+		#transform {
+			.collapsed-size(small);
+		}
+	}
+}
+
+& when (@ketcher-height < 700px) {
+	li.opened {
+		.expanded-menu;
+	}
+	#bond-common, #bond-stereo, #bond-query {
+		.collapsed(none);
+	}
+	#bond {
+		.collapsed-ifnot(opened);
+	}
+	& when (@ketcher-width < 850px) {
+		li.opened {
+			.expanded-menu(small);
+		}
+	}
+	& when (@ketcher-width < 1040px) {
+		#bond {
+			.collapsed-size(small);
+		}
+	}
+}
+
+& when (@ketcher-height < 600px) {
+	#rgroup, #transform, #bond {
+		.collapsed-size(small);
+	}
+}
+
+& when (@ketcher-height > 800px) {
+	#reaction {
+		.separate-item(vertical, 5px);
+	}
+}
+
+& when (@ketcher-height > 650px) {
+	#erase, #chain, #charge, #transform, #atom, #freq-atoms {
+		.separate-item(vertical, 5px);
+	}
+}
+
+& when (@ketcher-width > 1160px) {
+	#analyse, #document, #edit, #zoom {
+		.separate-item(horizontal, 10px);
+	}
+}
+
+& when (@ketcher-height < 600px), (@ketcher-width < 1040px) {
+	.set-size(small);
+
+	body, select, form {
+		font-size: @base-size;
+	}
+	#canvas {
+		.canvas-size(small);
+	}
+	#mainmenu, #template {
+		.toolbar-size(horizontal, small);
+	}
+	#elements, #toolbox {
+		.toolbar-size(vertical, small);
+	}
+
+	[role='toolbar'] button {
+		.toolbutton-size(small);
+	}
+	#chiral-flag button {
+		.toolbutton-horizontal(small, 2);
+	}
+
+	#select, #reaction {
+		.collapsed-size(small);
+	}
+
+	li.opened {
+		.expanded-size(small);
+	}
+
+	#atom button,
+	#freq-atoms button {
+		font-size: @atom-size;
+	}
+}
+
+& when (@ketcher-width < 770px) {
+	#help, #about {
+		display: none;
+	}
+	#mainmenu {
+		.set-size(small);
+		left: @toolbar-gap;
+		right: @toolbar-gap;
+	}
+}
+
+#template-common {
+	.separate-item(horizontal, 15px);
+}
+
+.cellar {
+	display: none;
+}
+
+.warning {
+	color: @error-color;
+	&:before {
+		content: '⚠ ';
+	}
+}
+
+.arrange-icons-new(analyse check cip clean generic-groups layout miew
+				   reaction-arrow reaction-automap reaction-map
+				   reaction-plus reaction-unmap recognize rgroup-attpoints
+				   rgroup-fragment rgroup-label template-lib);
+
+.arrange-icons-new(@names, @i: 1) when (@i <= length(@names)) {
+	@item: extract(@names, @i);
+	#@{item} button:before {
+		padding: 0.2em 0 0 0.2em;
+	}
+	.arrange-icons-new(@names, (@i + 1));
+}
+
+}
