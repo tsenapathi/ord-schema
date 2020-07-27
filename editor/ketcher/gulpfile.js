@@ -61,24 +61,25 @@ gulp.task('style', gulp.series('icons-svg', getTask('./gulp/style-html', {
 })));
 
 /*== version ==*/
+// Note (ORD): this task is broken; script and html tasks edited to not use this
 gulp.task('patch-version', getTask('./gulp/utils', {
 	expName: 'version',
 	pkg: pkg
 }));
 
 /*== script ==*/
-gulp.task('script', gulp.series('patch-version', getTask('./gulp/prod-script', Object.assign({
+gulp.task('script', getTask('./gulp/prod-script', Object.assign({
 	expName: 'script',
 	pkg: pkg,
 	entry: 'src/script',
 	banner: 'src/script/util/banner.js'
-}, options))));
+}, options)));
 
-gulp.task('html', gulp.series('patch-version', getTask('./gulp/style-html', Object.assign({
+gulp.task('html', getTask('./gulp/style-html', Object.assign({
 	expName: 'html',
 	src: 'src/template/index.hbs',
 	pkg: pkg
-}, options))));
+}, options)));
 
 /*== assets ==*/
 gulp.task('doc', function () {
