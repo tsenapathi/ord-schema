@@ -7,4 +7,5 @@ gen
 node_modules
 package
 package-lock.json
+!ketcher/package-lock.json
 protobuf
