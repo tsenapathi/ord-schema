@@ -25,6 +25,7 @@ limitations under the License.
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
     <script src="/js/reaction.js"></script>
     <link rel="stylesheet" href="/css/reaction.css">
+    <link rel="stylesheet" href="/css/modal.css">
     <title>{{ file_name }}:{{ index }}</title>
   </head>
 
@@ -1034,9 +1035,28 @@ limitations under the License.
       </fieldset>
     </div>
 
-    <!-- Ketcher div, js and css, and some initialization to make it work. -->
-    <div role="application">
+    <!-- TODO clicks apply below where they should, by a varying amount depending on how far down the main page you are. (what the) -->
+    <!-- canvas and modal don't mix well -->
+
+    <!-- Ketcher div in a modal, js and css, and some initialization to make it work. -->
+    <div class="modal fade" id="ketcher_modal">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content" style="width: auto;">
+              <div class="modal-body">
+                  <div role="application">
+                  </div>
+                  <div id="ketcher-spinner" class="spinner-border" role="status">
+                      <span class="sr-only">Loading...</span>
+                  </div>      
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+                  <button type="button" class="btn btn-success" data-dismiss="modal" onclick="setSmilesTextKetcher();">Done drawing</button>
+              </div>
+          </div>
+      </div>
     </div>
+
     <link href="/ketcher/dist/ketcher.css" rel="stylesheet" type="text/css" />
     <script>
         var ketcher_svg_url = "/ketcher/dist/ketcher.svg"
